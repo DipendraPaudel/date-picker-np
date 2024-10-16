@@ -1,0 +1,32 @@
+.date-picker-container,
+.date-picker-container * {
+  box-sizing: border-box;
+}
+
+.date-picker-container {
+  font-family: sans-serif;
+}
+
+/* input styles */
+.date-picker-input {
+  border: 1px solid gray;
+  border-radius: 4px;
+  width: 100%;
+  min-width: 200px;
+  cursor: pointer;
+  padding: 10px;
+}
+.date-picker-input:focus {
+  outline: none;
+}
+
+/* calendar styles */
+.date-picker-calendar {
+  position: fixed;
+  top: 20%;
+  border: 1px solid rgb(226, 226, 226);
+  box-shadow: 4px 4px 10px rgb(226, 226, 226);
+  border-radius: 4px;
+  min-width: 280px;
+  height: 100px;
+}

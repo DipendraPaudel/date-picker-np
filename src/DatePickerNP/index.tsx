@@ -1,0 +1,52 @@
+import { useLayoutEffect, useRef, useState } from "react";
+
+import DatePickerInput from "./components/DatePickerInput";
+import DatePickerCalendar from "./components/Calendar";
+import { DatePickerNPProps } from "./types/DatePickerNP";
+
+import "./styles/index.css";
+
+const DatePickerNP = ({ inputHeight = 40 }: DatePickerNPProps) => {
+  const containerRef = useRef<HTMLDivElement | null>(null);
+  const [coordinates, setCoordinates] = useState({
+    x: 0,
+    y: 0,
+  });
+
+  const [isCalendarOpen, setIsCalendarOpen] = useState(false);
+
+  useLayoutEffect(() => {
+    setCoordinates({
+      x: containerRef?.current?.getBoundingClientRect().x as number,
+      y: containerRef?.current?.getBoundingClientRect().y as number,
+    });
+  }, []);
+
+  return (
+    <div className="date-picker-container" ref={containerRef}>
+      <DatePickerInput
+        toggleCalendar={() => setIsCalendarOpen(!isCalendarOpen)}
+        inputStyles={{
+          height: inputHeight,
+        }}
+      />
+
+      {isCalendarOpen && (
+        <DatePickerCalendar
+          calendarStyles={{
+            top: coordinates.y + inputHeight,
+            left: coordinates.x,
+            zIndex: 1000000,
+          }}
+        />
+      )}
+    </div>
+  );
+};
+
+export default DatePickerNP;
+
+// COMPONENTS NEEDED
+// 1. Input component typable
+// 2. calendar date picker
+// 3. month and year dropdown
