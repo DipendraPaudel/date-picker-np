@@ -15,32 +15,43 @@ const DatePickerNP = ({ inputHeight = 40 }: DatePickerNPProps) => {
 
   const [isCalendarOpen, setIsCalendarOpen] = useState(false);
 
-  useLayoutEffect(() => {
+  const handleResize = () => {
     setCoordinates({
       x: containerRef?.current?.getBoundingClientRect().x as number,
       y: containerRef?.current?.getBoundingClientRect().y as number,
     });
+  };
+
+  useLayoutEffect(() => {
+    handleResize();
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   return (
-    <div className="date-picker-container" ref={containerRef}>
-      <DatePickerInput
-        toggleCalendar={() => setIsCalendarOpen(!isCalendarOpen)}
-        inputStyles={{
-          height: inputHeight,
-        }}
-      />
-
-      {isCalendarOpen && (
-        <DatePickerCalendar
-          calendarStyles={{
-            top: coordinates.y + inputHeight,
-            left: coordinates.x,
-            zIndex: 1000000,
+    <>
+      <div className="date-picker-container" ref={containerRef}>
+        <DatePickerInput
+          toggleCalendar={() => setIsCalendarOpen(!isCalendarOpen)}
+          inputStyles={{
+            height: inputHeight,
           }}
         />
-      )}
-    </div>
+
+        {isCalendarOpen && (
+          <DatePickerCalendar
+            calendarStyles={{
+              top: coordinates.y + inputHeight,
+              left: coordinates.x,
+              zIndex: 1000000,
+            }}
+          />
+        )}
+      </div>
+
+      <input type="date" />
+    </>
   );
 };
 
