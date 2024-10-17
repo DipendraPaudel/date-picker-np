@@ -33,7 +33,7 @@
   min-width: 280px;
   height: 300px;
   background: white;
-  padding: 10px;
+  padding: 4px 8px;
 }
 .date-picker-calendar-header {
   position: relative;
@@ -62,11 +62,24 @@
   display: flex;
   flex-direction: column;
   overflow: auto;
+  width: 90px;
+  border: 1px solid rgb(201, 201, 201);
+}
+.date-picker-dropdown .dropdown-option {
+  border-bottom: 1px solid rgb(201, 201, 201);
+  min-height: 40px;
+  padding: 0 4px;
+  line-height: 40px;
+  text-align: center;
+  background: rgb(240, 240, 240);
+}
+.date-picker-dropdown .dropdown-option:last-child {
+  border-bottom: none;
 }
 
 /* width */
 ::-webkit-scrollbar {
-  width: 4px;
+  width: 0;
 }
 
 /* Track */
