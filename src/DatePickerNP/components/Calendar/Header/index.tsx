@@ -1,15 +1,19 @@
 import { useState } from "react";
 
+import { CalendarHeaderProps } from "../../../types/Calendar";
 import { ArrowLeftIcon, ArrowRightIcon } from "../../Icons/Arrow";
 import YearMonthDropdown from "./Dropdown";
+import { getFormattedDate } from "../../../utils/calendar";
 
 const selectedDate = "Oct 2020";
 
-const CalendarHeader = () => {
+const CalendarHeader = ({ date, handleChange }: CalendarHeaderProps) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   const handleNext = () => {};
   const handlePrev = () => {};
+
+  const [year, month] = getFormattedDate();
 
   return (
     <div className="date-picker-calendar-header">
@@ -23,7 +27,13 @@ const CalendarHeader = () => {
           {selectedDate}
         </p>
 
-        {isDropdownOpen && <YearMonthDropdown />}
+        {isDropdownOpen && (
+          <YearMonthDropdown
+            month={month}
+            year={year}
+            handleChange={handleChange}
+          />
+        )}
       </div>
 
       <ArrowRightIcon onClick={handleNext} />

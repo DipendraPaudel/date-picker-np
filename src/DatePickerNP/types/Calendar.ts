@@ -1,10 +1,21 @@
-import React from "react";
-
 export type ArrowIconProps = {
-  onClick: () => void;
+  onClick?: () => void;
 };
 
 export type DropdownProps = {
-  selected: number;
-  setSelected: React.Dispatch<React.SetStateAction<number>>;
+  value: number;
+  handleChange: (value: number) => void;
+};
+
+export type CalendarHeaderProps = {
+  date: string;
+  handleChange: (value: number, type: string) => void;
+};
+
+export type YearMonthDropdownProps = Pick<
+  CalendarHeaderProps,
+  "handleChange"
+> & {
+  month: number;
+  year: number;
 };

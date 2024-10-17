@@ -1,6 +1,8 @@
 .date-picker-container,
 .date-picker-container * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 .date-picker-container {
@@ -52,6 +54,7 @@
 .date-picker-calendar-header-dropdown {
   position: absolute;
   left: 50%;
+  top: 40px;
   transform: translateX(-50%);
   display: flex;
   gap: 10px;
@@ -66,12 +69,11 @@
   border: 1px solid rgb(201, 201, 201);
 }
 .date-picker-dropdown .dropdown-option {
-  border-bottom: 1px solid rgb(201, 201, 201);
   min-height: 40px;
   padding: 0 4px;
   line-height: 40px;
   text-align: center;
-  background: rgb(240, 240, 240);
+  background: rgb(243, 243, 243);
   cursor: pointer;
 }
 .date-picker-dropdown .dropdown-option:last-child {
@@ -80,23 +82,15 @@
 .date-picker-dropdown .dropdown-option.dropdown-active {
   background: rgb(201, 201, 201);
 }
-
-/* width */
-::-webkit-scrollbar {
-  width: 0;
+.date-picker-dropdown-arrow {
+  height: 40px;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
 }
-
-/* Track */
-::-webkit-scrollbar-track {
-  background: #f1f1f1;
+.date-picker-dropdown-top-arrow {
+  border-bottom: 1px solid rgb(201, 201, 201);
 }
-
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background: #888;
-}
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: #555;
+.date-picker-dropdown-bottom-arrow {
+  border-top: 1px solid rgb(201, 201, 201);
 }

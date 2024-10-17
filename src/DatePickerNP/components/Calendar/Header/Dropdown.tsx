@@ -1,6 +1,7 @@
-import { useState } from "react";
-import { MONTHS_IN_WORDS, YEARS_IN_WORDS } from "../../../constants/calendar";
-import { DropdownProps } from "../../../types/Calendar";
+import { YEARS_IN_WORDS } from "../../../constants/calendar";
+import { DropdownProps, YearMonthDropdownProps } from "../../../types/Calendar";
+import { ArrowBottomIcon, ArrowTopIcon } from "../../Icons/Arrow";
+import { getActiveThreeMonths } from "../../../utils/calendar";
 
 const YearDropdown = () => {
   return (
@@ -14,38 +15,49 @@ const YearDropdown = () => {
   );
 };
 
-const MonthDropdown = ({ selected, setSelected }: DropdownProps) => {
-  const startMonthIndex = Math.max(Math.min(selected - 2, 7), 0);
+const MonthDropdown = ({ value, handleChange }: DropdownProps) => {
+  const activeMonths = getActiveThreeMonths(value);
 
   return (
     <div className="date-picker-calendar-month-dropdown date-picker-dropdown">
-      {MONTHS_IN_WORDS.slice(startMonthIndex, startMonthIndex + 5).map(
-        (month, index) => {
-          const monthIndex = index + startMonthIndex;
+      <div
+        className="date-picker-dropdown-arrow date-picker-dropdown-top-arrow"
+        onClick={() => handleChange(value === 0 ? 11 : value - 1)}
+      >
+        <ArrowTopIcon />
+      </div>
 
-          return (
-            <div
-              key={month}
-              className={`dropdown-option ${
-                monthIndex === selected ? "dropdown-active" : ""
-              }`}
-              onClick={() => setSelected(monthIndex)}
-            >
-              {month}
-            </div>
-          );
-        }
-      )}
+      {activeMonths.map(({ name, index }) => {
+        return (
+          <div
+            key={name}
+            className={`dropdown-option ${
+              index === value ? "dropdown-active" : ""
+            }`}
+            onClick={() => handleChange(index)}
+          >
+            {name}
+          </div>
+        );
+      })}
+
+      <div
+        className="date-picker-dropdown-arrow date-picker-dropdown-bottom-arrow"
+        onClick={() => handleChange(value === 11 ? 0 : value + 1)}
+      >
+        <ArrowBottomIcon />
+      </div>
     </div>
   );
 };
 
-const YearMonthDropdown = () => {
-  const [selectedMonth, setSelectedMonth] = useState(5);
-
+const YearMonthDropdown = ({ month, handleChange }: YearMonthDropdownProps) => {
   return (
     <div className="date-picker-calendar-header-dropdown">
-      <MonthDropdown selected={selectedMonth} setSelected={setSelectedMonth} />
+      <MonthDropdown
+        value={month}
+        handleChange={(value: number) => handleChange(value, "month")}
+      />
       <YearDropdown />
     </div>
   );

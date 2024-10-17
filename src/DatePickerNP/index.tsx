@@ -14,6 +14,7 @@ const DatePickerNP = ({ inputHeight = 40 }: DatePickerNPProps) => {
   });
 
   const [isCalendarOpen, setIsCalendarOpen] = useState(false);
+  const [date, setDate] = useState("2020-10-02");
 
   const handleResize = () => {
     setCoordinates({
@@ -46,6 +47,8 @@ const DatePickerNP = ({ inputHeight = 40 }: DatePickerNPProps) => {
               left: coordinates.x,
               zIndex: 1000000,
             }}
+            date={date}
+            setDate={setDate}
           />
         )}
       </div>

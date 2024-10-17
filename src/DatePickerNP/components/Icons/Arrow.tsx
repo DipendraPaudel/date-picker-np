@@ -33,3 +33,29 @@ export const ArrowLeftIcon = ({ onClick }: ArrowIconProps) => {
     </div>
   );
 };
+
+export const ArrowTopIcon = ({ onClick }: ArrowIconProps) => {
+  return (
+    <div
+      style={{
+        transform: "rotate(-90deg)",
+        display: "flex",
+      }}
+    >
+      <ArrowRightIcon onClick={onClick} />
+    </div>
+  );
+};
+
+export const ArrowBottomIcon = ({ onClick }: ArrowIconProps) => {
+  return (
+    <div
+      style={{
+        transform: "rotate(90deg)",
+        display: "flex",
+      }}
+    >
+      <ArrowRightIcon onClick={onClick} />
+    </div>
+  );
+};
