@@ -1,4 +1,6 @@
+import { useState } from "react";
 import { MONTHS_IN_WORDS, YEARS_IN_WORDS } from "../../../constants/calendar";
+import { DropdownProps } from "../../../types/Calendar";
 
 const YearDropdown = () => {
   return (
@@ -12,22 +14,38 @@ const YearDropdown = () => {
   );
 };
 
-const MonthDropdown = () => {
+const MonthDropdown = ({ selected, setSelected }: DropdownProps) => {
+  const startMonthIndex = Math.max(Math.min(selected - 2, 7), 0);
+
   return (
     <div className="date-picker-calendar-month-dropdown date-picker-dropdown">
-      {MONTHS_IN_WORDS.map((month) => (
-        <div key={month} className="dropdown-option">
-          {month}
-        </div>
-      ))}
+      {MONTHS_IN_WORDS.slice(startMonthIndex, startMonthIndex + 5).map(
+        (month, index) => {
+          const monthIndex = index + startMonthIndex;
+
+          return (
+            <div
+              key={month}
+              className={`dropdown-option ${
+                monthIndex === selected ? "dropdown-active" : ""
+              }`}
+              onClick={() => setSelected(monthIndex)}
+            >
+              {month}
+            </div>
+          );
+        }
+      )}
     </div>
   );
 };
 
 const YearMonthDropdown = () => {
+  const [selectedMonth, setSelectedMonth] = useState(5);
+
   return (
     <div className="date-picker-calendar-header-dropdown">
-      <MonthDropdown />
+      <MonthDropdown selected={selectedMonth} setSelected={setSelectedMonth} />
       <YearDropdown />
     </div>
   );

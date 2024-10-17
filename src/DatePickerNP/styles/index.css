@@ -61,8 +61,8 @@
 .date-picker-dropdown {
   display: flex;
   flex-direction: column;
-  overflow: auto;
   width: 90px;
+  height: calc(100% + 2px);
   border: 1px solid rgb(201, 201, 201);
 }
 .date-picker-dropdown .dropdown-option {
@@ -72,9 +72,13 @@
   line-height: 40px;
   text-align: center;
   background: rgb(240, 240, 240);
+  cursor: pointer;
 }
 .date-picker-dropdown .dropdown-option:last-child {
   border-bottom: none;
+}
+.date-picker-dropdown .dropdown-option.dropdown-active {
+  background: rgb(201, 201, 201);
 }
 
 /* width */
