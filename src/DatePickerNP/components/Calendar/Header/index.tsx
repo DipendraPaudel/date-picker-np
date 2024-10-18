@@ -1,11 +1,10 @@
 import { useState } from "react";
 
-import { CalendarHeaderProps } from "../../../types/Calendar";
-import { ArrowLeftIcon, ArrowRightIcon } from "../../Icons/Arrow";
 import YearMonthDropdown from "./Dropdown";
+import { ArrowLeftIcon, ArrowRightIcon } from "../../Icons/Arrow";
 import { getFormattedDate } from "../../../utils/calendar";
-
-const selectedDate = "Oct 2020";
+import { CalendarHeaderProps } from "../../../types/Calendar";
+import { MONTHS_IN_WORDS } from "../../../constants/calendar";
 
 const CalendarHeader = ({ date, handleChange }: CalendarHeaderProps) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -13,7 +12,7 @@ const CalendarHeader = ({ date, handleChange }: CalendarHeaderProps) => {
   const handleNext = () => {};
   const handlePrev = () => {};
 
-  const [year, month] = getFormattedDate();
+  const [year, month] = getFormattedDate(date);
 
   return (
     <div className="date-picker-calendar-header">
@@ -24,7 +23,7 @@ const CalendarHeader = ({ date, handleChange }: CalendarHeaderProps) => {
           className="date-picker-calendar-header-dropdown-text"
           onClick={() => setIsDropdownOpen(!isDropdownOpen)}
         >
-          {selectedDate}
+          {MONTHS_IN_WORDS[month].shortName} {year}
         </p>
 
         {isDropdownOpen && (
