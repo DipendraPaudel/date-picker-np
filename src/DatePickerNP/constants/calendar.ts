@@ -1,6 +1,9 @@
-export const YEARS_IN_WORDS = Array.from(
+export const YEARS_LIST = Array.from(
   { length: new Date().getFullYear() - 1999 },
-  (_, i) => 2000 + i
+  (_, i) => ({
+    year: 2000 + i,
+    index: i,
+  })
 );
 
 export const MONTHS_IN_WORDS = [

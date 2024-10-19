@@ -95,3 +95,7 @@
 .date-picker-dropdown-bottom-arrow {
   border-top: 1px solid rgb(201, 201, 201);
 }
+.date-picker-dropdown-arrow.date-picker-dropdown-arrow-disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
