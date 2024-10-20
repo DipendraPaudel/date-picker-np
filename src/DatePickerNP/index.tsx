@@ -9,7 +9,11 @@ import "./styles/calendar-dates.css";
 import "./styles/calendar-header.css";
 import "./styles/calendar-footer.css";
 
-const DatePickerNP = ({ value, inputHeight = 40 }: DatePickerNPProps) => {
+const DatePickerNP = ({
+  value,
+  onChange,
+  inputHeight = 40,
+}: DatePickerNPProps) => {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const [coordinates, setCoordinates] = useState({
     x: 0,
@@ -18,17 +22,18 @@ const DatePickerNP = ({ value, inputHeight = 40 }: DatePickerNPProps) => {
 
   const [isCalendarOpen, setIsCalendarOpen] = useState(false);
 
-  const handleDateChange = () => {};
-
-  const handleResize = () => {
-    setCoordinates({
-      x: containerRef?.current?.getBoundingClientRect().x as number,
-      y: containerRef?.current?.getBoundingClientRect().y as number,
-    });
+  const handleDateChange = (date?: string) => {
+    onChange(date);
+    setIsCalendarOpen(false);
   };
 
   useLayoutEffect(() => {
-    handleResize();
+    const handleResize = () => {
+      setCoordinates({
+        x: containerRef?.current?.getBoundingClientRect().x as number,
+        y: containerRef?.current?.getBoundingClientRect().y as number,
+      });
+    };
 
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);

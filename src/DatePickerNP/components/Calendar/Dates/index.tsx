@@ -16,7 +16,7 @@ const Weeks = () => {
   );
 };
 
-const CalendarDates = ({ date }: CalendarDatesProps) => {
+const CalendarDates = ({ date, handleChange }: CalendarDatesProps) => {
   const numberOfDays = getNumberOfDaysInMonth(date);
   const numberOfDaysInPreviousMonth = getNumberOfDaysInPreviousMonth(date);
 
@@ -45,6 +45,7 @@ const CalendarDates = ({ date }: CalendarDatesProps) => {
             <div
               key={index}
               className={date === todayDate ? "date-picker-today-date" : ""}
+              onClick={() => handleChange(date)}
             >
               {date}
             </div>

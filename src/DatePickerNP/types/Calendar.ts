@@ -22,4 +22,5 @@ export type YearMonthDropdownProps = Pick<
 
 export type CalendarDatesProps = {
   date: string;
+  handleChange: (day: number) => void;
 };
