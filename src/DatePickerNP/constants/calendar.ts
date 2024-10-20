@@ -17,3 +17,13 @@ export const MONTHS_IN_WORDS = [
   { name_np: "फागुन", name_en: "Falgun", month_position: 11 },
   { name_np: "चैत", name_en: "Chaitra", month_position: 12 },
 ];
+
+export const DAYS_OF_WEEK = [
+  { name: "Sunday", shortName: "Sun", week_position: 1 },
+  { name: "Monday", shortName: "Mon", week_position: 2 },
+  { name: "Tuesday", shortName: "Tue", week_position: 3 },
+  { name: "Wednesday", shortName: "Wed", week_position: 4 },
+  { name: "Thursday", shortName: "Thu", week_position: 5 },
+  { name: "Friday", shortName: "Fri", week_position: 6 },
+  { name: "Saturday", shortName: "Sat", week_position: 7 },
+];

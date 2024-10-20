@@ -1,0 +1,23 @@
+.date-picker-body-container {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  text-align: center;
+}
+
+.date-picker-week-days-container > div {
+  padding: 4px 0 8px;
+}
+
+.date-picker-dates-container > div {
+  padding: 10px 0;
+  cursor: pointer;
+}
+
+.date-picker-dates-container .prev-month-days,
+.date-picker-dates-container .next-month-days {
+  opacity: 0.4;
+}
+
+.date-picker-dates-container > div:hover {
+  background: lightgray;
+}

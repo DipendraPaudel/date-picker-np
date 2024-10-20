@@ -1,4 +1,5 @@
 import { DatePickerCalendarProps } from "../../types/DatePickerCalendar";
+import CalendarDates from "./Dates";
 import CalendarHeader from "./Header";
 
 const DatePickerCalendar = ({
@@ -21,6 +22,8 @@ const DatePickerCalendar = ({
   return (
     <div className="date-picker-calendar" style={calendarStyles}>
       <CalendarHeader date={date} handleChange={handleChange} />
+
+      <CalendarDates />
     </div>
   );
 };

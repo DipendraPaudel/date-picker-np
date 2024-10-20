@@ -20,8 +20,6 @@ const YearDropdown = ({ value, handleChange }: DropdownProps) => {
     handleChange(current);
   };
 
-  console.log(value, YEARS_LIST[0].year);
-
   return (
     <div className="date-picker-calendar-month-dropdown date-picker-dropdown">
       <div
@@ -65,7 +63,6 @@ const YearDropdown = ({ value, handleChange }: DropdownProps) => {
 
 const MonthDropdown = ({ value, handleChange }: DropdownProps) => {
   const activeMonths = getActiveThreeMonths(value);
-  console.log(value, "value");
 
   return (
     <div className="date-picker-calendar-month-dropdown date-picker-dropdown">
