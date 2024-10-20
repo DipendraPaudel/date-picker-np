@@ -16,15 +16,11 @@ const DatePickerCalendar = ({
   );
 
   const handleVirtualDateChange = (value: number, type: string) => {
-    const dateSplittedArr = value.toString().split("-");
+    const { year, month } = extractDateData(virtualDate);
 
-    // replace first portion if type is year and second portion if type is month
-    dateSplittedArr[type === "year" ? 0 : 1] = value.toString();
-
-    // replace the day with dd when month or year changes reset the day
-    dateSplittedArr[2] = "dd";
-
-    setVirtualDate(dateSplittedArr.join("-"));
+    setVirtualDate(
+      `${type === "year" ? value : year}-${type === "month" ? value : month}-dd`
+    );
   };
 
   const handleDateChange = (day: number) => {

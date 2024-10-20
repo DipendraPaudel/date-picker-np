@@ -44,7 +44,7 @@ const CalendarDates = ({ date, handleChange }: CalendarDatesProps) => {
           return (
             <div
               key={index}
-              className={date === todayDate ? "date-picker-today-date" : ""}
+              className={date === +todayDate ? "date-picker-today-date" : ""}
               onClick={() => handleChange(date)}
             >
               {date}
