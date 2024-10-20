@@ -1,0 +1,11 @@
+.date-picker-calendar-footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.date-picker-calendar-footer > .date-picker-calendar-footer-btn {
+  font-weight: medium;
+  color: darkblue;
+  cursor: pointer;
+}

@@ -21,3 +21,11 @@
 .date-picker-dates-container > div:hover {
   background: lightgray;
 }
+
+/* For today date */
+.date-picker-dates-container .date-picker-today-date {
+  background: rgb(230, 230, 230);
+}
+.date-picker-dates-container > .date-picker-today-date:hover {
+  background: rgb(230, 230, 230);
+}

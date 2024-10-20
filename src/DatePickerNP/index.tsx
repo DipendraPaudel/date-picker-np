@@ -5,8 +5,9 @@ import DatePickerCalendar from "./components/Calendar";
 import { DatePickerNPProps } from "./types/DatePickerNP";
 
 import "./styles/index.css";
-import "./styles/calendar-header.css";
 import "./styles/calendar-dates.css";
+import "./styles/calendar-header.css";
+import "./styles/calendar-footer.css";
 
 const DatePickerNP = ({ inputHeight = 40 }: DatePickerNPProps) => {
   const containerRef = useRef<HTMLDivElement | null>(null);

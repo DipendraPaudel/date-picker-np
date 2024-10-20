@@ -19,6 +19,8 @@ const CalendarDates = () => {
   const prevStartPosition = prevMonthNumberOfDays - startingWeekDay + 2;
   const totalNextMonthDays = (numberOfDays + startingWeekDay - 1) % 7;
 
+  const todayDate = 11;
+
   return (
     <>
       <Weeks />
@@ -31,9 +33,17 @@ const CalendarDates = () => {
           </div>
         ))}
 
-        {Array.from({ length: numberOfDays }).map((_, index) => (
-          <div key={index}>{index + 1}</div>
-        ))}
+        {Array.from({ length: numberOfDays }).map((_, index) => {
+          const date = index + 1;
+          return (
+            <div
+              key={index}
+              className={date === todayDate ? "date-picker-today-date" : ""}
+            >
+              {date}
+            </div>
+          );
+        })}
 
         {/* Upcoming Months days which are in the same last week of current month */}
         {Array.from({
