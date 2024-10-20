@@ -1,15 +1,15 @@
 import { MONTHS_IN_WORDS, YEARS_LIST } from "../constants/calendar";
 
 export const getActiveThreeMonths = (selected: number) => {
-  if (selected === 0)
+  if (selected === 1)
     return [MONTHS_IN_WORDS[11], MONTHS_IN_WORDS[0], MONTHS_IN_WORDS[1]];
 
-  if (selected === 11)
+  if (selected === 12)
     return [...MONTHS_IN_WORDS.slice(10, 12), MONTHS_IN_WORDS[0]];
 
   return MONTHS_IN_WORDS.slice(
-    Math.max(selected - 1, 0),
-    Math.min(selected + 2, 12)
+    Math.max(selected - 2, 0),
+    Math.min(selected + 1, 12)
   );
 };
 

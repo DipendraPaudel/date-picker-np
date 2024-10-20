@@ -1,22 +1,19 @@
-export const YEARS_LIST = Array.from(
-  { length: new Date().getFullYear() - 1999 },
-  (_, i) => ({
-    year: 2000 + i,
-    index: i,
-  })
-);
+export const YEARS_LIST = Array.from({ length: 2100 - 2000 + 1 }, (_, i) => ({
+  year: 2000 + i,
+  index: i,
+}));
 
 export const MONTHS_IN_WORDS = [
-  { name: "January", shortName: "Jan", index: 0 },
-  { name: "February", shortName: "Feb", index: 1 },
-  { name: "March", shortName: "Mar", index: 2 },
-  { name: "April", shortName: "Apr", index: 3 },
-  { name: "May", shortName: "May", index: 4 },
-  { name: "June", shortName: "Jun", index: 5 },
-  { name: "July", shortName: "Jul", index: 6 },
-  { name: "August", shortName: "Aug", index: 7 },
-  { name: "September", shortName: "Sep", index: 8 },
-  { name: "October", shortName: "Oct", index: 9 },
-  { name: "November", shortName: "Nov", index: 10 },
-  { name: "December", shortName: "Dec", index: 11 },
+  { name_np: "बैशाख", name_en: "Baisakh", month_position: 1 },
+  { name_np: "जेठ", name_en: "Jestha", month_position: 2 },
+  { name_np: "असार", name_en: "Asar", month_position: 3 },
+  { name_np: "साउन", name_en: "Shrawan", month_position: 4 },
+  { name_np: "भदौ", name_en: "Bhadra", month_position: 5 },
+  { name_np: "आश्विन", name_en: "Ashwin", month_position: 6 },
+  { name_np: "कार्तिक", name_en: "Kartik", month_position: 7 },
+  { name_np: "मंसिर", name_en: "Mangsir", month_position: 8 },
+  { name_np: "पुष", name_en: "Poush", month_position: 9 },
+  { name_np: "माघ", name_en: "Magh", month_position: 10 },
+  { name_np: "फागुन", name_en: "Falgun", month_position: 11 },
+  { name_np: "चैत", name_en: "Chaitra", month_position: 12 },
 ];

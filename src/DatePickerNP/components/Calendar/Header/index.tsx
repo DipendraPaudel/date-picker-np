@@ -23,7 +23,7 @@ const CalendarHeader = ({ date, handleChange }: CalendarHeaderProps) => {
           className="date-picker-calendar-header-dropdown-text"
           onClick={() => setIsDropdownOpen(!isDropdownOpen)}
         >
-          {MONTHS_IN_WORDS[month].shortName} {year}
+          {MONTHS_IN_WORDS[month - 1]?.name_en} {year}
         </p>
 
         {isDropdownOpen && (

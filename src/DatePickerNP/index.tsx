@@ -14,7 +14,7 @@ const DatePickerNP = ({ inputHeight = 40 }: DatePickerNPProps) => {
   });
 
   const [isCalendarOpen, setIsCalendarOpen] = useState(false);
-  const [date, setDate] = useState("2020-10-02");
+  const [date, setDate] = useState("2020-12-02");
 
   const handleResize = () => {
     setCoordinates({

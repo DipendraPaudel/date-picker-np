@@ -65,33 +65,34 @@ const YearDropdown = ({ value, handleChange }: DropdownProps) => {
 
 const MonthDropdown = ({ value, handleChange }: DropdownProps) => {
   const activeMonths = getActiveThreeMonths(value);
+  console.log(value, "value");
 
   return (
     <div className="date-picker-calendar-month-dropdown date-picker-dropdown">
       <div
         className="date-picker-dropdown-arrow date-picker-dropdown-top-arrow"
-        onClick={() => handleChange(value === 0 ? 11 : value - 1)}
+        onClick={() => handleChange(value === 1 ? 12 : value - 1)}
       >
         <ArrowTopIcon />
       </div>
 
-      {activeMonths.map(({ name, index }) => {
+      {activeMonths.map(({ name_en, month_position }) => {
         return (
           <div
-            key={name}
+            key={name_en}
             className={`dropdown-option ${
-              index === value ? "dropdown-active" : ""
+              month_position === value ? "dropdown-active" : ""
             }`}
-            onClick={() => handleChange(index)}
+            onClick={() => handleChange(month_position)}
           >
-            {name}
+            {name_en}
           </div>
         );
       })}
 
       <div
         className="date-picker-dropdown-arrow date-picker-dropdown-bottom-arrow"
-        onClick={() => handleChange(value === 11 ? 0 : value + 1)}
+        onClick={() => handleChange(value === 12 ? 1 : value + 1)}
       >
         <ArrowBottomIcon />
       </div>
