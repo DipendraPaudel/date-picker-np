@@ -19,3 +19,7 @@ export type YearMonthDropdownProps = Pick<
   month: number;
   year: number;
 };
+
+export type CalendarDatesProps = {
+  date: string;
+};

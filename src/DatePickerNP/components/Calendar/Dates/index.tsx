@@ -1,4 +1,10 @@
 import { DAYS_OF_WEEK } from "../../../constants/calendar";
+import { CalendarDatesProps } from "../../../types/Calendar";
+import {
+  extractDateData,
+  getNumberOfDaysInMonth,
+  getNumberOfDaysInPreviousMonth,
+} from "../../../utils/dates";
 
 const Weeks = () => {
   return (
@@ -10,16 +16,16 @@ const Weeks = () => {
   );
 };
 
-const CalendarDates = () => {
-  const numberOfDays = 29;
+const CalendarDates = ({ date }: CalendarDatesProps) => {
+  const numberOfDays = getNumberOfDaysInMonth(date);
+  const numberOfDaysInPreviousMonth = getNumberOfDaysInPreviousMonth(date);
+
+  const { day: todayDate } = extractDateData(date);
+
   const startingWeekDay = 4;
 
-  const prevMonthNumberOfDays = 31;
-
-  const prevStartPosition = prevMonthNumberOfDays - startingWeekDay + 2;
+  const prevStartPosition = numberOfDaysInPreviousMonth - startingWeekDay + 2;
   const totalNextMonthDays = (numberOfDays + startingWeekDay - 1) % 7;
-
-  const todayDate = 11;
 
   return (
     <>

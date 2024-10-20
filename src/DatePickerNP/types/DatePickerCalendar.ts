@@ -1,7 +1,7 @@
 import React from "react";
 
 export type DatePickerCalendarProps = {
-  date: string;
-  setDate: React.Dispatch<React.SetStateAction<string>>;
+  value?: string;
+  onChange: (date?: string) => void;
   calendarStyles?: React.CSSProperties;
 };

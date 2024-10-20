@@ -9,7 +9,7 @@ import "./styles/calendar-dates.css";
 import "./styles/calendar-header.css";
 import "./styles/calendar-footer.css";
 
-const DatePickerNP = ({ inputHeight = 40 }: DatePickerNPProps) => {
+const DatePickerNP = ({ value, inputHeight = 40 }: DatePickerNPProps) => {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const [coordinates, setCoordinates] = useState({
     x: 0,
@@ -17,7 +17,8 @@ const DatePickerNP = ({ inputHeight = 40 }: DatePickerNPProps) => {
   });
 
   const [isCalendarOpen, setIsCalendarOpen] = useState(false);
-  const [date, setDate] = useState("2020-12-02");
+
+  const handleDateChange = () => {};
 
   const handleResize = () => {
     setCoordinates({
@@ -50,8 +51,8 @@ const DatePickerNP = ({ inputHeight = 40 }: DatePickerNPProps) => {
               left: coordinates.x,
               zIndex: 1000000,
             }}
-            date={date}
-            setDate={setDate}
+            value={value}
+            onChange={handleDateChange}
           />
         )}
       </div>
