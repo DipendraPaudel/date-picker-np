@@ -9,13 +9,11 @@ export type DropdownProps = {
 
 export type CalendarHeaderProps = {
   date: string;
-  handleChange: (value: number, type: string) => void;
+  handleChange: (value: string) => void;
 };
 
-export type YearMonthDropdownProps = Pick<
-  CalendarHeaderProps,
-  "handleChange"
-> & {
+export type YearMonthDropdownProps = {
+  handleChange: (value: number, type: string) => void;
   month: number;
   year: number;
 };

@@ -15,14 +15,6 @@ const DatePickerCalendar = ({
     isValidNepaliDate(value) ? value : ""
   );
 
-  const handleVirtualDateChange = (value: number, type: string) => {
-    const { year, month } = extractDateData(virtualDate);
-
-    setVirtualDate(
-      `${type === "year" ? value : year}-${type === "month" ? value : month}-dd`
-    );
-  };
-
   const handleDateChange = (day: number) => {
     const { year, month } = extractDateData(virtualDate);
     onChange(`${year}-${month}-${day}`);
@@ -36,7 +28,7 @@ const DatePickerCalendar = ({
     <div className="date-picker-calendar" style={calendarStyles}>
       <CalendarHeader
         date={virtualDate}
-        handleChange={handleVirtualDateChange}
+        handleChange={(date: string) => setVirtualDate(date)}
       />
 
       <CalendarDates date={virtualDate} handleChange={handleDateChange} />

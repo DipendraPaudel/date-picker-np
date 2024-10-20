@@ -65,12 +65,46 @@ export const getNumberOfDaysInPreviousMonth = (date: string) => {
     // if the current month is baisakh
     if (+month === 1) {
       if (+year > NEPALI_MONTHS_COUNT[0].year) {
-        return getNumberOfDaysInMonth(`${+year - 1}-${month}-dd`); // since number of day is months is not dependent in day, value 'dd' is passed
+        return getNumberOfDaysInMonth(`${+year - 1}-12-dd`); // since number of day in months is not dependent in day, value 'dd' is passed
       } else return 0;
     }
 
     return getNumberOfDaysInMonth(`${year}-${+month - 1}-dd`);
   } catch (e) {
     return 0;
+  }
+};
+
+// helper function to move to previous month
+export const getPreviousMonth = (date: string) => {
+  try {
+    const { year, month } = extractDateData(date);
+
+    if (+month === 1) {
+      if (+year > NEPALI_MONTHS_COUNT[0].year) {
+        return `${+year - 1}-12-dd`;
+      }
+    }
+
+    return `${year}-${+month - 1}-dd`;
+  } catch (e) {
+    return "";
+  }
+};
+
+// helper function to move to next month
+export const getNextMonth = (date: string) => {
+  try {
+    const { year, month } = extractDateData(date);
+
+    if (+month === 12) {
+      if (+year < NEPALI_MONTHS_COUNT[NEPALI_MONTHS_COUNT.length - 1].year) {
+        return `${+year + 1}-01-dd`;
+      }
+    }
+
+    return `${year}-${+month + 1}-dd`;
+  } catch (e) {
+    return "";
   }
 };

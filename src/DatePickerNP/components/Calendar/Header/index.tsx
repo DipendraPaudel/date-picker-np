@@ -5,12 +5,26 @@ import { ArrowLeftIcon, ArrowRightIcon } from "../../Icons/Arrow";
 import { getFormattedDate } from "../../../utils/calendar";
 import { CalendarHeaderProps } from "../../../types/Calendar";
 import { MONTHS_IN_WORDS } from "../../../constants/calendar";
+import {
+  extractDateData,
+  getNextMonth,
+  getPreviousMonth,
+} from "../../../utils/dates";
 
 const CalendarHeader = ({ date, handleChange }: CalendarHeaderProps) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
-  const handleNext = () => {};
-  const handlePrev = () => {};
+  const handleDateChange = (value: number, type: string) => {
+    const { year, month } = extractDateData(date);
+
+    handleChange(
+      `${type === "year" ? value : year}-${type === "month" ? value : month}-dd`
+    );
+  };
+
+  // function which are triggered on left and right arrow click
+  const handleNext = () => handleChange(getNextMonth(date));
+  const handlePrev = () => handleChange(getPreviousMonth(date));
 
   const [year, month] = getFormattedDate(date);
 
@@ -30,7 +44,7 @@ const CalendarHeader = ({ date, handleChange }: CalendarHeaderProps) => {
           <YearMonthDropdown
             month={month}
             year={year}
-            handleChange={handleChange}
+            handleChange={handleDateChange}
           />
         )}
       </div>
