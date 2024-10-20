@@ -33,14 +33,14 @@ const YearDropdown = ({ value, handleChange }: DropdownProps) => {
         <ArrowTopIcon />
       </div>
 
-      {activeYears.map(({ year, index }) => {
+      {activeYears.map(({ year }) => {
         return (
           <div
             key={year}
             className={`dropdown-option ${
               year === value ? "dropdown-active" : ""
             }`}
-            onClick={() => handleChange(index)}
+            onClick={() => handleChange(year)}
           >
             {year}
           </div>

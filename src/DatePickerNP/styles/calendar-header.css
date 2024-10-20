@@ -16,9 +16,9 @@
   align-items: center;
   padding: 10px 0;
 }
-.date-picker-calendar-header-dropdown-container {
+/* .date-picker-calendar-header-dropdown-container {
   position: relative;
-}
+} */
 .date-picker-calendar-header-dropdown-text {
   border: 1px solid gray;
   padding: 4px 10px;
@@ -27,18 +27,23 @@
 .date-picker-calendar-header-dropdown {
   position: absolute;
   left: 50%;
-  top: 40px;
+  top: 38px;
   transform: translateX(-50%);
   display: flex;
   gap: 10px;
-  height: 200px;
+  justify-content: center;
+  align-items: center;
+  height: 260px;
+  background: white;
+  width: 100%;
+  z-index: 10;
 }
 
 .date-picker-dropdown {
   display: flex;
   flex-direction: column;
   width: 90px;
-  height: calc(100% + 2px);
+  /* height: calc(100% + 2px); */
   border: 1px solid rgb(201, 201, 201);
 }
 .date-picker-dropdown .dropdown-option {
