@@ -1,4 +1,7 @@
-import { DAYS_OF_WEEK } from "../../../constants/calendar";
+import {
+  DAYS_OF_WEEK,
+  UPDATED_NEPALI_MONTHS_COUNT,
+} from "../../../constants/calendar";
 import { CalendarDatesProps } from "../../../types/Calendar";
 import {
   extractDateData,
@@ -20,9 +23,11 @@ const CalendarDates = ({ date, handleChange }: CalendarDatesProps) => {
   const numberOfDays = getNumberOfDaysInMonth(date);
   const numberOfDaysInPreviousMonth = getNumberOfDaysInPreviousMonth(date);
 
-  const { day: todayDate } = extractDateData(date);
+  const { year, month, day: todayDate } = extractDateData(date);
 
-  const startingWeekDay = 4;
+  const startingWeekDay = UPDATED_NEPALI_MONTHS_COUNT.find(
+    (data) => data.year === +year
+  )?.startWeek[+month - 1] as number;
 
   const prevStartPosition = numberOfDaysInPreviousMonth - startingWeekDay + 2;
   const totalNextMonthDays = (numberOfDays + startingWeekDay - 1) % 7;
