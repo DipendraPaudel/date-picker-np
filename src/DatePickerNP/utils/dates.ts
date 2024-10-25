@@ -34,7 +34,7 @@ export const isValidNepaliDate = (date?: string) => {
     if (!activeYear) return false;
 
     // if day lies between 1 and total days count in month;
-    return (+day >= 1 && +day <= activeYear.months[+month]) || day === "dd";
+    return (+day >= 1 && +day <= activeYear.months[+month - 1]) || day === "dd";
   } catch (e) {
     return false;
   }
