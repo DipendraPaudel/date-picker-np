@@ -115,7 +115,7 @@ export const getTodayBSDate = () => {
       (86400 * 1000)
   );
 
-  let nepaliDateCountUptoTodayEnglishDate = 0;
+  let nepaliDateCountUptoTodayEnglishDate = 1;
 
   for (let i = 0; i < NEPALI_DATES.length; i++) {
     const { year, months } = NEPALI_DATES[i];
