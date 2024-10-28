@@ -1,4 +1,7 @@
-import { NEPALI_DATES } from "../constants/dates";
+import {
+  NEPALI_DATES,
+  START_ENGLISH_DATE_OF_2000_BS,
+} from "../constants/dates";
 
 // helper function to return year, month and day
 export const extractDateData = (date: string) => {
@@ -107,5 +110,30 @@ export const getNextMonth = (date: string) => {
 
 // helper function to get today nepali date
 export const getTodayBSDate = () => {
-  return "";
+  const englishDaysDifferenceFrom2000BS = Math.floor(
+    (new Date().getTime() - new Date(START_ENGLISH_DATE_OF_2000_BS).getTime()) /
+      (86400 * 1000)
+  );
+
+  let nepaliDateCountUptoTodayEnglishDate = 0;
+
+  for (let i = 0; i < NEPALI_DATES.length; i++) {
+    const { year, months } = NEPALI_DATES[i];
+
+    for (let j = 0; j < months.length; j++) {
+      const addedCount = nepaliDateCountUptoTodayEnglishDate + months[j];
+
+      if (addedCount < englishDaysDifferenceFrom2000BS) {
+        nepaliDateCountUptoTodayEnglishDate = addedCount;
+      } else {
+        const month = (j + 1).toString().padStart(2, "0");
+        const today =
+          englishDaysDifferenceFrom2000BS - nepaliDateCountUptoTodayEnglishDate;
+
+        return `${year}-${month}-${today}`;
+      }
+    }
+  }
+
+  return "hello";
 };

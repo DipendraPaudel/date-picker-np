@@ -16,9 +16,16 @@
   align-items: center;
   padding: 10px 0;
 }
-/* .date-picker-calendar-header-dropdown-container {
-  position: relative;
-} */
+
+.date-picker-calendar-header-arrow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+}
+
 .date-picker-calendar-header-dropdown-text {
   border: 1px solid gray;
   padding: 4px 10px;

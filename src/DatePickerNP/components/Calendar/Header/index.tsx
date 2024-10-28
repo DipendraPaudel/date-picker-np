@@ -30,7 +30,9 @@ const CalendarHeader = ({ date, handleChange }: CalendarHeaderProps) => {
 
   return (
     <div className="date-picker-calendar-header">
-      <ArrowLeftIcon onClick={handlePrev} />
+      <div className="date-picker-calendar-header-arrow" onClick={handlePrev}>
+        <ArrowLeftIcon />
+      </div>
 
       <div className="date-picker-calendar-header-dropdown-container">
         <p
@@ -49,7 +51,9 @@ const CalendarHeader = ({ date, handleChange }: CalendarHeaderProps) => {
         )}
       </div>
 
-      <ArrowRightIcon onClick={handleNext} />
+      <div className="date-picker-calendar-header-arrow" onClick={handleNext}>
+        <ArrowRightIcon />
+      </div>
     </div>
   );
 };

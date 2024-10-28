@@ -1,13 +1,10 @@
 import { NepaliDatesType } from "../types/Constant";
 
 export const START_WEEK_DAY_OF_2000 = 4;
+export const START_ENGLISH_DATE_OF_2000_BS = "1943-04-14";
 
 const ALL_NEPALI_DATES: Partial<NepaliDatesType>[] = [
-  {
-    year: 2000,
-    months: [30, 32, 31, 32, 31, 30, 30, 30, 29, 30, 29, 31],
-    startEnglishDate: "1943-04-14",
-  },
+  { year: 2000, months: [30, 32, 31, 32, 31, 30, 30, 30, 29, 30, 29, 31] },
   { year: 2001, months: [31, 31, 32, 31, 31, 31, 30, 29, 30, 29, 30, 30] },
   { year: 2002, months: [31, 31, 32, 32, 31, 30, 30, 29, 30, 29, 30, 30] },
   { year: 2003, months: [31, 32, 31, 32, 31, 30, 30, 30, 29, 29, 30, 31] },

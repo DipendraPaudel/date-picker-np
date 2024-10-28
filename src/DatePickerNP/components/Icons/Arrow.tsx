@@ -26,6 +26,7 @@ export const ArrowLeftIcon = ({ onClick }: ArrowIconProps) => {
     <div
       style={{
         transform: "rotate(180deg)",
+        display: "flex",
       }}
     >
       <ArrowRightIcon onClick={onClick} />
