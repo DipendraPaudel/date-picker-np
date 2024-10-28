@@ -1,4 +1,4 @@
-import { NEPALI_MONTHS_COUNT } from "../constants/calendar";
+import { NEPALI_DATES } from "../constants/dates";
 
 // helper function to return year, month and day
 export const extractDateData = (date: string) => {
@@ -26,9 +26,7 @@ export const isValidNepaliDate = (date?: string) => {
   try {
     const { year, month, day } = extractDateData(date);
 
-    const activeYear = NEPALI_MONTHS_COUNT.find(
-      ({ year: year1 }) => year1 === +year
-    );
+    const activeYear = NEPALI_DATES.find(({ year: year1 }) => year1 === +year);
 
     // if year is not in the list, date is not valid
     if (!activeYear) return false;
@@ -45,9 +43,7 @@ export const getNumberOfDaysInMonth = (date: string) => {
   try {
     const { year, month } = extractDateData(date);
 
-    const activeData = NEPALI_MONTHS_COUNT.find(
-      ({ year: year1 }) => year1 === +year
-    );
+    const activeData = NEPALI_DATES.find(({ year: year1 }) => year1 === +year);
 
     if (!activeData) return 0;
 
@@ -64,7 +60,7 @@ export const getNumberOfDaysInPreviousMonth = (date: string) => {
 
     // if the current month is baisakh
     if (+month === 1) {
-      if (+year > NEPALI_MONTHS_COUNT[0].year) {
+      if (+year > NEPALI_DATES[0].year) {
         return getNumberOfDaysInMonth(`${+year - 1}-12-dd`); // since number of day in months is not dependent in day, value 'dd' is passed
       } else return 0;
     }
@@ -81,7 +77,7 @@ export const getPreviousMonth = (date: string) => {
     const { year, month } = extractDateData(date);
 
     if (+month === 1) {
-      if (+year > NEPALI_MONTHS_COUNT[0].year) {
+      if (+year > NEPALI_DATES[0].year) {
         return `${+year - 1}-12-dd`;
       }
     }
@@ -98,7 +94,7 @@ export const getNextMonth = (date: string) => {
     const { year, month } = extractDateData(date);
 
     if (+month === 12) {
-      if (+year < NEPALI_MONTHS_COUNT[NEPALI_MONTHS_COUNT.length - 1].year) {
+      if (+year < NEPALI_DATES[NEPALI_DATES.length - 1].year) {
         return `${+year + 1}-01-dd`;
       }
     }
@@ -107,4 +103,9 @@ export const getNextMonth = (date: string) => {
   } catch (e) {
     return "";
   }
+};
+
+// helper function to get today nepali date
+export const getTodayBSDate = () => {
+  return "";
 };

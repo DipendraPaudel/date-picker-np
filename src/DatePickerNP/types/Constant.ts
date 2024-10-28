@@ -1,8 +1,6 @@
-export type NepaliMonthsCountType = {
+export type NepaliDatesType = {
   year: number;
   months: number[];
-};
-
-export type UpdatedNepaliMonthsCountType = NepaliMonthsCountType & {
   startWeek: number[];
+  startEnglishDate: string;
 };
