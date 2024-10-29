@@ -4,24 +4,30 @@ import { DatePickerCalendarProps } from "../../types/DatePickerCalendar";
 import CalendarDates from "./Dates";
 import CalendarFooter from "./Footer";
 import CalendarHeader from "./Header";
-import { extractDateData, isValidNepaliDate } from "../../utils/dates";
+import {
+  extractDateData,
+  getTodayBSDate,
+  isValidNepaliDate,
+} from "../../utils/dates";
 
 const DatePickerCalendar = ({
   value = "yyyy-mm-dd",
   onChange,
   calendarStyles,
 }: DatePickerCalendarProps) => {
-  const [virtualDate, setVirtualDate] = useState(
-    isValidNepaliDate(value) ? value : ""
-  );
+  const isValid = isValidNepaliDate(value);
+
+  const [virtualDate, setVirtualDate] = useState("");
 
   const handleDateChange = (day: number) => {
     const { year, month } = extractDateData(virtualDate);
-    onChange(`${year}-${month}-${day}`);
+    onChange(`${year}-${month}-${day.toString().padStart(2, "0")}`);
   };
 
   useEffect(() => {
-    setVirtualDate(isValidNepaliDate(value) ? value : "");
+    setVirtualDate(isValid ? value : getTodayBSDate());
+
+    // eslint-disable-next-line
   }, [value]);
 
   return (
@@ -33,7 +39,7 @@ const DatePickerCalendar = ({
 
       <CalendarDates date={virtualDate} handleChange={handleDateChange} />
 
-      <CalendarFooter />
+      <CalendarFooter hasValidValue={isValid} onChange={onChange} />
     </div>
   );
 };

@@ -49,6 +49,7 @@ const DatePickerNP = ({
           inputStyles={{
             height: inputHeight,
           }}
+          value={value}
         />
 
         {isCalendarOpen && (

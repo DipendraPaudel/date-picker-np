@@ -1,6 +1,7 @@
 import { DatePickerInputProps } from "../types/DatePickerInput";
 
 const DatePickerInput = ({
+  value,
   inputStyles,
   toggleCalendar,
 }: DatePickerInputProps) => {
@@ -16,7 +17,9 @@ const DatePickerInput = ({
         className="date-picker-input"
         style={inputStyles}
         onClick={toggleCalendar}
-      ></div>
+      >
+        <p>{value || "Select Date"}</p>
+      </div>
     </div>
   );
 };

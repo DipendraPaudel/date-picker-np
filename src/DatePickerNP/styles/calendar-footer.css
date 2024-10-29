@@ -9,3 +9,8 @@
   color: darkblue;
   cursor: pointer;
 }
+
+.date-picker-calendar-footer-btn.date-picker-calendar-footer-btn-disabled {
+  cursor: default;
+  opacity: 0.4;
+}
