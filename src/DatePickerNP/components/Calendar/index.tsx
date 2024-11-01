@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useLayoutEffect, useState } from "react";
 
 import { DatePickerCalendarProps } from "../../types/DatePickerCalendar";
 import CalendarDates from "./Dates";
@@ -28,7 +28,7 @@ const DatePickerCalendar = ({
     );
   };
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     setVirtualDate(isValid ? value : getTodayBSDate());
 
     // eslint-disable-next-line
