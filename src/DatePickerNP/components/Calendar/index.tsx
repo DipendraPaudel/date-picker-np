@@ -21,7 +21,11 @@ const DatePickerCalendar = ({
 
   const handleDateChange = (day: number) => {
     const { year, month } = extractDateData(virtualDate);
-    onChange(`${year}-${month}-${day.toString().padStart(2, "0")}`);
+    onChange(
+      `${year}-${month.toString().padStart(2, "0")}-${day
+        .toString()
+        .padStart(2, "0")}`
+    );
   };
 
   useEffect(() => {

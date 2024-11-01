@@ -28,6 +28,20 @@ const CalendarDates = ({ date, handleChange }: CalendarDatesProps) => {
 
   const prevStartPosition = numberOfDaysInPreviousMonth - startingWeekDay + 2;
   const totalNextMonthDays = (numberOfDays + startingWeekDay - 1) % 7;
+  let currentNextMonthDaysCount =
+    totalNextMonthDays > 0 ? 7 - totalNextMonthDays : 0;
+
+  const totalCurrentRows =
+    (startingWeekDay -
+      1 +
+      numberOfDays +
+      (totalNextMonthDays > 0 ? 7 - totalNextMonthDays : 0)) /
+    7;
+
+  // Add one additional row i.e. 7 days,
+  // if there are only 5 rows to make the calendar height consistent
+  if (totalCurrentRows === 5)
+    currentNextMonthDaysCount = currentNextMonthDaysCount + 7;
 
   return (
     <>
@@ -56,7 +70,7 @@ const CalendarDates = ({ date, handleChange }: CalendarDatesProps) => {
 
         {/* Upcoming Months days which are in the same last week of current month */}
         {Array.from({
-          length: totalNextMonthDays > 0 ? 7 - totalNextMonthDays : 0,
+          length: currentNextMonthDaysCount,
         }).map((_, index) => (
           <div key={index} className="next-month-days">
             {index + 1}

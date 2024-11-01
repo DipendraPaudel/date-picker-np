@@ -1,4 +1,5 @@
 import { DatePickerInputProps } from "../types/DatePickerInput";
+import { isValidNepaliDate } from "../utils/dates";
 
 const DatePickerInput = ({
   value,
@@ -18,7 +19,7 @@ const DatePickerInput = ({
         style={inputStyles}
         onClick={toggleCalendar}
       >
-        <p>{value || "Select Date"}</p>
+        <p>{isValidNepaliDate(value) ? value : "Select Date"}</p>
       </div>
     </div>
   );

@@ -4,7 +4,7 @@ import ReactDOM from "react-dom/client";
 import DatePickerNP from "./DatePickerNP";
 
 const App = () => {
-  const [date, setDate] = useState("");
+  const [date, setDate] = useState("2081-7-35");
 
   return (
     <DatePickerNP

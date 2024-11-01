@@ -10,11 +10,10 @@
   padding: 4px 8px 10px;
 }
 .date-picker-calendar-header {
-  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 0;
+  margin: 10px 0;
 }
 
 .date-picker-calendar-header-arrow {
@@ -34,15 +33,15 @@
 .date-picker-calendar-header-dropdown {
   position: absolute;
   left: 50%;
-  top: 38px;
   transform: translateX(-50%);
   display: flex;
   gap: 10px;
   justify-content: center;
   align-items: center;
-  height: 260px;
+  height: calc(100% - 50px);
   background: white;
   width: 100%;
+  bottom: 0;
   z-index: 10;
 }
 
