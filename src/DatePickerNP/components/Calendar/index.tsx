@@ -14,6 +14,8 @@ const DatePickerCalendar = ({
   value = "yyyy-mm-dd",
   onChange,
   calendarStyles,
+  min,
+  max,
 }: DatePickerCalendarProps) => {
   const isValid = isValidNepaliDate(value);
 
@@ -29,7 +31,9 @@ const DatePickerCalendar = ({
   };
 
   useLayoutEffect(() => {
-    setVirtualDate(isValid ? value : getTodayBSDate());
+    setVirtualDate(
+      isValid ? value : max && isValidNepaliDate(max) ? max : getTodayBSDate()
+    );
 
     // eslint-disable-next-line
   }, [value]);
@@ -41,9 +45,19 @@ const DatePickerCalendar = ({
         handleChange={(date: string) => setVirtualDate(date)}
       />
 
-      <CalendarDates date={virtualDate} handleChange={handleDateChange} />
+      <CalendarDates
+        date={virtualDate}
+        handleChange={handleDateChange}
+        min={min}
+        max={max}
+      />
 
-      <CalendarFooter hasValidValue={isValid} onChange={onChange} />
+      <CalendarFooter
+        hasValidValue={isValid}
+        onChange={onChange}
+        min={min}
+        max={max}
+      />
     </div>
   );
 };

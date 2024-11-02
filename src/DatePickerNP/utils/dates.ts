@@ -85,7 +85,7 @@ export const getPreviousMonth = (date: string) => {
       }
     }
 
-    return `${year}-${+month - 1}-dd`;
+    return `${year}-${(+month - 1).toString().padStart(2, "0")}-dd`;
   } catch (e) {
     return "";
   }
@@ -102,7 +102,7 @@ export const getNextMonth = (date: string) => {
       }
     }
 
-    return `${year}-${+month + 1}-dd`;
+    return `${year}-${(+month + 1).toString().padStart(2, "0")}-dd`;
   } catch (e) {
     return "";
   }
@@ -139,4 +139,33 @@ export const getTodayBSDate = () => {
   }
 
   return "hello";
+};
+
+// helper function to detect if first date is greater than or equal to min date
+// to disable dates which are less than min dates
+export const isGreaterThanOrEqualToMinDate = (
+  date: string,
+  minDate: string
+) => {
+  const { year: year1, month: month1, day: day1 } = extractDateData(date);
+  const { year: year2, month: month2, day: day2 } = extractDateData(minDate);
+
+  if (year1 === year2) {
+    if (month1 === month2) {
+      return +day1 >= +day2;
+    } else return +month1 >= +month2;
+  } else return +year1 >= +year2;
+};
+
+// helper function to detect if first date is greater than or equal to min date
+// to disable dates which are greater than max dates
+export const isLessThanOrEqualToMaxDate = (date: string, maxDate: string) => {
+  const { year: year1, month: month1, day: day1 } = extractDateData(date);
+  const { year: year2, month: month2, day: day2 } = extractDateData(maxDate);
+
+  if (year1 === year2) {
+    if (month1 === month2) {
+      return +day1 <= +day2;
+    } else return +month1 <= +month2;
+  } else return +year1 <= +year2;
 };

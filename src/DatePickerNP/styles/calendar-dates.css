@@ -16,9 +16,15 @@
 .date-picker-dates-container .prev-month-days,
 .date-picker-dates-container .next-month-days {
   opacity: 0.4;
+  cursor: default;
 }
 
-.date-picker-dates-container > div:hover {
+.date-picker-dates-container
+  > div:not(
+    .prev-month-days,
+    .next-month-days,
+    .date-picker-date-disabled
+  ):hover {
   background: lightgray;
 }
 
@@ -28,4 +34,10 @@
 }
 .date-picker-dates-container > .date-picker-today-date:hover {
   background: rgb(230, 230, 230);
+}
+
+.date-picker-dates-container > .date-picker-date-disabled {
+  background: white;
+  opacity: 0.4;
+  cursor: default;
 }

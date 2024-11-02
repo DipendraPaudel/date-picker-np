@@ -5,6 +5,9 @@ import {
   extractDateData,
   getNumberOfDaysInMonth,
   getNumberOfDaysInPreviousMonth,
+  isGreaterThanOrEqualToMinDate,
+  isLessThanOrEqualToMaxDate,
+  isValidNepaliDate,
 } from "../../../utils/dates";
 
 const Weeks = () => {
@@ -17,7 +20,12 @@ const Weeks = () => {
   );
 };
 
-const CalendarDates = ({ date, handleChange }: CalendarDatesProps) => {
+const CalendarDates = ({
+  date,
+  handleChange,
+  min,
+  max,
+}: CalendarDatesProps) => {
   const numberOfDays = getNumberOfDaysInMonth(date);
   const numberOfDaysInPreviousMonth = getNumberOfDaysInPreviousMonth(date);
 
@@ -38,8 +46,8 @@ const CalendarDates = ({ date, handleChange }: CalendarDatesProps) => {
       (totalNextMonthDays > 0 ? 7 - totalNextMonthDays : 0)) /
     7;
 
-  // Add one additional row i.e. 7 days,
-  // if there are only 5 rows to make the calendar height consistent
+  // Add one additional row i.e. 7 days, if there are only 5 rows
+  // to make the calendar height consistent
   if (totalCurrentRows === 5)
     currentNextMonthDaysCount = currentNextMonthDaysCount + 7;
 
@@ -56,14 +64,36 @@ const CalendarDates = ({ date, handleChange }: CalendarDatesProps) => {
         ))}
 
         {Array.from({ length: numberOfDays }).map((_, index) => {
-          const date = index + 1;
+          const day = index + 1;
+
+          let isDateDisabled = false;
+
+          // check if min and max dates are passed
+          // this function is causing lagging issue due to many renders and new check for every months
+          if (min && isValidNepaliDate(min)) {
+            isDateDisabled = !isGreaterThanOrEqualToMinDate(
+              date.slice(0, 8) + day,
+              min
+            );
+          }
+
+          // only check the max date if current date is not disabled by min date only
+          if (!isDateDisabled && max && isValidNepaliDate(max)) {
+            isDateDisabled = !isLessThanOrEqualToMaxDate(
+              date.slice(0, 8) + day,
+              max
+            );
+          }
+
           return (
             <div
               key={index}
-              className={date === +todayDate ? "date-picker-today-date" : ""}
-              onClick={() => handleChange(date)}
+              className={`${
+                day === +todayDate ? "date-picker-today-date" : ""
+              } ${isDateDisabled ? "date-picker-date-disabled" : ""}`}
+              onClick={() => !isDateDisabled && handleChange(day)}
             >
-              {date}
+              {day}
             </div>
           );
         })}

@@ -10,6 +10,8 @@ const App = () => {
     <DatePickerNP
       value={date}
       onChange={(date?: string) => setDate(date as string)}
+      min="2081-02-02"
+      max="2081-03-15"
     />
   );
 };

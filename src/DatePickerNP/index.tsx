@@ -13,6 +13,9 @@ const DatePickerNP = ({
   value,
   onChange,
   inputHeight = 40,
+  min,
+  max,
+  disabled,
 }: DatePickerNPProps) => {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const [coordinates, setCoordinates] = useState({
@@ -52,7 +55,7 @@ const DatePickerNP = ({
           value={value}
         />
 
-        {isCalendarOpen && (
+        {!disabled && isCalendarOpen && (
           <DatePickerCalendar
             calendarStyles={{
               top: coordinates.y + inputHeight,
@@ -61,6 +64,8 @@ const DatePickerNP = ({
             }}
             value={value}
             onChange={handleDateChange}
+            min={min}
+            max={max}
           />
         )}
       </div>
