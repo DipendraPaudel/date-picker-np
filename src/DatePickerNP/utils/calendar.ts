@@ -1,4 +1,5 @@
 import { MONTHS_IN_WORDS, YEARS_LIST } from "../constants/calendar";
+import { extractDateData } from "./dates";
 
 export const getActiveThreeMonths = (selected: number) => {
   if (selected === 1)
@@ -13,15 +14,33 @@ export const getActiveThreeMonths = (selected: number) => {
   );
 };
 
-export const getActiveThreeYears = (selectedYear: number) => {
-  const selectedIndex = YEARS_LIST.findIndex((y) => y.year === selectedYear);
-  const lastIndex = YEARS_LIST.length - 1;
+export const getActiveThreeYears = (
+  selectedYear: number,
+  min?: string,
+  max?: string
+) => {
+  let filteredYearsList = [...YEARS_LIST];
+  const lastYear = YEARS_LIST[YEARS_LIST.length - 1].year;
 
-  if (selectedIndex === 0) return YEARS_LIST.slice(0, 3);
+  if (min || max) {
+    const { year: minYear } = extractDateData(min as string);
+    const { year: maxYear } = extractDateData(max as string);
+
+    filteredYearsList = filteredYearsList.filter(
+      ({ year }) => year >= (+minYear || 0) && year <= (+maxYear || lastYear)
+    );
+  }
+
+  const selectedIndex = filteredYearsList.findIndex(
+    (y) => y.year === selectedYear
+  );
+  const lastIndex = filteredYearsList.length - 1;
+
+  if (selectedIndex === 0) return filteredYearsList.slice(0, 3);
   if (selectedIndex === lastIndex)
-    return YEARS_LIST.slice(lastIndex - 2, lastIndex + 1);
+    return filteredYearsList.slice(lastIndex - 2, lastIndex + 1);
 
-  return YEARS_LIST.slice(selectedIndex - 1, selectedIndex + 2);
+  return filteredYearsList.slice(selectedIndex - 1, selectedIndex + 2);
 };
 
 export const getFormattedDate = (date?: string) => {

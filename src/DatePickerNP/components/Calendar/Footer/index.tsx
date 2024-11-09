@@ -12,7 +12,7 @@ const CalendarFooter = ({
   min,
   max,
 }: CalendarFooterProps) => {
-  let isTodayDateDisabled = true;
+  let isTodayDateDisabled = false;
   const todayDate = getTodayBSDate();
 
   // check if today button should be disabled

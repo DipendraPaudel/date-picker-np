@@ -4,14 +4,14 @@ import ReactDOM from "react-dom/client";
 import DatePickerNP from "./DatePickerNP";
 
 const App = () => {
-  const [date, setDate] = useState("2081-7-35");
+  const [date, setDate] = useState("2000-01-01");
 
   return (
     <DatePickerNP
       value={date}
       onChange={(date?: string) => setDate(date as string)}
-      min="2081-02-02"
-      max="2081-03-15"
+      // min="2081-02-02"
+      // max="2081-03-15"
     />
   );
 };
@@ -19,5 +19,7 @@ const App = () => {
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <App />
+
+    <input type="date" />
   </React.StrictMode>
 );

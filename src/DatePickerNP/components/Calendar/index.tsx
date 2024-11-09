@@ -43,6 +43,8 @@ const DatePickerCalendar = ({
       <CalendarHeader
         date={virtualDate}
         handleChange={(date: string) => setVirtualDate(date)}
+        min={min}
+        max={max}
       />
 
       <CalendarDates

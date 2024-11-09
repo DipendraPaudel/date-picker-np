@@ -35,6 +35,7 @@ const CalendarDates = ({
     ?.startWeek[+month - 1] as number;
 
   const prevStartPosition = numberOfDaysInPreviousMonth - startingWeekDay + 2;
+
   const totalNextMonthDays = (numberOfDays + startingWeekDay - 1) % 7;
   let currentNextMonthDaysCount =
     totalNextMonthDays > 0 ? 7 - totalNextMonthDays : 0;
@@ -59,7 +60,9 @@ const CalendarDates = ({
         {/* Previous Months days which are in the same first week of current month */}
         {Array.from({ length: startingWeekDay - 1 }).map((_, index) => (
           <div key={index} className="prev-month-days">
-            {prevStartPosition + index}
+            {numberOfDaysInPreviousMonth > 0
+              ? prevStartPosition + index
+              : undefined}
           </div>
         ))}
 

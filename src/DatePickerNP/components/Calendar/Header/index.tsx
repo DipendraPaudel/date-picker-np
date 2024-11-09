@@ -11,7 +11,11 @@ import {
   getPreviousMonth,
 } from "../../../utils/dates";
 
-const CalendarHeader = ({ date, handleChange }: CalendarHeaderProps) => {
+const CalendarHeader = ({
+  date,
+  handleChange,
+  ...rest
+}: CalendarHeaderProps) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   const handleDateChange = (value: number, type: string) => {
@@ -47,6 +51,7 @@ const CalendarHeader = ({ date, handleChange }: CalendarHeaderProps) => {
             month={month}
             year={year}
             handleChange={handleDateChange}
+            {...rest}
           />
         )}
       </div>

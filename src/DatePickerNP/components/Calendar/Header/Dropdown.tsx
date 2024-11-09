@@ -6,8 +6,8 @@ import {
 } from "../../../utils/calendar";
 import { YEARS_LIST } from "../../../constants/calendar";
 
-const YearDropdown = ({ value, handleChange }: DropdownProps) => {
-  const activeYears = getActiveThreeYears(value);
+const YearDropdown = ({ value, handleChange, min, max }: DropdownProps) => {
+  const activeYears = getActiveThreeYears(value, min, max);
 
   const handleYearChange = (count: number) => {
     const current = value + count;
@@ -101,16 +101,19 @@ const YearMonthDropdown = ({
   month,
   year,
   handleChange,
+  ...rest
 }: YearMonthDropdownProps) => {
   return (
     <div className="date-picker-calendar-header-dropdown">
       <MonthDropdown
         value={month}
         handleChange={(value: number) => handleChange(value, "month")}
+        {...rest}
       />
       <YearDropdown
         value={year}
         handleChange={(value: number) => handleChange(value, "year")}
+        {...rest}
       />
     </div>
   );

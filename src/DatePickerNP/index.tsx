@@ -45,33 +45,29 @@ const DatePickerNP = ({
   }, []);
 
   return (
-    <>
-      <div className="date-picker-container" ref={containerRef}>
-        <DatePickerInput
-          toggleCalendar={() => setIsCalendarOpen(!isCalendarOpen)}
-          inputStyles={{
-            height: inputHeight,
+    <div className="date-picker-container" ref={containerRef}>
+      <DatePickerInput
+        toggleCalendar={() => setIsCalendarOpen(!isCalendarOpen)}
+        inputStyles={{
+          height: inputHeight,
+        }}
+        value={value}
+      />
+
+      {!disabled && isCalendarOpen && (
+        <DatePickerCalendar
+          calendarStyles={{
+            top: coordinates.y + inputHeight,
+            left: coordinates.x,
+            zIndex: 1000000,
           }}
           value={value}
+          onChange={handleDateChange}
+          min={min}
+          max={max}
         />
-
-        {!disabled && isCalendarOpen && (
-          <DatePickerCalendar
-            calendarStyles={{
-              top: coordinates.y + inputHeight,
-              left: coordinates.x,
-              zIndex: 1000000,
-            }}
-            value={value}
-            onChange={handleDateChange}
-            min={min}
-            max={max}
-          />
-        )}
-      </div>
-
-      <input type="date" />
-    </>
+      )}
+    </div>
   );
 };
 
