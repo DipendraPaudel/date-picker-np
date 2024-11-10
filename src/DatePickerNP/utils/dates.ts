@@ -150,9 +150,11 @@ export const isGreaterThanOrEqualToMinDate = (
   const { year: year1, month: month1, day: day1 } = extractDateData(date);
   const { year: year2, month: month2, day: day2 } = extractDateData(minDate);
 
+  const isDayNotValid = isNaN(+day1) || isNaN(+day2);
+
   if (year1 === year2) {
     if (month1 === month2) {
-      return +day1 >= +day2;
+      return isDayNotValid ? true : +day1 >= +day2;
     } else return +month1 >= +month2;
   } else return +year1 >= +year2;
 };
@@ -163,9 +165,11 @@ export const isLessThanOrEqualToMaxDate = (date: string, maxDate: string) => {
   const { year: year1, month: month1, day: day1 } = extractDateData(date);
   const { year: year2, month: month2, day: day2 } = extractDateData(maxDate);
 
+  const isDayNotValid = isNaN(+day1) || isNaN(+day2);
+
   if (year1 === year2) {
     if (month1 === month2) {
-      return +day1 <= +day2;
+      return isDayNotValid ? true : +day1 <= +day2;
     } else return +month1 <= +month2;
   } else return +year1 <= +year2;
 };

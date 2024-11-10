@@ -8,13 +8,20 @@ import {
   INITIAL_YEAR_OF_CALENDAR,
   MONTHS_IN_WORDS,
 } from "../../../constants/calendar";
-import { getNextMonth, getPreviousMonth } from "../../../utils/dates";
+import {
+  getNextMonth,
+  getPreviousMonth,
+  isGreaterThanOrEqualToMinDate,
+  isLessThanOrEqualToMaxDate,
+  isValidNepaliDate,
+} from "../../../utils/dates";
 import Selector from "./Selector";
 
 const CalendarHeader = ({
   date,
   handleChange,
-  ...rest
+  min,
+  max,
 }: CalendarHeaderProps) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
@@ -24,9 +31,29 @@ const CalendarHeader = ({
 
   const [year, month] = getFormattedDate(date);
 
-  // disable the prev and next arrow button based on the dates
-  const isPrevArrowDisabled = year === INITIAL_YEAR_OF_CALENDAR && month === 1;
-  const isNextArrowDisabled = year === FINAL_YEAR_OF_CALENDAR && month === 12;
+  // disable the prev and next arrow button based on the initial and final dates possible on the calendar
+  let isPrevArrowDisabled = year === INITIAL_YEAR_OF_CALENDAR && month === 1;
+  let isNextArrowDisabled = year === FINAL_YEAR_OF_CALENDAR && month === 12;
+
+  // also check if prev month has valid days
+  if (min && isValidNepaliDate(min) && !isPrevArrowDisabled) {
+    const isGreaterThanMinDate = isGreaterThanOrEqualToMinDate(
+      getPreviousMonth(date),
+      min
+    );
+
+    isPrevArrowDisabled = !isGreaterThanMinDate;
+  }
+
+  // also check if next month has valid days
+  if (max && isValidNepaliDate(max) && !isNextArrowDisabled) {
+    const isGreaterThanMinDate = isLessThanOrEqualToMaxDate(
+      getNextMonth(date),
+      max
+    );
+
+    isNextArrowDisabled = !isGreaterThanMinDate;
+  }
 
   const headerDisplayText = `${MONTHS_IN_WORDS[month - 1]?.name_en} ${year}`;
 
@@ -56,7 +83,8 @@ const CalendarHeader = ({
             year={year}
             handleChange={handleChange}
             setIsDropdownOpen={setIsDropdownOpen}
-            {...rest}
+            min={min}
+            max={max}
           />
         )}
       </div>
