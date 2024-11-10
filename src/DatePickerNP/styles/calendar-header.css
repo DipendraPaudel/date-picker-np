@@ -75,16 +75,12 @@
   background: rgb(2, 118, 156);
 }
 .date-picker-selector-block-container
-  > div
   > div.date-picker-selector-block-disabled {
   opacity: 0.4;
   cursor: default;
 }
 .date-picker-selector-block-container
-  > div:hover
-  > div:not(
-    .date-picker-selector-block-selected,
-    .date-picker-selector-block-disabled
-  ) {
+  > div:hover:not(.date-picker-selector-block-disabled)
+  > div:not(.date-picker-selector-block-selected) {
   background: rgb(226, 226, 226);
 }

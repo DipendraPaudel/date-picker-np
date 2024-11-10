@@ -11,7 +11,11 @@ import {
 import { getNextMonth, getPreviousMonth } from "../../../utils/dates";
 import Selector from "./Selector";
 
-const CalendarHeader = ({ date, handleChange }: CalendarHeaderProps) => {
+const CalendarHeader = ({
+  date,
+  handleChange,
+  ...rest
+}: CalendarHeaderProps) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   // function which are triggered on left and right arrow click
@@ -20,11 +24,11 @@ const CalendarHeader = ({ date, handleChange }: CalendarHeaderProps) => {
 
   const [year, month] = getFormattedDate(date);
 
-  const headerDisplayText = `${MONTHS_IN_WORDS[month - 1]?.name_en} ${year}`;
-
   // disable the prev and next arrow button based on the dates
   const isPrevArrowDisabled = year === INITIAL_YEAR_OF_CALENDAR && month === 1;
   const isNextArrowDisabled = year === FINAL_YEAR_OF_CALENDAR && month === 12;
+
+  const headerDisplayText = `${MONTHS_IN_WORDS[month - 1]?.name_en} ${year}`;
 
   return (
     <div className="date-picker-calendar-header">
@@ -52,6 +56,7 @@ const CalendarHeader = ({ date, handleChange }: CalendarHeaderProps) => {
             year={year}
             handleChange={handleChange}
             setIsDropdownOpen={setIsDropdownOpen}
+            {...rest}
           />
         )}
       </div>

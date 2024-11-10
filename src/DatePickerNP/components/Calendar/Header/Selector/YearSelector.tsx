@@ -1,10 +1,7 @@
 import { useEffect, useRef } from "react";
 
 import { YearSelectorProps } from "../../../../types/Calendar";
-import {
-  FINAL_YEAR_OF_CALENDAR,
-  INITIAL_YEAR_OF_CALENDAR,
-} from "../../../../constants/calendar";
+import { INITIAL_YEAR_OF_CALENDAR } from "../../../../constants/calendar";
 
 const YearSelector = ({
   startYear,
@@ -12,6 +9,8 @@ const YearSelector = ({
   setSelectedYear,
   setActiveSelector,
   handleStartYearChange,
+  minYear,
+  maxYear,
 }: YearSelectorProps) => {
   const blockContainerRef = useRef<HTMLDivElement | null>(null);
 
@@ -51,14 +50,20 @@ const YearSelector = ({
     >
       {yearsListToDisplay.map((year) => {
         const isSelected = year === selectedYear;
-        const isDisabled = year > FINAL_YEAR_OF_CALENDAR; // later handle min and max logic also
+        const isDisabled = year < minYear || year > maxYear;
 
         return (
-          <div key={year} onClick={() => handleYearChange(year)}>
+          <div
+            key={year}
+            onClick={() => !isDisabled && handleYearChange(year)}
+            className={
+              isDisabled ? "date-picker-selector-block-disabled" : undefined
+            }
+          >
             <div
-              className={`${
+              className={
                 isSelected ? "date-picker-selector-block-selected" : undefined
-              } ${isDisabled ? "date-picker-selector-block-disabled" : ""}`}
+              }
             >
               {year}
             </div>

@@ -35,8 +35,14 @@ export type YearSelectorProps = {
   setSelectedYear: React.Dispatch<React.SetStateAction<number>>;
   setActiveSelector: React.Dispatch<React.SetStateAction<"year" | "month">>;
   handleStartYearChange: (deltaY: number) => void;
+
+  minYear: number;
+  maxYear: number;
 };
 
 export type MonthSelectorProps = {
   handleMonthChange: (month: number) => void;
+
+  minMonth: number;
+  maxMonth: number;
 };
