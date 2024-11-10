@@ -1,10 +1,10 @@
 import { useEffect, useRef } from "react";
 
-import { YEARS_LIST } from "../../../../constants/calendar";
 import { YearSelectorProps } from "../../../../types/Calendar";
-
-const initialYearOfCalendar = YEARS_LIST[0].year;
-const finalYearOfCalendar = YEARS_LIST[YEARS_LIST.length - 1].year;
+import {
+  FINAL_YEAR_OF_CALENDAR,
+  INITIAL_YEAR_OF_CALENDAR,
+} from "../../../../constants/calendar";
 
 const YearSelector = ({
   startYear,
@@ -41,7 +41,7 @@ const YearSelector = ({
 
   // display only 12 years based on active start year in the selector
   const yearsListToDisplay = Array.from({ length: 12 }).map(
-    (_, index) => initialYearOfCalendar + index + startYear
+    (_, index) => INITIAL_YEAR_OF_CALENDAR + index + startYear
   );
 
   return (
@@ -51,7 +51,7 @@ const YearSelector = ({
     >
       {yearsListToDisplay.map((year) => {
         const isSelected = year === selectedYear;
-        const isDisabled = year > finalYearOfCalendar; // later handle min and max logic also
+        const isDisabled = year > FINAL_YEAR_OF_CALENDAR; // later handle min and max logic also
 
         return (
           <div key={year} onClick={() => handleYearChange(year)}>

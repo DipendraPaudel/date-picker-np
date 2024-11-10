@@ -1,4 +1,4 @@
-export const YEARS_LIST = Array.from({ length: 2100 - 2000 + 1 }, (_, i) => ({
+export const YEARS_LIST = Array.from({ length: 2099 - 2000 + 1 }, (_, i) => ({
   year: 2000 + i,
   index: i,
 }));
@@ -27,3 +27,6 @@ export const DAYS_OF_WEEK = [
   { name: "Friday", shortName: "Fri", week_position: 6 },
   { name: "Saturday", shortName: "Sat", week_position: 7 },
 ];
+
+export const INITIAL_YEAR_OF_CALENDAR = YEARS_LIST[0].year;
+export const FINAL_YEAR_OF_CALENDAR = YEARS_LIST[YEARS_LIST.length - 1].year;

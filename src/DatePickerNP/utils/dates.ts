@@ -141,7 +141,7 @@ export const getTodayBSDate = () => {
   return "hello";
 };
 
-// helper function to detect if first date is greater than or equal to min date
+// helper function to detect if given date is greater than or equal to min date
 // to disable dates which are less than min dates
 export const isGreaterThanOrEqualToMinDate = (
   date: string,
@@ -157,7 +157,7 @@ export const isGreaterThanOrEqualToMinDate = (
   } else return +year1 >= +year2;
 };
 
-// helper function to detect if first date is greater than or equal to min date
+// helper function to detect if given date is greater than or equal to min date
 // to disable dates which are greater than max dates
 export const isLessThanOrEqualToMaxDate = (date: string, maxDate: string) => {
   const { year: year1, month: month1, day: day1 } = extractDateData(date);

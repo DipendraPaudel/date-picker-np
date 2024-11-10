@@ -7,7 +7,6 @@ export type ArrowIconProps = {
 export type SelectorProps = {
   year: number;
   handleChange: (value: string) => void;
-  headerDisplayText: string;
   setIsDropdownOpen: React.Dispatch<React.SetStateAction<boolean>>;
 
   min?: string;

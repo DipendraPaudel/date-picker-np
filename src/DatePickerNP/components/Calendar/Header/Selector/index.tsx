@@ -1,22 +1,17 @@
 import { useEffect, useState } from "react";
 
-import { YEARS_LIST } from "../../../../constants/calendar";
 import { SelectorProps } from "../../../../types/Calendar";
 import { ArrowLeftIcon, ArrowRightIcon } from "../../../Icons/Arrow";
 import YearSelector from "./YearSelector";
 import MonthSelector from "./MonthSelector";
+import {
+  FINAL_YEAR_OF_CALENDAR,
+  INITIAL_YEAR_OF_CALENDAR,
+} from "../../../../constants/calendar";
 
-const initialYearOfCalendar = YEARS_LIST[0].year;
-const finalYearOfCalendar = YEARS_LIST[YEARS_LIST.length - 1].year;
-
-const Selector = ({
-  year,
-  headerDisplayText,
-  handleChange,
-  setIsDropdownOpen,
-}: SelectorProps) => {
+const Selector = ({ year, handleChange, setIsDropdownOpen }: SelectorProps) => {
   const [startYear, setStartYear] = useState(
-    Math.floor((year - initialYearOfCalendar) / 12) * 12
+    Math.floor((year - INITIAL_YEAR_OF_CALENDAR) / 12) * 12
   );
 
   // to detect whether to display year selector or month selector
@@ -32,11 +27,11 @@ const Selector = ({
     setStartYear((startYear) => {
       const changeYear = startYear + (deltaY > 0 ? 12 : -12);
 
-      const actualYear = changeYear + initialYearOfCalendar;
+      const actualYear = changeYear + INITIAL_YEAR_OF_CALENDAR;
 
       if (
-        actualYear < initialYearOfCalendar ||
-        actualYear > finalYearOfCalendar
+        actualYear < INITIAL_YEAR_OF_CALENDAR ||
+        actualYear > FINAL_YEAR_OF_CALENDAR
       )
         return startYear;
 
@@ -72,8 +67,13 @@ const Selector = ({
           <ArrowLeftIcon />
         </div>
 
-        <div className="date-picker-calendar-header-dropdown-text">
-          {headerDisplayText}
+        <div
+          className="date-picker-calendar-header-dropdown-text"
+          onClick={() => setIsDropdownOpen(false)}
+        >
+          {`${startYear + INITIAL_YEAR_OF_CALENDAR} - ${
+            startYear + 11 + INITIAL_YEAR_OF_CALENDAR
+          }`}
         </div>
 
         <div

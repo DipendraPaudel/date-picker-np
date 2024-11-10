@@ -24,6 +24,10 @@
   width: 30px;
   height: 30px;
 }
+.date-picker-calendar-header-arrow.date-picker-calendar-header-arrow-disabled {
+  opacity: 0.4;
+  cursor: default;
+}
 
 .date-picker-calendar-header-dropdown-text {
   border: 1px solid gray;
