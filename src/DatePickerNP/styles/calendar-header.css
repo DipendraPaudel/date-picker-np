@@ -30,55 +30,57 @@
   padding: 4px 10px;
   cursor: pointer;
 }
-.date-picker-calendar-header-dropdown {
+.date-picker-selector-container {
   position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 10px;
-  justify-content: center;
-  align-items: center;
-  height: calc(100% - 50px);
-  background: white;
-  width: 100%;
   bottom: 0;
-  z-index: 10;
-}
-
-.date-picker-dropdown {
+  left: 0;
+  z-index: 1;
   display: flex;
   flex-direction: column;
-  width: 90px;
-  /* height: calc(100% + 2px); */
-  border: 1px solid rgb(201, 201, 201);
+  width: 100%;
+  height: 100%;
+  background: white;
+  padding: 4px 8px 10px;
 }
-.date-picker-dropdown .dropdown-option {
-  min-height: 40px;
-  padding: 0 4px;
-  line-height: 40px;
-  text-align: center;
-  background: rgb(243, 243, 243);
-  cursor: pointer;
+
+.date-picker-selector-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 50px;
+  flex-shrink: 0;
 }
-.date-picker-dropdown .dropdown-option:last-child {
-  border-bottom: none;
+.date-picker-selector-block-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  overflow: auto;
+  flex: 1;
 }
-.date-picker-dropdown .dropdown-option.dropdown-active {
-  background: rgb(201, 201, 201);
-}
-.date-picker-dropdown-arrow {
-  height: 40px;
+.date-picker-selector-block-container > div {
   display: grid;
   place-items: center;
   cursor: pointer;
 }
-.date-picker-dropdown-top-arrow {
-  border-bottom: 1px solid rgb(201, 201, 201);
+.date-picker-selector-block-container > div > div {
+  padding: 10px 16px;
 }
-.date-picker-dropdown-bottom-arrow {
-  border-top: 1px solid rgb(201, 201, 201);
+.date-picker-selector-block-container
+  > div
+  > div.date-picker-selector-block-selected {
+  color: white;
+  background: rgb(2, 118, 156);
 }
-.date-picker-dropdown-arrow.date-picker-dropdown-arrow-disabled {
+.date-picker-selector-block-container
+  > div
+  > div.date-picker-selector-block-disabled {
   opacity: 0.4;
-  cursor: not-allowed;
+  cursor: default;
+}
+.date-picker-selector-block-container
+  > div:hover
+  > div:not(
+    .date-picker-selector-block-selected,
+    .date-picker-selector-block-disabled
+  ) {
+  background: rgb(226, 226, 226);
 }

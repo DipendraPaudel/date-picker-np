@@ -1,10 +1,14 @@
+import React from "react";
+
 export type ArrowIconProps = {
   onClick?: () => void;
 };
 
-export type DropdownProps = {
-  value: number;
-  handleChange: (value: number) => void;
+export type SelectorProps = {
+  year: number;
+  handleChange: (value: string) => void;
+  headerDisplayText: string;
+  setIsDropdownOpen: React.Dispatch<React.SetStateAction<boolean>>;
 
   min?: string;
   max?: string;
@@ -18,19 +22,22 @@ export type CalendarHeaderProps = {
   max?: string;
 };
 
-export type YearMonthDropdownProps = {
-  handleChange: (value: number, type: string) => void;
-  month: number;
-  year: number;
-
-  min?: string;
-  max?: string;
-};
-
 export type CalendarDatesProps = {
   date: string;
   handleChange: (day: number) => void;
 
   min?: string;
   max?: string;
+};
+
+export type YearSelectorProps = {
+  startYear: number;
+  selectedYear: number;
+  setSelectedYear: React.Dispatch<React.SetStateAction<number>>;
+  setActiveSelector: React.Dispatch<React.SetStateAction<"year" | "month">>;
+  handleStartYearChange: (deltaY: number) => void;
+};
+
+export type MonthSelectorProps = {
+  handleMonthChange: (month: number) => void;
 };

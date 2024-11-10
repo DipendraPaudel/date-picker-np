@@ -25,11 +25,13 @@ const DatePickerNP = ({
 
   const [isCalendarOpen, setIsCalendarOpen] = useState(false);
 
+  // function to change the date and close the calendar menu
   const handleDateChange = (date?: string) => {
     onChange(date);
     setIsCalendarOpen(false);
   };
 
+  // change the position of the calendar menu when browser is resized
   useLayoutEffect(() => {
     const handleResize = () => {
       setCoordinates({
