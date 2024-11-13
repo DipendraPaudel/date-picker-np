@@ -7,7 +7,7 @@
 
 .date-picker-container {
   font-family: sans-serif;
-  font-size: 14px;
+  font-size: 13px;
   user-select: none;
   color: rgb(14, 14, 14);
 }
@@ -18,9 +18,16 @@
   border-radius: 4px;
   width: 100%;
   min-width: 200px;
+  min-height: 32px;
   cursor: pointer;
-  padding: 10px;
+  padding: 0 10px;
+  display: flex;
+  align-items: center;
 }
 .date-picker-input:focus {
   outline: none;
+}
+.date-picker-input-disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }

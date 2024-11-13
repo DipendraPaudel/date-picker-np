@@ -23,17 +23,16 @@
   > div:not(
     .prev-month-days,
     .next-month-days,
-    .date-picker-date-disabled
+    .date-picker-date-disabled,
+    .date-picker-selected-date
   ):hover {
-  background: lightgray;
+  background: rgb(218, 218, 218);
 }
 
 /* For today date */
-.date-picker-dates-container .date-picker-today-date {
-  background: rgb(230, 230, 230);
-}
-.date-picker-dates-container > .date-picker-today-date:hover {
-  background: rgb(230, 230, 230);
+.date-picker-dates-container .date-picker-selected-date {
+  background: rgb(0, 133, 177);
+  color: white;
 }
 
 .date-picker-dates-container > .date-picker-date-disabled {

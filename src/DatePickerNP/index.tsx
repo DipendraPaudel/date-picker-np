@@ -12,7 +12,7 @@ import "./styles/calendar-footer.css";
 const DatePickerNP = ({
   value,
   onChange,
-  inputHeight = 40,
+  inputHeight = 36,
   min,
   max,
   disabled,
@@ -54,6 +54,7 @@ const DatePickerNP = ({
           height: inputHeight,
         }}
         value={value}
+        disabled={disabled}
       />
 
       {!disabled && isCalendarOpen && (

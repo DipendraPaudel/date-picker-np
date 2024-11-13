@@ -29,7 +29,7 @@ const CalendarDates = ({
   const numberOfDays = getNumberOfDaysInMonth(date);
   const numberOfDaysInPreviousMonth = getNumberOfDaysInPreviousMonth(date);
 
-  const { year, month, day: todayDate } = extractDateData(date);
+  const { year, month, day: selectedDate } = extractDateData(date);
 
   const startingWeekDay = NEPALI_DATES.find((data) => data.year === +year)
     ?.startWeek[+month - 1] as number;
@@ -92,7 +92,7 @@ const CalendarDates = ({
             <div
               key={index}
               className={`${
-                day === +todayDate ? "date-picker-today-date" : ""
+                day === +selectedDate ? "date-picker-selected-date" : ""
               } ${isDateDisabled ? "date-picker-date-disabled" : ""}`}
               onClick={() => !isDateDisabled && handleChange(day)}
             >
