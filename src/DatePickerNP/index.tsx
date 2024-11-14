@@ -3,6 +3,7 @@ import { useLayoutEffect, useRef, useState } from "react";
 import DatePickerInput from "./components/DatePickerInput";
 import DatePickerCalendar from "./components/Calendar";
 import { DatePickerNPProps } from "./types/DatePickerNP";
+import { DEFAULT_INPUT_HEIGHT } from "./constants/calendar";
 
 import "./styles/index.css";
 import "./styles/calendar-dates.css";
@@ -12,10 +13,12 @@ import "./styles/calendar-footer.css";
 const DatePickerNP = ({
   value,
   onChange,
-  inputHeight = 36,
   min,
   max,
   disabled,
+  placeholder,
+  inputElement,
+  inputContainerStyles = {},
 }: DatePickerNPProps) => {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const [coordinates, setCoordinates] = useState({
@@ -46,21 +49,27 @@ const DatePickerNP = ({
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  const inputContainerHeight =
+    inputContainerStyles?.height || DEFAULT_INPUT_HEIGHT;
+
   return (
     <div className="date-picker-container" ref={containerRef}>
       <DatePickerInput
-        toggleCalendar={() => setIsCalendarOpen(!isCalendarOpen)}
-        inputStyles={{
-          height: inputHeight,
+        toggleCalendar={() => setIsCalendarOpen((prevState) => !prevState)}
+        inputContainerStyles={{
+          ...inputContainerStyles,
+          height: inputContainerHeight,
         }}
         value={value}
         disabled={disabled}
+        placeholder={placeholder}
+        inputElement={inputElement}
       />
 
       {!disabled && isCalendarOpen && (
         <DatePickerCalendar
           calendarStyles={{
-            top: coordinates.y + inputHeight,
+            top: coordinates.y + inputContainerHeight,
             left: coordinates.x,
             zIndex: 1000000,
           }}
