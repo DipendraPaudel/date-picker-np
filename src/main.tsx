@@ -11,7 +11,6 @@ const App = () => {
       value={date}
       onChange={(date?: string) => setDate(date as string)}
       placeholder="Select date of birth"
-      inputContainerStyles={{}}
     />
   );
 };

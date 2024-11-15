@@ -8,7 +8,6 @@ export type InputStyles = Pick<
 };
 
 export type DatePickerInputProps = {
-  value?: string;
   onChange: (date?: string) => void;
   inputContainerStyles?: InputStyles;
   setIsCalendarOpen: React.Dispatch<React.SetStateAction<boolean>>;

@@ -10,6 +10,7 @@
   font-size: 13px;
   user-select: none;
   color: rgb(14, 14, 14);
+  width: fit-content;
 }
 
 /* input styles */
@@ -18,7 +19,7 @@
   border-radius: 4px;
   width: 100%;
   min-width: 200px;
-  min-height: 32px;
+  min-height: 28px;
   cursor: pointer;
   padding: 0 10px;
   display: flex;
