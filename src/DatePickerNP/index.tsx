@@ -55,7 +55,7 @@ const DatePickerNP = ({
   return (
     <div className="date-picker-container" ref={containerRef}>
       <DatePickerInput
-        toggleCalendar={() => setIsCalendarOpen((prevState) => !prevState)}
+        setIsCalendarOpen={setIsCalendarOpen}
         inputContainerStyles={{
           ...inputContainerStyles,
           height: inputContainerHeight,
@@ -64,6 +64,7 @@ const DatePickerNP = ({
         disabled={disabled}
         placeholder={placeholder}
         inputElement={inputElement}
+        onChange={handleDateChange}
       />
 
       {!disabled && isCalendarOpen && (

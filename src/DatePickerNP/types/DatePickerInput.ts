@@ -9,8 +9,9 @@ export type InputStyles = Pick<
 
 export type DatePickerInputProps = {
   value?: string;
+  onChange: (date?: string) => void;
   inputContainerStyles?: InputStyles;
-  toggleCalendar: () => void;
+  setIsCalendarOpen: React.Dispatch<React.SetStateAction<boolean>>;
   disabled?: boolean;
   placeholder?: string;
   inputElement?: React.ReactNode;
