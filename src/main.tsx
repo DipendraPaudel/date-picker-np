@@ -4,21 +4,25 @@ import ReactDOM from "react-dom/client";
 import DatePickerNP from "./DatePickerNP";
 
 const App = () => {
-  const [date, setDate] = useState("");
+  const [selectedDate, setSelectedDate] = useState("");
 
   return (
     <DatePickerNP
-      value={date}
-      onChange={(date?: string) => setDate(date as string)}
-      placeholder="Select date of birth"
+      value={selectedDate}
+      onChange={(date) => setSelectedDate(date || "")}
+      placeholder="Select Nepali Date"
+      inputContainerStyles={{
+        padding: "8px",
+        background: "white",
+        border: "1px solid #ccc",
+        height: 40, // Default height
+      }}
     />
   );
 };
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <input type="text" placeholder="Name" />
-    <input type="text" placeholder="Email" />
     <App />
   </React.StrictMode>
 );

@@ -28,23 +28,20 @@ const App = () => {
   const [selectedDate, setSelectedDate] = useState("");
 
   return (
-    <div>
-      <DatePickerNp
-        value={selectedDate}
-        onChange={(date) => setSelectedDate(date || "")}
-        placeholder="Select Nepali Date"
-        min="2075-01-01"
-        max="2090-12-30"
-        inputContainerStyles={{
-          padding: "8px",
-          background: "#f7f7f7",
-          width: "200px",
-          border: "1px solid #ccc",
-          height: 40, // Default height
-        }}
-      />
-      <p>Selected Date: {selectedDate}</p>
-    </div>
+    <DatePickerNP
+      value={selectedDate}
+      onChange={(date) => setSelectedDate(date || "")}
+      placeholder="Select Nepali Date"
+      min="2075-01-01"
+      max="2090-12-30"
+      inputContainerStyles={{
+        padding: "8px",
+        background: "#f7f7f7",
+        width: "200px",
+        border: "1px solid #ccc",
+        height: 40, // Default height
+      }}
+    />
   );
 };
 

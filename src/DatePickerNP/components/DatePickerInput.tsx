@@ -33,6 +33,10 @@ const DatePickerInput = forwardRef<HTMLInputElement, DatePickerInputProps>(
           onChange(inputElement.value);
           setIsCalendarOpen(false);
           inputElement.blur();
+        } else if (event.key === "Tab") {
+          // when tab is pressed input element is blurred then close the calendar menu
+          onChange(inputElement.value);
+          setIsCalendarOpen(false);
         }
       };
 
@@ -62,7 +66,6 @@ const DatePickerInput = forwardRef<HTMLInputElement, DatePickerInputProps>(
         ) : (
           <input
             ref={ref}
-            tabIndex={0}
             type="text"
             placeholder={placeholder ?? "Select Date"}
             className={`date-picker-input ${
