@@ -23,7 +23,6 @@ const DatePickerInput = forwardRef<HTMLInputElement, DatePickerInputProps>(
 
       // open calendar menu when input element is focused
       const handleInputFocus = () => {
-        console.log("hello");
         setIsCalendarOpen(true);
         inputElement.setSelectionRange(10, 10); // to point the cursor at the end of the date value
       };
