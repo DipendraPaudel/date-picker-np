@@ -1,30 +1,90 @@
-# React + TypeScript + Vite
+# date-picker-np
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A lightweight and customizable Nepali Date Picker component for React, enabling users to select dates using the Nepali calendar. This component behaves similarly to the native HTML `<input type="date">`, making it easy to integrate into your React applications with full support for Nepali dates. It uses only CSS and core Javascript logic, with no external dependencies.
 
-Currently, two official plugins are available:
+## Installation
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Install the package using npm:
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+```bash
+npm install date-picker-np
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+or using yarn:
+
+```bash
+yarn add date-picker-np
+```
+
+## Usage
+
+Here's a basic example of how to use the date-picker-np in your React project:
+
+```jsx
+import React, { useState } from "react";
+import DatePickerNp from "date-picker-np";
+
+const App = () => {
+  const [selectedDate, setSelectedDate] = useState("");
+
+  return (
+    <div>
+      <DatePickerNp
+        value={selectedDate}
+        onChange={(date) => setSelectedDate(date || "")}
+        placeholder="Select Nepali Date"
+        min="2075-01-01"
+        max="2090-12-30"
+        inputContainerStyles={{
+          padding: "8px",
+          background: "#f7f7f7",
+          width: "200px",
+          border: "1px solid #ccc",
+          height: 40, // Default height
+        }}
+      />
+      <p>Selected Date: {selectedDate}</p>
+    </div>
+  );
+};
+
+export default App;
+```
+
+### Default Input Height and Minimum Height
+
+- The default height of the input is 40px.
+- The minimum height of the input is 28px.
+
+## Props
+
+| Prop                   | Type                      | Description                                                                                          | Required |
+| ---------------------- | ------------------------- | ---------------------------------------------------------------------------------------------------- | -------- | --- |
+| `value`                | `string`                  | The current date value in `YYYY-MM-DD` format.                                                       | Optional |
+| `onChange`             | `(date?: string) => void` | Callback function triggered when the date changes. Returns the selected date in `YYYY-MM-DD` format. | Required |
+| `disabled`             | `boolean`                 | Disables the date picker input if set to `true`.                                                     | Optional |
+| `placeholder`          | `string`                  | Placeholder text for the input field.                                                                | Optional |
+| `min`                  | `string`                  | Minimum selectable date (in `YYYY-MM-DD` format).                                                    | Optional |
+| `max`                  | `string`                  | Maximum selectable date (in `YYYY-MM-DD` format).                                                    | Optional |
+| `inputElement`         | `React.ReactNode`         | Custom React node to render as the input field.                                                      | Optional |
+| `inputContainerStyles` | `InputStyles`             | Custom styles for the input container (see details below).                                           | Optional |     |
+
+### InputStyles
+
+The `inputContainerStyles` prop accepts the following properties:
+
+- **padding**: Sets the padding inside the input field.
+- **background**: Defines the background color of the input.
+- **width**: Specifies the width of the input field.
+- **border**: Sets the border style of the input.
+- **height**: Ensures proper positioning of the calendar dropdown. Must be a number.
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
+
+## Support
+
+If you have any questions, issues, or feature requests, please open an issue in the [GitHub repository](https://github.com/DipendraPaudel/date-picker-np).
+
+---
