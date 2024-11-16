@@ -2,12 +2,17 @@ import { MONTHS_IN_WORDS } from "../../../../constants/calendar";
 import { MonthSelectorProps } from "../../../../types/Calendar";
 
 const MonthSelector = ({
+  isActive,
   handleMonthChange,
   minMonth,
   maxMonth,
 }: MonthSelectorProps) => {
   return (
-    <div className="date-picker-selector-block-container">
+    <div
+      className={`date-picker-selector-block-container ${
+        !isActive ? "date-picker-selector-block-container-hidden" : ""
+      }`}
+    >
       {MONTHS_IN_WORDS.map(({ name_en, month_position }) => {
         const isDisabled =
           month_position < minMonth || month_position > maxMonth;

@@ -30,6 +30,7 @@ export type CalendarDatesProps = {
 };
 
 export type YearSelectorProps = {
+  isActive: boolean;
   startYear: number;
   selectedYear: number;
   setSelectedYear: React.Dispatch<React.SetStateAction<number>>;
@@ -41,6 +42,7 @@ export type YearSelectorProps = {
 };
 
 export type MonthSelectorProps = {
+  isActive: boolean;
   handleMonthChange: (month: number) => void;
 
   minMonth: number;

@@ -4,6 +4,7 @@ import { YearSelectorProps } from "../../../../types/Calendar";
 import { INITIAL_YEAR_OF_CALENDAR } from "../../../../constants/calendar";
 
 const YearSelector = ({
+  isActive,
   startYear,
   selectedYear,
   setSelectedYear,
@@ -46,7 +47,9 @@ const YearSelector = ({
   return (
     <div
       ref={blockContainerRef}
-      className="date-picker-selector-block-container"
+      className={`date-picker-selector-block-container ${
+        !isActive ? "date-picker-selector-block-container-hidden" : ""
+      }`}
     >
       {yearsListToDisplay.map((year) => {
         const isSelected = year === selectedYear;

@@ -53,8 +53,10 @@ const Selector = ({
     if (selectedYear === +year) maxMonth = +month;
   }
 
-  const isPrevArrowDisabled = actualStartYear <= minYear;
-  const isNextArrowDisabled = actualEndYear >= maxYear;
+  const isPrevArrowDisabled =
+    actualStartYear <= minYear || activeSelector === "month";
+  const isNextArrowDisabled =
+    actualEndYear >= maxYear || activeSelector === "month";
 
   // function to handle years selector options to be displayed on negative and positive units
   const handleStartYearChange = (deltaY: number) => {
@@ -83,7 +85,7 @@ const Selector = ({
   // function to handle month change and close the selector
   const handleMonthChange = (month: number) => {
     handleChange(`${selectedYear}-${month.toString().padStart(2, "0")}-dd`);
-    setIsDropdownOpen(false);
+    setTimeout(() => setIsDropdownOpen(false)); // settimeout is used because the click event is trigger after this and could not find the element which is resulting in the close of the entire calendar
   };
 
   // close the selector when 'Escape' key is clicked
@@ -138,25 +140,23 @@ const Selector = ({
         </div>
       </div>
 
-      {activeSelector === "year" && (
-        <YearSelector
-          selectedYear={selectedYear}
-          startYear={startYear}
-          setSelectedYear={setSelectedYear}
-          setActiveSelector={setActiveSelector}
-          handleStartYearChange={handleStartYearChange}
-          minYear={minYear}
-          maxYear={maxYear}
-        />
-      )}
+      <YearSelector
+        isActive={activeSelector === "year"}
+        selectedYear={selectedYear}
+        startYear={startYear}
+        setSelectedYear={setSelectedYear}
+        setActiveSelector={setActiveSelector}
+        handleStartYearChange={handleStartYearChange}
+        minYear={minYear}
+        maxYear={maxYear}
+      />
 
-      {activeSelector === "month" && (
-        <MonthSelector
-          handleMonthChange={handleMonthChange}
-          minMonth={minMonth}
-          maxMonth={maxMonth}
-        />
-      )}
+      <MonthSelector
+        isActive={activeSelector === "month"}
+        handleMonthChange={handleMonthChange}
+        minMonth={minMonth}
+        maxMonth={maxMonth}
+      />
     </div>
   );
 };

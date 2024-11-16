@@ -74,6 +74,12 @@
   color: white;
   background: rgb(2, 118, 156);
 }
+
+/* hide the container if not active */
+.date-picker-selector-block-container.date-picker-selector-block-container-hidden {
+  display: none;
+}
+
 .date-picker-selector-block-container
   > div.date-picker-selector-block-disabled {
   opacity: 0.4;
