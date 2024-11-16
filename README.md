@@ -59,7 +59,7 @@ export default App;
 ## Props
 
 | Prop                   | Type                      | Description                                                                                          | Required |
-| ---------------------- | ------------------------- | ---------------------------------------------------------------------------------------------------- | -------- | --- |
+| ---------------------- | ------------------------- | ---------------------------------------------------------------------------------------------------- | -------- |
 | `value`                | `string`                  | The current date value in `YYYY-MM-DD` format.                                                       | Optional |
 | `onChange`             | `(date?: string) => void` | Callback function triggered when the date changes. Returns the selected date in `YYYY-MM-DD` format. | Required |
 | `disabled`             | `boolean`                 | Disables the date picker input if set to `true`.                                                     | Optional |
@@ -67,7 +67,7 @@ export default App;
 | `min`                  | `string`                  | Minimum selectable date (in `YYYY-MM-DD` format).                                                    | Optional |
 | `max`                  | `string`                  | Maximum selectable date (in `YYYY-MM-DD` format).                                                    | Optional |
 | `inputElement`         | `React.ReactNode`         | Custom React node to render as the input field.                                                      | Optional |
-| `inputContainerStyles` | `InputStyles`             | Custom styles for the input container (see details below).                                           | Optional |     |
+| `inputContainerStyles` | `InputStyles`             | Custom styles for the input container (see details below).                                           | Optional |
 
 ### InputStyles
 
