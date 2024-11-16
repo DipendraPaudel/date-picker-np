@@ -10,7 +10,7 @@ const DatePickerInput = forwardRef<HTMLInputElement, DatePickerInputProps>(
       setIsCalendarOpen,
       disabled,
       placeholder,
-      inputElement,
+      inputElement: passedInputElement,
     },
     ref
   ) => {
@@ -23,6 +23,7 @@ const DatePickerInput = forwardRef<HTMLInputElement, DatePickerInputProps>(
 
       // open calendar menu when input element is focused
       const handleInputFocus = () => {
+        console.log("hello");
         setIsCalendarOpen(true);
         inputElement.setSelectionRange(10, 10); // to point the cursor at the end of the date value
       };
@@ -37,13 +38,17 @@ const DatePickerInput = forwardRef<HTMLInputElement, DatePickerInputProps>(
       };
 
       inputElement.addEventListener("focus", handleInputFocus);
-      inputElement.addEventListener("click", handleInputFocus);
       inputElement.addEventListener("keydown", handleKeyDown);
+
+      passedInputElement &&
+        inputElement.addEventListener("click", handleInputFocus); // only capture "click" event if element is passed from props
 
       return () => {
         inputElement.removeEventListener("focus", handleInputFocus);
-        inputElement.removeEventListener("click", handleInputFocus);
         inputElement.removeEventListener("keydown", handleKeyDown);
+
+        passedInputElement &&
+          inputElement.removeEventListener("click", handleInputFocus);
       };
 
       // eslint-disable-next-line
@@ -53,8 +58,8 @@ const DatePickerInput = forwardRef<HTMLInputElement, DatePickerInputProps>(
 
     return (
       <>
-        {inputElement ? (
-          <div ref={ref}>{inputElement}</div>
+        {passedInputElement ? (
+          <div ref={ref}>{passedInputElement}</div>
         ) : (
           <input
             ref={ref}
