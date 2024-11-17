@@ -8,7 +8,7 @@ import {
   extractDateData,
   getTodayBSDate,
   isValidNepaliDate,
-} from "../../utils/dates";
+} from "../../utils";
 
 const DatePickerCalendar = ({
   value = "yyyy-mm-dd",

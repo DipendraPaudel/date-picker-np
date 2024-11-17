@@ -8,7 +8,7 @@ import {
   FINAL_YEAR_OF_CALENDAR,
   INITIAL_YEAR_OF_CALENDAR,
 } from "../../../../constants/calendar";
-import { extractDateData, isValidNepaliDate } from "../../../../utils/dates";
+import { extractDateData, isValidNepaliDate } from "../../../../utils";
 
 const Selector = ({
   year,

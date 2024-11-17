@@ -1,7 +1,6 @@
 import { useState } from "react";
 
 import { ArrowLeftIcon, ArrowRightIcon } from "../../Icons/Arrow";
-import { getFormattedDate } from "../../../utils/calendar";
 import { CalendarHeaderProps } from "../../../types/Calendar";
 import {
   FINAL_YEAR_OF_CALENDAR,
@@ -9,12 +8,13 @@ import {
   MONTHS_IN_WORDS,
 } from "../../../constants/calendar";
 import {
+  getFormattedDate,
   getNextMonth,
   getPreviousMonth,
   isGreaterThanOrEqualToMinDate,
   isLessThanOrEqualToMaxDate,
   isValidNepaliDate,
-} from "../../../utils/dates";
+} from "../../../utils";
 import Selector from "./Selector";
 
 const CalendarHeader = ({

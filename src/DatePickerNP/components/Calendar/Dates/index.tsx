@@ -8,7 +8,7 @@ import {
   isGreaterThanOrEqualToMinDate,
   isLessThanOrEqualToMaxDate,
   isValidNepaliDate,
-} from "../../../utils/dates";
+} from "../../../utils";
 
 const Weeks = () => {
   return (

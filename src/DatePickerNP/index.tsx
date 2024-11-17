@@ -3,15 +3,18 @@ import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import DatePickerInput from "./components/DatePickerInput";
 import DatePickerCalendar from "./components/Calendar";
 import { DatePickerNPProps } from "./types/DatePickerNP";
-import { DEFAULT_INPUT_HEIGHT } from "./constants/calendar";
-import { formatDate } from "./utils/formatter";
-import { clickEvent } from "./utils/event";
+import { CALENDAR_HEIGHT, DEFAULT_INPUT_HEIGHT } from "./constants/calendar";
+import {
+  calculateCalendarPosition,
+  clickEvent,
+  formatDate,
+  isValidNepaliDate,
+} from "./utils";
 
 import "./styles/index.css";
 import "./styles/calendar-dates.css";
 import "./styles/calendar-header.css";
 import "./styles/calendar-footer.css";
-import { isValidNepaliDate } from "./utils/dates";
 
 const DatePickerNP = ({
   value,
@@ -46,10 +49,11 @@ const DatePickerNP = ({
   // change the position of the calendar menu when browser is resized
   useLayoutEffect(() => {
     const handleResize = () => {
-      setCoordinates({
-        x: containerRef?.current?.getBoundingClientRect().x as number,
-        y: containerRef?.current?.getBoundingClientRect().y as number,
-      });
+      const { x, y } = calculateCalendarPosition(
+        containerRef?.current as HTMLDivElement
+      );
+
+      setCoordinates({ x, y });
     };
 
     handleResize();
@@ -110,7 +114,7 @@ const DatePickerNP = ({
       {!disabled && isCalendarOpen && (
         <DatePickerCalendar
           calendarStyles={{
-            top: coordinates.y + inputContainerHeight,
+            top: coordinates.y > 0 ? inputContainerHeight : -CALENDAR_HEIGHT,
             left: coordinates.x,
             zIndex: 1000000,
           }}

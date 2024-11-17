@@ -14,7 +14,7 @@ const App = () => {
       inputContainerStyles={{
         padding: "8px",
         background: "white",
-        border: "1px solid #ccc",
+        border: "1px solid #bbb",
         height: 40, // Default height
       }}
     />

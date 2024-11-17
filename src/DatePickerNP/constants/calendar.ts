@@ -32,3 +32,5 @@ export const INITIAL_YEAR_OF_CALENDAR = YEARS_LIST[0].year;
 export const FINAL_YEAR_OF_CALENDAR = YEARS_LIST[YEARS_LIST.length - 1].year;
 
 export const DEFAULT_INPUT_HEIGHT = 40;
+export const CALENDAR_WIDTH = 260;
+export const CALENDAR_HEIGHT = 338;
