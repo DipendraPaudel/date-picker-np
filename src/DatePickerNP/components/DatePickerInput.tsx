@@ -23,7 +23,7 @@ const DatePickerInput = forwardRef<HTMLInputElement, DatePickerInputProps>(
 
       // open calendar menu when input element is focused
       const handleInputFocus = () => {
-        setIsCalendarOpen(true);
+        setTimeout(() => setIsCalendarOpen(true), 300); // calendar menu is taking little time while closing. so to match the exact timing settimeout is being used
         inputElement.setSelectionRange(10, 10); // to point the cursor at the end of the date value
       };
 
@@ -73,9 +73,7 @@ const DatePickerInput = forwardRef<HTMLInputElement, DatePickerInputProps>(
             }`}
             style={{
               ...inputContainerStyles,
-              lineHeight: inputHeight
-                ? `${inputContainerStyles.height}px`
-                : undefined,
+              lineHeight: inputHeight ? `${inputHeight}px` : undefined,
             }}
             disabled={disabled}
           />
