@@ -38,11 +38,6 @@ const App = () => {
 export default App;
 ```
 
-### Default Input Height and Minimum Height
-
-- The default height of the input is 40px.
-- The minimum height of the input is 28px.
-
 ## Props
 
 | Prop                   | Type                      | Description                                                                                          | Required |
@@ -69,6 +64,11 @@ The `inputContainerStyles` prop accepts the following properties:
 - **padding**: Sets the padding inside the input field.
 - **background**: Defines the background color of the input.
 - **lineHeight**: Sets the lineHeight of text inside the input field.
+
+### Default Input Height and Minimum Height
+
+- The default height of the input is 40px.
+- The minimum height of the input is 28px.
 
 ## Supported Date Range
 
