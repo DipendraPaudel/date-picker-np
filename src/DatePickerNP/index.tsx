@@ -9,6 +9,7 @@ import {
   clickEvent,
   formatDate,
   isValidNepaliDate,
+  liesInBetween,
 } from "./utils";
 
 import "./styles/index.css";
@@ -40,7 +41,9 @@ const DatePickerNP = ({
   const handleDateChange = (date?: string) => {
     const formattedDate = formatDate(date);
 
-    onChange(formattedDate);
+    onChange(
+      liesInBetween(formattedDate as string, min, max) ? formattedDate : ""
+    );
     setIsCalendarOpen(false);
 
     if (inputRef.current) inputRef.current.value = formattedDate ?? "";

@@ -8,6 +8,7 @@ import {
   extractDateData,
   getTodayBSDate,
   isValidNepaliDate,
+  liesInBetween,
 } from "../../utils";
 
 const DatePickerCalendar = ({
@@ -31,9 +32,27 @@ const DatePickerCalendar = ({
   };
 
   useLayoutEffect(() => {
-    setVirtualDate(
-      isValid ? value : max && isValidNepaliDate(max) ? max : getTodayBSDate()
-    );
+    const todayBSDate = getTodayBSDate();
+
+    /*
+      Display date priority 
+        --> passed value if valid
+        --> today bs date if lies in between min and max
+        --> min date if valid
+        --> max date if valid
+     */
+
+    const displayDate = isValid
+      ? value
+      : liesInBetween(todayBSDate, min, max)
+      ? todayBSDate
+      : min && isValidNepaliDate(min)
+      ? min
+      : max && isValidNepaliDate(max)
+      ? max
+      : todayBSDate;
+
+    setVirtualDate(displayDate);
 
     // eslint-disable-next-line
   }, [value]);
