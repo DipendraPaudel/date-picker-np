@@ -2,6 +2,7 @@ import { forwardRef, useEffect } from "react";
 
 import { DatePickerInputProps } from "../types/DatePickerInput";
 import { CalendarIcon } from "./Icons";
+import { DEFAULT_CALENDAR_ICON_COLOR } from "../constants/calendar";
 
 const DatePickerInput = forwardRef<HTMLInputElement, DatePickerInputProps>(
   (
@@ -12,6 +13,8 @@ const DatePickerInput = forwardRef<HTMLInputElement, DatePickerInputProps>(
       disabled,
       placeholder,
       inputElement: passedInputElement,
+      hasCalendarIcon = true,
+      calendarIcon,
     },
     ref
   ) => {
@@ -63,12 +66,7 @@ const DatePickerInput = forwardRef<HTMLInputElement, DatePickerInputProps>(
         {passedInputElement ? (
           <div ref={ref}>{passedInputElement}</div>
         ) : (
-          <div
-            className=""
-            style={{
-              position: "relative",
-            }}
-          >
+          <div className="date-picker-input-container">
             <input
               ref={ref}
               type="text"
@@ -82,9 +80,17 @@ const DatePickerInput = forwardRef<HTMLInputElement, DatePickerInputProps>(
               disabled={disabled}
             />
 
-            <div className="date-picker-input-right-icon">
-              <CalendarIcon />
-            </div>
+            {hasCalendarIcon && (
+              <div
+                className="date-picker-input-right-icon"
+                style={{
+                  color:
+                    inputContainerStyles?.color || DEFAULT_CALENDAR_ICON_COLOR,
+                }}
+              >
+                {calendarIcon ?? <CalendarIcon />}
+              </div>
+            )}
           </div>
         )}
       </>

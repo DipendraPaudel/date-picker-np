@@ -15,6 +15,10 @@
 }
 
 /* input styles */
+
+.date-picker-input-container {
+  position: relative;
+}
 .date-picker-input {
   border: 1px solid gray;
   border-radius: 4px;
@@ -34,8 +38,9 @@
   cursor: not-allowed;
 }
 .date-picker-input-right-icon {
+  display: flex;
   position: absolute;
-  right: 8;
+  right: 8px;
   top: 50%;
   transform: translateY(-50%);
   pointer-events: none;

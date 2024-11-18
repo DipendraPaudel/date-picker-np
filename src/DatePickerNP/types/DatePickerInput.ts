@@ -2,7 +2,7 @@ import React from "react";
 
 export type InputStyles = Pick<
   React.CSSProperties,
-  "padding" | "background" | "width" | "border" | "lineHeight"
+  "padding" | "background" | "width" | "border" | "lineHeight" | "color"
 > & {
   height?: number; // make sure height is number for the calculation of the calendar menu position
 };
@@ -14,4 +14,6 @@ export type DatePickerInputProps = {
   disabled?: boolean;
   placeholder?: string;
   inputElement?: React.ReactNode;
+  hasCalendarIcon?: boolean;
+  calendarIcon?: React.ReactNode;
 };
