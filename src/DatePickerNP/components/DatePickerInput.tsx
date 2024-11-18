@@ -7,6 +7,7 @@ import { DEFAULT_CALENDAR_ICON_COLOR } from "../constants/calendar";
 const DatePickerInput = forwardRef<HTMLInputElement, DatePickerInputProps>(
   (
     {
+      value,
       onChange,
       inputContainerStyles,
       setIsCalendarOpen,
@@ -79,6 +80,13 @@ const DatePickerInput = forwardRef<HTMLInputElement, DatePickerInputProps>(
                 ...inputContainerStyles,
               }}
               disabled={disabled}
+              // only control the field if it is disabled
+              {...(disabled
+                ? {
+                    value: value,
+                    onChange: () => {},
+                  }
+                : {})}
             />
 
             {hasCalendarIcon && (
@@ -86,6 +94,7 @@ const DatePickerInput = forwardRef<HTMLInputElement, DatePickerInputProps>(
                 className="date-picker-input-right-icon"
                 style={{
                   color: calendarColor || DEFAULT_CALENDAR_ICON_COLOR,
+                  opacity: disabled ? 0.5 : 1,
                 }}
               >
                 {calendarIcon ?? <CalendarIcon />}

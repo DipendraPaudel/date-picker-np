@@ -42,6 +42,8 @@ const DatePickerNP = ({
 
   // function to change the date and close the calendar menu
   const handleDateChange = (date?: string) => {
+    if (disabled) return;
+
     const formattedDate = formatDate(date);
 
     onChange(
@@ -106,6 +108,7 @@ const DatePickerNP = ({
     <div className="date-picker-container" ref={containerRef}>
       <DatePickerInput
         ref={inputRef}
+        value={value}
         onChange={handleDateChange}
         setIsCalendarOpen={setIsCalendarOpen}
         inputContainerStyles={{
