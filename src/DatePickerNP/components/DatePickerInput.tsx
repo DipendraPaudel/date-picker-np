@@ -15,6 +15,7 @@ const DatePickerInput = forwardRef<HTMLInputElement, DatePickerInputProps>(
       inputElement: passedInputElement,
       hasCalendarIcon = true,
       calendarIcon,
+      calendarColor,
     },
     ref
   ) => {
@@ -84,8 +85,7 @@ const DatePickerInput = forwardRef<HTMLInputElement, DatePickerInputProps>(
               <div
                 className="date-picker-input-right-icon"
                 style={{
-                  color:
-                    inputContainerStyles?.color || DEFAULT_CALENDAR_ICON_COLOR,
+                  color: calendarColor || DEFAULT_CALENDAR_ICON_COLOR,
                 }}
               >
                 {calendarIcon ?? <CalendarIcon />}

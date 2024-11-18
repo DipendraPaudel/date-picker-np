@@ -7,13 +7,17 @@ export type InputStyles = Pick<
   height?: number; // make sure height is number for the calculation of the calendar menu position
 };
 
-export type DatePickerInputProps = {
-  onChange: (date?: string) => void;
-  inputContainerStyles?: InputStyles;
+export type DatePickerInputProps = DatePickerCommonInputProps & {
   setIsCalendarOpen: React.Dispatch<React.SetStateAction<boolean>>;
+};
+
+export type DatePickerCommonInputProps = {
+  onChange: (date?: string) => void;
   disabled?: boolean;
-  placeholder?: string;
   inputElement?: React.ReactNode;
+  placeholder?: string;
   hasCalendarIcon?: boolean;
   calendarIcon?: React.ReactNode;
+  calendarColor?: string;
+  inputContainerStyles?: InputStyles;
 };

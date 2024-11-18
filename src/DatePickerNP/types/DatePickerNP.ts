@@ -1,16 +1,8 @@
-import React from "react";
+import { DatePickerCommonInputProps } from "./DatePickerInput";
 
-import { InputStyles } from "./DatePickerInput";
-
-export type DatePickerNPProps = {
+export type DatePickerNPProps = DatePickerCommonInputProps & {
   value?: string;
-  onChange: (date?: string) => void;
-  disabled?: boolean;
-  placeholder?: string;
 
   min?: string;
   max?: string;
-
-  inputElement?: React.ReactNode;
-  inputContainerStyles?: InputStyles;
 };

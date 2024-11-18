@@ -26,6 +26,9 @@ const DatePickerNP = ({
   placeholder,
   inputElement,
   inputContainerStyles = {},
+  hasCalendarIcon,
+  calendarIcon,
+  calendarColor,
 }: DatePickerNPProps) => {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const inputRef = useRef<HTMLInputElement | null>(null);
@@ -112,6 +115,9 @@ const DatePickerNP = ({
         disabled={disabled}
         placeholder={placeholder}
         inputElement={inputElement}
+        hasCalendarIcon={hasCalendarIcon}
+        calendarIcon={calendarIcon}
+        calendarColor={calendarColor}
       />
 
       {!disabled && isCalendarOpen && (
