@@ -1,6 +1,7 @@
 import { forwardRef, useEffect } from "react";
 
 import { DatePickerInputProps } from "../types/DatePickerInput";
+import { CalendarIcon } from "./Icons";
 
 const DatePickerInput = forwardRef<HTMLInputElement, DatePickerInputProps>(
   (
@@ -62,18 +63,29 @@ const DatePickerInput = forwardRef<HTMLInputElement, DatePickerInputProps>(
         {passedInputElement ? (
           <div ref={ref}>{passedInputElement}</div>
         ) : (
-          <input
-            ref={ref}
-            type="text"
-            placeholder={placeholder ?? "Select Date"}
-            className={`date-picker-input ${
-              disabled ? "date-picker-input-disabled" : ""
-            }`}
+          <div
+            className=""
             style={{
-              ...inputContainerStyles,
+              position: "relative",
             }}
-            disabled={disabled}
-          />
+          >
+            <input
+              ref={ref}
+              type="text"
+              placeholder={placeholder ?? "Select Date"}
+              className={`date-picker-input ${
+                disabled ? "date-picker-input-disabled" : ""
+              }`}
+              style={{
+                ...inputContainerStyles,
+              }}
+              disabled={disabled}
+            />
+
+            <div className="date-picker-input-right-icon">
+              <CalendarIcon />
+            </div>
+          </div>
         )}
       </>
     );

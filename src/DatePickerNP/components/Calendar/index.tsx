@@ -42,15 +42,16 @@ const DatePickerCalendar = ({
         --> max date if valid
      */
 
-    const displayDate = isValid
-      ? value
-      : liesInBetween(todayBSDate, min, max)
-      ? todayBSDate
-      : min && isValidNepaliDate(min)
-      ? min
-      : max && isValidNepaliDate(max)
-      ? max
-      : todayBSDate;
+    const displayDate =
+      isValid && liesInBetween(value, min, max)
+        ? value
+        : liesInBetween(todayBSDate, min, max)
+        ? todayBSDate
+        : min && isValidNepaliDate(min)
+        ? min
+        : max && isValidNepaliDate(max)
+        ? max
+        : todayBSDate;
 
     setVirtualDate(displayDate);
 

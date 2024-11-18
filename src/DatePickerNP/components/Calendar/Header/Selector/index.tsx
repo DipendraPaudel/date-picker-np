@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 import { SelectorProps } from "../../../../types/Calendar";
-import { ArrowLeftIcon, ArrowRightIcon } from "../../../Icons/Arrow";
+import { ArrowLeftIcon, ArrowRightIcon } from "../../../Icons";
 import YearSelector from "./YearSelector";
 import MonthSelector from "./MonthSelector";
 import {

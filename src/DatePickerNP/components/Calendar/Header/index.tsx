@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import { ArrowLeftIcon, ArrowRightIcon } from "../../Icons/Arrow";
+import { ArrowLeftIcon, ArrowRightIcon } from "../../Icons";
 import { CalendarHeaderProps } from "../../../types/Calendar";
 import {
   FINAL_YEAR_OF_CALENDAR,
