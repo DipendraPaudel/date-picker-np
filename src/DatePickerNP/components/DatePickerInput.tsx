@@ -57,8 +57,6 @@ const DatePickerInput = forwardRef<HTMLInputElement, DatePickerInputProps>(
       // eslint-disable-next-line
     }, []);
 
-    const inputHeight = inputContainerStyles?.height;
-
     return (
       <>
         {passedInputElement ? (
@@ -73,7 +71,6 @@ const DatePickerInput = forwardRef<HTMLInputElement, DatePickerInputProps>(
             }`}
             style={{
               ...inputContainerStyles,
-              lineHeight: inputHeight ? `${inputHeight}px` : undefined,
             }}
             disabled={disabled}
           />

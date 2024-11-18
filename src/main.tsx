@@ -10,12 +10,13 @@ const App = () => {
     <DatePickerNP
       value={selectedDate}
       onChange={(date) => setSelectedDate(date || "")}
-      placeholder="Select Nepali Date"
+      placeholder="Select Date" // Default
       inputContainerStyles={{
-        padding: "8px",
-        background: "white",
-        border: "1px solid #bbb",
-        height: 40, // Default height
+        // padding: "8px",
+        background: "white", // Default
+        border: "1px solid #bbb", // Default
+        height: 40, // Default
+        width: "200px",
       }}
     />
   );

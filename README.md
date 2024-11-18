@@ -30,17 +30,8 @@ const App = () => {
   return (
     <DatePickerNP
       value={selectedDate}
-      onChange={(date) => setSelectedDate(date || "")}
-      placeholder="Select Nepali Date"
-      min="2075-01-01"
-      max="2090-12-30"
-      inputContainerStyles={{
-        padding: "8px",
-        background: "#f7f7f7",
-        width: "200px",
-        border: "1px solid #ccc",
-        height: 40, // Default height
-      }}
+      onChange={(date) => setSelectedDate(date)}
+      placeholder="Select Date"
     />
   );
 };
@@ -70,16 +61,13 @@ export default App;
 
 The `inputContainerStyles` prop accepts the following properties:
 
+- **border**: Sets the border style of the input.
+- **width**: Specifies the width of the input field.
+- **height**: Specifies the width of the input field.
 - **padding**: Sets the padding inside the input field.
 - **background**: Defines the background color of the input.
-- **width**: Specifies the width of the input field.
-- **border**: Sets the border style of the input.
-- **height**: Ensures proper positioning of the calendar dropdown. Must be a number.
-
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
+- **lineHeight**: Sets the lineHeight of text inside the input field.
 
 ## Support
 
-If you have any questions, issues, or feature requests, please open an issue in the [GitHub repository](https://github.com/DipendraPaudel/date-picker-np).
+If you have any questions, issues, or feature requests, please open an issue in the [GitHub repository](https://github.com/DipendraPaudel/date-picker-np/issues).
