@@ -70,6 +70,13 @@ The `inputContainerStyles` prop accepts the following properties:
 - **background**: Defines the background color of the input.
 - **lineHeight**: Sets the lineHeight of text inside the input field.
 
+## Supported Date Range
+
+The date picker supports selecting dates within the range:
+
+- **Minimum Date**: `2000-01-01`
+- **Maximum Date**: `2099-12-31`
+
 ## Support
 
 If you have any questions, issues, or feature requests, please open an issue in the [GitHub repository](https://github.com/DipendraPaudel/date-picker-np/issues).
