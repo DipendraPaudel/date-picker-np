@@ -29,6 +29,7 @@ const DatePickerNP = ({
   hasCalendarIcon,
   calendarIcon,
   calendarColor,
+  lang = "en",
 }: DatePickerNPProps) => {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const inputRef = useRef<HTMLInputElement | null>(null);
@@ -135,6 +136,7 @@ const DatePickerNP = ({
           onChange={handleDateChange}
           min={min}
           max={max}
+          lang={lang}
         />
       )}
     </div>

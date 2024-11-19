@@ -16,12 +16,14 @@ import {
   isValidNepaliDate,
 } from "../../../utils";
 import Selector from "./Selector";
+import { numberConversion } from "../../../utils/number";
 
 const CalendarHeader = ({
   date,
   handleChange,
   min,
   max,
+  lang,
 }: CalendarHeaderProps) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
@@ -55,7 +57,9 @@ const CalendarHeader = ({
     isNextArrowDisabled = !isGreaterThanMinDate;
   }
 
-  const headerDisplayText = `${MONTHS_IN_WORDS[month - 1]?.name_en} ${year}`;
+  const headerDisplayText = `${
+    MONTHS_IN_WORDS[month - 1]?.[lang === "en" ? "name_en" : "name_np"]
+  } ${numberConversion(lang, year)}`;
 
   return (
     <div className="date-picker-calendar-header">
@@ -85,6 +89,7 @@ const CalendarHeader = ({
             setIsDropdownOpen={setIsDropdownOpen}
             min={min}
             max={max}
+            lang={lang}
           />
         )}
       </div>

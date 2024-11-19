@@ -1,6 +1,6 @@
 import { DAYS_OF_WEEK } from "../../../constants/calendar";
 import { NEPALI_DATES } from "../../../constants/dates";
-import { CalendarDatesProps } from "../../../types/Calendar";
+import { CalendarDatesProps, WeeksProps } from "../../../types/Calendar";
 import {
   extractDateData,
   getNumberOfDaysInMonth,
@@ -9,12 +9,13 @@ import {
   isLessThanOrEqualToMaxDate,
   isValidNepaliDate,
 } from "../../../utils";
+import { numberConversion } from "../../../utils/number";
 
-const Weeks = () => {
+const Weeks = ({ lang }: WeeksProps) => {
   return (
     <div className="date-picker-body-container date-picker-week-days-container">
-      {DAYS_OF_WEEK.map(({ shortName }) => (
-        <div key={shortName}>{shortName}</div>
+      {DAYS_OF_WEEK.map(({ name_en, name_np }) => (
+        <div key={name_en}>{lang === "en" ? name_en : name_np}</div>
       ))}
     </div>
   );
@@ -25,6 +26,7 @@ const CalendarDates = ({
   handleChange,
   min,
   max,
+  lang,
 }: CalendarDatesProps) => {
   const numberOfDays = getNumberOfDaysInMonth(date);
   const numberOfDaysInPreviousMonth = getNumberOfDaysInPreviousMonth(date);
@@ -54,15 +56,18 @@ const CalendarDates = ({
 
   return (
     <>
-      <Weeks />
+      <Weeks lang={lang} />
 
       <div className="date-picker-body-container date-picker-dates-container">
         {/* Previous Months days which are in the same first week of current month */}
         {Array.from({ length: startingWeekDay - 1 }).map((_, index) => (
           <div key={index} className="prev-month-days">
-            {numberOfDaysInPreviousMonth > 0
-              ? prevStartPosition + index
-              : undefined}
+            {numberConversion(
+              lang,
+              numberOfDaysInPreviousMonth > 0
+                ? prevStartPosition + index
+                : undefined
+            )}
           </div>
         ))}
 
@@ -96,7 +101,7 @@ const CalendarDates = ({
               } ${isDateDisabled ? "date-picker-date-disabled" : ""}`}
               onClick={() => !isDateDisabled && handleChange(day)}
             >
-              {day}
+              {numberConversion(lang, day)}
             </div>
           );
         })}
@@ -106,7 +111,7 @@ const CalendarDates = ({
           length: currentNextMonthDaysCount,
         }).map((_, index) => (
           <div key={index} className="next-month-days">
-            {index + 1}
+            {numberConversion(lang, index + 1)}
           </div>
         ))}
       </div>

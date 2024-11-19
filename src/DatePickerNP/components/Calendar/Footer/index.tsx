@@ -11,6 +11,7 @@ const CalendarFooter = ({
   onChange,
   min,
   max,
+  lang,
 }: CalendarFooterProps) => {
   let isTodayDateDisabled = false;
   const todayDate = getTodayBSDate();
@@ -33,7 +34,7 @@ const CalendarFooter = ({
         }`}
         onClick={() => hasValidValue && onChange("")}
       >
-        Clear
+        {lang === "en" ? "Clear" : "आज"}
       </div>
       <div
         className={`date-picker-calendar-footer-btn ${
@@ -41,7 +42,7 @@ const CalendarFooter = ({
         }`}
         onClick={() => !isTodayDateDisabled && onChange(getTodayBSDate())}
       >
-        Today
+        {lang === "en" ? "Today" : "आज"}
       </div>
     </div>
   );

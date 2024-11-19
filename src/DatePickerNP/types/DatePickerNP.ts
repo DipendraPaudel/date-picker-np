@@ -1,6 +1,11 @@
 import { DatePickerCommonInputProps } from "./DatePickerInput";
 
-export type DatePickerNPProps = DatePickerCommonInputProps & {
-  min?: string;
+export type DatePickerCommonProps = {
+  lang?: "en" | "np";
+
   max?: string;
+  min?: string;
 };
+
+export type DatePickerNPProps = DatePickerCommonInputProps &
+  DatePickerCommonProps;

@@ -9,6 +9,7 @@ import {
   INITIAL_YEAR_OF_CALENDAR,
 } from "../../../../constants/calendar";
 import { extractDateData, isValidNepaliDate } from "../../../../utils";
+import { numberConversion } from "../../../../utils/number";
 
 const Selector = ({
   year,
@@ -16,6 +17,7 @@ const Selector = ({
   setIsDropdownOpen,
   min,
   max,
+  lang,
 }: SelectorProps) => {
   const [startYear, setStartYear] = useState(
     Math.floor((year - INITIAL_YEAR_OF_CALENDAR) / 12) * 12
@@ -100,6 +102,12 @@ const Selector = ({
     // eslint-disable-next-line
   }, []);
 
+  const headerText = `${
+    activeSelector === "year"
+      ? `${actualStartYear} - ${actualEndYear}`
+      : selectedYear
+  }`;
+
   return (
     <div className="date-picker-selector-container">
       <div className="date-picker-selector-header">
@@ -119,9 +127,7 @@ const Selector = ({
         </div>
 
         <div className="date-picker-calendar-header-dropdown-text">
-          {activeSelector === "year"
-            ? `${actualStartYear} - ${actualEndYear}`
-            : selectedYear}
+          {numberConversion(lang, headerText)}
         </div>
 
         <div
@@ -149,6 +155,7 @@ const Selector = ({
         handleStartYearChange={handleStartYearChange}
         minYear={minYear}
         maxYear={maxYear}
+        lang={lang}
       />
 
       <MonthSelector
@@ -156,6 +163,7 @@ const Selector = ({
         handleMonthChange={handleMonthChange}
         minMonth={minMonth}
         maxMonth={maxMonth}
+        lang={lang}
       />
     </div>
   );

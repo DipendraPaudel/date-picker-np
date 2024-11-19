@@ -17,6 +17,7 @@ const DatePickerCalendar = ({
   calendarStyles,
   min,
   max,
+  lang,
 }: DatePickerCalendarProps) => {
   const isValid = isValidNepaliDate(value);
 
@@ -65,6 +66,7 @@ const DatePickerCalendar = ({
         handleChange={(date: string) => setVirtualDate(date)}
         min={min}
         max={max}
+        lang={lang}
       />
 
       <CalendarDates
@@ -72,6 +74,7 @@ const DatePickerCalendar = ({
         handleChange={handleDateChange}
         min={min}
         max={max}
+        lang={lang}
       />
 
       <CalendarFooter
@@ -79,6 +82,7 @@ const DatePickerCalendar = ({
         onChange={onChange}
         min={min}
         max={max}
+        lang={lang}
       />
     </div>
   );

@@ -1,35 +1,27 @@
 import React from "react";
+import { DatePickerCommonProps } from "./DatePickerNP";
 
 export type ArrowIconProps = {
   onClick?: () => void;
 };
 
-export type SelectorProps = {
+export type SelectorProps = DatePickerCommonProps & {
   year: number;
   handleChange: (value: string) => void;
   setIsDropdownOpen: React.Dispatch<React.SetStateAction<boolean>>;
-
-  min?: string;
-  max?: string;
 };
 
-export type CalendarHeaderProps = {
+export type CalendarHeaderProps = DatePickerCommonProps & {
   date: string;
   handleChange: (value: string) => void;
-
-  min?: string;
-  max?: string;
 };
 
-export type CalendarDatesProps = {
+export type CalendarDatesProps = DatePickerCommonProps & {
   date: string;
   handleChange: (day: number) => void;
-
-  min?: string;
-  max?: string;
 };
 
-export type YearSelectorProps = {
+export type YearSelectorProps = Pick<DatePickerCommonProps, "lang"> & {
   isActive: boolean;
   startYear: number;
   selectedYear: number;
@@ -41,10 +33,12 @@ export type YearSelectorProps = {
   maxYear: number;
 };
 
-export type MonthSelectorProps = {
+export type MonthSelectorProps = Pick<DatePickerCommonProps, "lang"> & {
   isActive: boolean;
   handleMonthChange: (month: number) => void;
 
   minMonth: number;
   maxMonth: number;
 };
+
+export type WeeksProps = Pick<DatePickerCommonProps, "lang">;

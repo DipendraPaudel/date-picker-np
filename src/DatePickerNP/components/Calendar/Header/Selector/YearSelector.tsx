@@ -2,6 +2,7 @@ import { useEffect, useRef } from "react";
 
 import { YearSelectorProps } from "../../../../types/Calendar";
 import { INITIAL_YEAR_OF_CALENDAR } from "../../../../constants/calendar";
+import { numberConversion } from "../../../../utils/number";
 
 const YearSelector = ({
   isActive,
@@ -12,6 +13,7 @@ const YearSelector = ({
   handleStartYearChange,
   minYear,
   maxYear,
+  lang,
 }: YearSelectorProps) => {
   const blockContainerRef = useRef<HTMLDivElement | null>(null);
 
@@ -68,7 +70,7 @@ const YearSelector = ({
                 isSelected ? "date-picker-selector-block-selected" : undefined
               }
             >
-              {year}
+              {numberConversion(lang, year)}
             </div>
           </div>
         );

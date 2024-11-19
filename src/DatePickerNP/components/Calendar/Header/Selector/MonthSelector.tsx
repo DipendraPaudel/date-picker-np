@@ -6,6 +6,7 @@ const MonthSelector = ({
   handleMonthChange,
   minMonth,
   maxMonth,
+  lang,
 }: MonthSelectorProps) => {
   return (
     <div
@@ -13,7 +14,7 @@ const MonthSelector = ({
         !isActive ? "date-picker-selector-block-container-hidden" : ""
       }`}
     >
-      {MONTHS_IN_WORDS.map(({ name_en, month_position }) => {
+      {MONTHS_IN_WORDS.map(({ name_en, name_np, month_position }) => {
         const isDisabled =
           month_position < minMonth || month_position > maxMonth;
 
@@ -25,7 +26,7 @@ const MonthSelector = ({
               isDisabled ? "date-picker-selector-block-disabled" : undefined
             }
           >
-            <div>{name_en}</div>
+            <div>{lang === "en" ? name_en : name_np}</div>
           </div>
         );
       })}

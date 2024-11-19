@@ -19,13 +19,13 @@ export const MONTHS_IN_WORDS = [
 ];
 
 export const DAYS_OF_WEEK = [
-  { name: "Sunday", shortName: "Sun", week_position: 1 },
-  { name: "Monday", shortName: "Mon", week_position: 2 },
-  { name: "Tuesday", shortName: "Tue", week_position: 3 },
-  { name: "Wednesday", shortName: "Wed", week_position: 4 },
-  { name: "Thursday", shortName: "Thu", week_position: 5 },
-  { name: "Friday", shortName: "Fri", week_position: 6 },
-  { name: "Saturday", shortName: "Sat", week_position: 7 },
+  { name_en: "Sun", name_np: "आइत", week_position: 1 },
+  { name_en: "Mon", name_np: "सोम", week_position: 2 },
+  { name_en: "Tue", name_np: "मंगल", week_position: 3 },
+  { name_en: "Wed", name_np: "बुध", week_position: 4 },
+  { name_en: "Thu", name_np: "बिही", week_position: 5 },
+  { name_en: "Fri", name_np: "शुक्र", week_position: 6 },
+  { name_en: "Sat", name_np: "शनि", week_position: 7 },
 ];
 
 export const INITIAL_YEAR_OF_CALENDAR = YEARS_LIST[0].year;

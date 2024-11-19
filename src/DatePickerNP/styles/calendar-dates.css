@@ -9,7 +9,9 @@
 }
 
 .date-picker-dates-container > div {
-  padding: 8px 0;
+  /* padding: 8px 0; */
+  line-height: 30px;
+  height: 30px;
   cursor: pointer;
 }
 
