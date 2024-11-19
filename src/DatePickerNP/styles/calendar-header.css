@@ -5,16 +5,15 @@
   border: 1px solid rgb(226, 226, 226);
   box-shadow: 4px 4px 10px rgb(226, 226, 226);
   border-radius: 4px;
-  width: 260px;
-  height: 338px;
+  width: 220px;
   background: white;
-  padding: 4px 8px 10px;
+  padding: 4px 8px;
 }
 .date-picker-calendar-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 10px 0;
+  margin: 2px 0;
 }
 
 .date-picker-calendar-header-arrow {
@@ -52,7 +51,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 50px;
+  height: 34px;
   flex-shrink: 0;
 }
 .date-picker-selector-block-container {
@@ -67,7 +66,7 @@
   cursor: pointer;
 }
 .date-picker-selector-block-container > div > div {
-  padding: 10px 16px;
+  padding: 10px 10px;
 }
 .date-picker-selector-block-container
   > div

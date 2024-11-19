@@ -8,7 +8,7 @@
 .date-picker-container {
   position: relative;
   font-family: sans-serif;
-  font-size: 13px;
+  font-size: 12px;
   user-select: none;
   color: rgb(14, 14, 14);
   width: fit-content;
@@ -22,8 +22,8 @@
 .date-picker-input {
   border: 1px solid gray;
   border-radius: 4px;
-  width: 100%;
-  min-width: 200px;
+  min-width: 140px;
+  width: 160px;
   min-height: 28px;
   cursor: pointer;
   padding: 0 30px 0 10px;
