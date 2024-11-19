@@ -67,7 +67,7 @@ The `inputContainerStyles` prop accepts the following properties:
 
 ### Default Input Height and Minimum Height
 
-- The default height of the input is 40px.
+- The default height of the input is 32px.
 - The minimum height of the input is 28px.
 
 ## Supported Date Range

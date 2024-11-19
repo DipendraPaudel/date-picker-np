@@ -126,7 +126,8 @@ const DatePickerNP = ({
       {!disabled && isCalendarOpen && (
         <DatePickerCalendar
           calendarStyles={{
-            top: coordinates.y > 0 ? inputContainerHeight : -CALENDAR_HEIGHT,
+            top:
+              coordinates.y > 0 ? inputContainerHeight + 2 : -CALENDAR_HEIGHT,
             left: coordinates.x,
             zIndex: 1000000,
           }}
