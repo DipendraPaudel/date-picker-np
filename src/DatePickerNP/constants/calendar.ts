@@ -32,6 +32,6 @@ export const INITIAL_YEAR_OF_CALENDAR = YEARS_LIST[0].year;
 export const FINAL_YEAR_OF_CALENDAR = YEARS_LIST[YEARS_LIST.length - 1].year;
 
 export const DEFAULT_INPUT_HEIGHT = 32;
-export const DEFAULT_CALENDAR_ICON_COLOR = "black";
-export const CALENDAR_WIDTH = 260;
-export const CALENDAR_HEIGHT = 338;
+export const DEFAULT_CALENDAR_ICON_COLOR = "gray";
+export const CALENDAR_WIDTH = 220;
+export const CALENDAR_HEIGHT = 284;

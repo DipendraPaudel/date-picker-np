@@ -9,13 +9,18 @@ export const calculateCalendarPosition = (container: HTMLDivElement) => {
   const xPosition = containerPositions.left;
   const yPosition = containerPositions.top;
 
-  const innerWidth = window.innerWidth;
-  const innerHeight = window.innerHeight;
+  const innerWidth = window.document.documentElement.scrollWidth;
+  const innerHeight = window.document.documentElement.scrollHeight;
 
-  const combinedX = xPosition + CALENDAR_WIDTH + getVerticalScrollbarWidth();
+  const combinedX = xPosition + CALENDAR_WIDTH;
   const combinedY = yPosition + CALENDAR_HEIGHT;
 
-  // for x position (left)
+  console.log(
+    window.document.documentElement.scrollHeight,
+    window.document.documentElement.offsetHeight,
+    "hello"
+  );
+
   x = combinedX > innerWidth ? -combinedX + innerWidth : 0;
   y = combinedY > innerHeight ? -1 : 1;
 
