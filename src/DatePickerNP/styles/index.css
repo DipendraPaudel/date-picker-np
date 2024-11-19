@@ -45,5 +45,5 @@
   right: 8px;
   top: 50%;
   transform: translateY(-50%);
-  cursor: default;
+  pointer-events: none;
 }

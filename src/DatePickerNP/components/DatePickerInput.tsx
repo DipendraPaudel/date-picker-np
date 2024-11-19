@@ -76,7 +76,10 @@ const DatePickerInput = forwardRef<HTMLInputElement, DatePickerInputProps>(
         {passedInputElement ? (
           <div ref={ref}>{passedInputElement}</div>
         ) : (
-          <div className="date-picker-input-container">
+          <div
+            className="date-picker-input-container"
+            onClick={focusInputElement}
+          >
             <input
               ref={ref}
               type="text"
@@ -104,7 +107,6 @@ const DatePickerInput = forwardRef<HTMLInputElement, DatePickerInputProps>(
                   color: calendarColor || DEFAULT_CALENDAR_ICON_COLOR,
                   opacity: disabled ? 0.5 : 1,
                 }}
-                onClick={focusInputElement}
               >
                 {calendarIcon ?? <CalendarIcon />}
               </div>
