@@ -34,7 +34,7 @@ const CalendarFooter = ({
         }`}
         onClick={() => hasValidValue && onChange("")}
       >
-        {lang === "en" ? "Clear" : "आज"}
+        {lang === "en" ? "Clear" : "हटाउनुहोस्"}
       </div>
       <div
         className={`date-picker-calendar-footer-btn ${

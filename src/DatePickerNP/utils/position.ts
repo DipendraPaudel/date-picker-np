@@ -10,13 +10,17 @@ export const calculateCalendarPosition = (container: HTMLDivElement) => {
   const yPosition = containerPositions.top;
 
   const innerWidth = window.document.documentElement.scrollWidth;
-  const innerHeight = window.document.documentElement.scrollHeight;
 
   const combinedX = xPosition + CALENDAR_WIDTH;
-  const combinedY = yPosition + CALENDAR_HEIGHT;
 
   x = combinedX > innerWidth ? -combinedX + innerWidth : 0;
-  y = combinedY > innerHeight ? -1 : 1;
+
+  if (
+    innerHeight > CALENDAR_HEIGHT + containerPositions.height &&
+    yPosition > CALENDAR_HEIGHT
+  )
+    y = -1;
+  else y = 1;
 
   return { x, y };
 };
