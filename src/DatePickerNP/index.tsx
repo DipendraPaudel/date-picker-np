@@ -57,7 +57,9 @@ const DatePickerNP = ({
 
   // change the position of the calendar menu when browser is resized
   useLayoutEffect(() => {
-    const handleResize = () => {
+    const handleResize = () => setIsCalendarOpen(false);
+
+    const handleScroll = () => {
       if (!isCalendarOpen) return;
 
       const { x, y } = calculateCalendarPosition(
@@ -67,13 +69,13 @@ const DatePickerNP = ({
       setCoordinates({ x, y });
     };
 
-    handleResize();
+    handleScroll();
 
     window.addEventListener("resize", handleResize);
-    window.addEventListener("scroll", handleResize);
+    window.addEventListener("scroll", handleScroll);
     return () => {
       window.removeEventListener("resize", handleResize);
-      window.removeEventListener("scroll", handleResize);
+      window.removeEventListener("scroll", handleScroll);
     };
   }, [isCalendarOpen]);
 
