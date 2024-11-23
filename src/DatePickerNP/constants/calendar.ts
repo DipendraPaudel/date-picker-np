@@ -9,7 +9,7 @@ export const MONTHS_IN_WORDS = [
   { name_np: "असार", name_en: "Asar", month_position: 3 },
   { name_np: "साउन", name_en: "Shrawan", month_position: 4 },
   { name_np: "भदौ", name_en: "Bhadra", month_position: 5 },
-  { name_np: "आश्विन", name_en: "Ashwin", month_position: 6 },
+  { name_np: "असोज", name_en: "Ashoj", month_position: 6 },
   { name_np: "कार्तिक", name_en: "Kartik", month_position: 7 },
   { name_np: "मंसिर", name_en: "Mangsir", month_position: 8 },
   { name_np: "पुष", name_en: "Poush", month_position: 9 },
