@@ -2,6 +2,8 @@
 
 A lightweight and customizable Nepali Date Picker component for React, enabling users to select dates using the Nepali calendar. This component behaves similarly to the native HTML `<input type="date">`, making it easy to integrate into your React applications with full support for Nepali dates. It uses only CSS and core Javascript logic, with no external dependencies.
 
+![Output](https://github.com/user-attachments/assets/692ea094-498e-49c6-a87c-0aa9891aed51)
+
 ## Installation
 
 Install the package using npm:
@@ -77,10 +79,6 @@ The date picker supports selecting dates within the range:
 
 - **Minimum Date**: `2000-01-01`
 - **Maximum Date**: `2099-12-31`
-
-## Output
-
-![Output](https://github.com/user-attachments/assets/692ea094-498e-49c6-a87c-0aa9891aed51)
 
 ## License
 

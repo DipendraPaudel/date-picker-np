@@ -8,8 +8,10 @@
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noEmit": true,
-    "outDir": "./dist", // Specify the output directory for compiled JS files
+    "declaration": true, // Enable .d.ts file generation
+    "declarationDir": "./dist", // Output directory for .d.ts files
+    "noEmit": false,
+    "outDir": "dist",
     "resolveJsonModule": true,
     "moduleResolution": "node",
     "esModuleInterop": true
