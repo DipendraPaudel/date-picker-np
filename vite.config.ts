@@ -7,7 +7,7 @@ export default defineConfig({
     lib: {
       entry: "./src/DatePickerNP/index.tsx",
       name: "DatePickerNP",
-      fileName: (format) => `date-picker-np.${format}.js`,
+      fileName: (format) => `index.${format}.js`,
     },
     rollupOptions: {
       external: ["react"], // Ensure that React is treated as an external dependency

@@ -8,14 +8,14 @@
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "declaration": true, // Enable .d.ts file generation
-    "declarationDir": "./dist", // Output directory for .d.ts files
-    "noEmit": false,
+    "declaration": true,
+    "emitDeclarationOnly": true,
+    "declarationMap": false,
     "outDir": "dist",
     "resolveJsonModule": true,
     "moduleResolution": "node",
     "esModuleInterop": true
   },
-  "include": ["src/DatePickerNP/**/*"], // Include only the DatePickerNP folder
+  "include": ["src/DatePickerNP/**/*"],
   "exclude": ["node_modules"]
 }
