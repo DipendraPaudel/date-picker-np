@@ -1,5 +1,5 @@
 export const formatDate = (date?: string) => {
-  if (typeof date !== "string") return date;
+  if (typeof date !== "string") return "";
 
   return date
     .split("-")

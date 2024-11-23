@@ -13,7 +13,7 @@ export type DatePickerInputProps = DatePickerCommonInputProps & {
 
 export type DatePickerCommonInputProps = {
   value?: string;
-  onChange: (date?: string) => void;
+  onChange: (date: string) => void;
   disabled?: boolean;
   inputElement?: React.ReactNode;
   placeholder?: string;
