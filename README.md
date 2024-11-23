@@ -78,7 +78,7 @@ The date picker supports selecting dates within the range:
 - **Maximum Date**: `2099-12-31`
 
 ## Output
-![sample](https://github.com/user-attachments/assets/cadea819-4749-4d0c-909f-44e00a9f6128)
+![Output](https://github.com/user-attachments/assets/692ea094-498e-49c6-a87c-0aa9891aed51)
 
 ## License
 
