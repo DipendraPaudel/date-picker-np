@@ -8,7 +8,7 @@
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noEmit": false, // Ensure this is false to allow emitting files
+    "noEmit": true,
     "outDir": "./dist", // Specify the output directory for compiled JS files
     "resolveJsonModule": true,
     "moduleResolution": "node",
