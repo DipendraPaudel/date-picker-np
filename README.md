@@ -77,6 +77,9 @@ The date picker supports selecting dates within the range:
 - **Minimum Date**: `2000-01-01`
 - **Maximum Date**: `2099-12-31`
 
+## Output
+![sample](https://github.com/user-attachments/assets/cadea819-4749-4d0c-909f-44e00a9f6128)
+
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](https://github.com/DipendraPaudel/date-picker-np/blob/main/LICENSE) file for details.
