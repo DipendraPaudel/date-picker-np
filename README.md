@@ -24,7 +24,7 @@ Here's a basic example of how to use the date-picker-np in your React project:
 
 ```jsx
 import React, { useState } from "react";
-import DatePickerNp from "date-picker-np";
+import DatePickerNP from "date-picker-np";
 
 const App = () => {
   const [selectedDate, setSelectedDate] = useState("");

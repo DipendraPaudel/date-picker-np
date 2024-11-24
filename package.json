@@ -1,6 +1,6 @@
 {
   "name": "date-picker-np",
-  "version": "1.0.0",
+  "version": "1.0.6",
   "description": "Nepali Date Picker for React",
   "type": "module",
   "main": "dist/index.umd.js",
@@ -28,6 +28,11 @@
     "url": "https://github.com/DipendraPaudel/date-picker-np/issues"
   },
   "homepage": "https://github.com/DipendraPaudel/date-picker-np#readme",
+  "files": [
+    "dist/",
+    "dist/styles/",
+    "README.md"
+  ],
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0"

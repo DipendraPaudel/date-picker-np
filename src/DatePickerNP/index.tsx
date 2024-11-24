@@ -86,13 +86,14 @@ const DatePickerNP = ({
     if (!input) return;
 
     const handleClick = (event: MouseEvent) => {
-      const value = clickEvent({
+      const currentValue = clickEvent({
         event,
         container,
         input,
       });
 
-      if (value !== undefined) handleDateChange(value);
+      if (currentValue !== undefined && currentValue !== value)
+        handleDateChange(currentValue);
     };
 
     window.addEventListener("click", handleClick);

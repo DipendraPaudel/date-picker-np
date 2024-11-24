@@ -15,7 +15,7 @@ export default defineConfig({
         globals: {
           react: "React",
         },
-        assetFileNames: "[name][extname]", // Ensure CSS is output correctly
+        assetFileNames: "styles/[name][extname]", // Ensure CSS is output correctly
       },
     },
     cssCodeSplit: true, // This ensures CSS is bundled separately

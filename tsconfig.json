@@ -10,6 +10,7 @@
     "noUnusedParameters": true,
     "declaration": true,
     "emitDeclarationOnly": true,
+    "noEmit": false,
     "declarationMap": false,
     "outDir": "dist",
     "resolveJsonModule": true,
