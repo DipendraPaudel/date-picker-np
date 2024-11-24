@@ -10,6 +10,7 @@ const App = () => {
     <DatePickerNP
       value={selectedDate}
       onChange={(date) => setSelectedDate(date || "")}
+      calendarColor="red"
     />
   );
 };
