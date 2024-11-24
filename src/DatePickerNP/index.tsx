@@ -86,14 +86,18 @@ const DatePickerNP = ({
     if (!input) return;
 
     const handleClick = (event: MouseEvent) => {
+      if (!isCalendarOpen) return;
+
       const currentValue = clickEvent({
         event,
         container,
         input,
       });
 
-      if (currentValue !== undefined && currentValue !== value)
-        handleDateChange(currentValue);
+      if (currentValue !== undefined) {
+        if (currentValue !== value) handleDateChange(currentValue);
+        else setIsCalendarOpen(false);
+      }
     };
 
     window.addEventListener("click", handleClick);
@@ -102,7 +106,7 @@ const DatePickerNP = ({
     };
 
     // eslint-disable-next-line
-  }, []);
+  }, [isCalendarOpen]);
 
   useEffect(() => {
     if (inputRef.current) {
