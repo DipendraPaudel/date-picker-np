@@ -1,6 +1,6 @@
 import {
   NEPALI_DATES,
-  START_ENGLISH_DATE_OF_2000_BS,
+  START_ENGLISH_DATE_OF_1978_BS,
 } from "../constants/dates";
 
 // helper function to return year, month and day
@@ -111,7 +111,7 @@ export const getNextMonth = (date: string) => {
 // helper function to get today nepali date
 export const getTodayBSDate = () => {
   const englishDaysDifferenceFrom2000BS = Math.ceil(
-    (new Date().getTime() - new Date(START_ENGLISH_DATE_OF_2000_BS).getTime()) /
+    (new Date().getTime() - new Date(START_ENGLISH_DATE_OF_1978_BS).getTime()) /
       (86400 * 1000)
   );
 
@@ -138,7 +138,7 @@ export const getTodayBSDate = () => {
     }
   }
 
-  return "hello";
+  return "";
 };
 
 // helper function to detect if given date is greater than or equal to min date

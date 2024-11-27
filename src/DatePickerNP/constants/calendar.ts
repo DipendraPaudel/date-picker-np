@@ -1,7 +1,4 @@
-export const YEARS_LIST = Array.from({ length: 2099 - 2000 + 1 }, (_, i) => ({
-  year: 2000 + i,
-  index: i,
-}));
+import { NEPALI_DATES } from "./dates";
 
 export const MONTHS_IN_WORDS = [
   { name_np: "बैशाख", name_en: "Baisakh", month_position: 1 },
@@ -28,8 +25,9 @@ export const DAYS_OF_WEEK = [
   { name_en: "Sat", name_np: "शनि", week_position: 7 },
 ];
 
-export const INITIAL_YEAR_OF_CALENDAR = YEARS_LIST[0].year;
-export const FINAL_YEAR_OF_CALENDAR = YEARS_LIST[YEARS_LIST.length - 1].year;
+export const INITIAL_YEAR_OF_CALENDAR = NEPALI_DATES[0].year;
+export const FINAL_YEAR_OF_CALENDAR =
+  NEPALI_DATES[NEPALI_DATES.length - 1].year;
 
 export const DEFAULT_INPUT_HEIGHT = 32;
 export const DEFAULT_CALENDAR_ICON_COLOR = "gray";

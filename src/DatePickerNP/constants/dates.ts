@@ -1,9 +1,31 @@
 import { NepaliDatesType } from "../types/Constant";
 
-export const START_WEEK_DAY_OF_2000 = 4;
-export const START_ENGLISH_DATE_OF_2000_BS = "1943-04-14";
+export const START_WEEK_DAY_OF_1978 = 4;
+export const START_ENGLISH_DATE_OF_1978_BS = "1921-04-13";
 
 const ALL_NEPALI_DATES: Partial<NepaliDatesType>[] = [
+  { year: 1978, months: [31, 31, 32, 31, 31, 31, 30, 29, 30, 29, 30, 30] },
+  { year: 1979, months: [31, 31, 32, 32, 31, 30, 30, 29, 30, 29, 30, 30] },
+  { year: 1980, months: [31, 32, 31, 32, 31, 30, 30, 30, 29, 29, 30, 31] },
+  { year: 1981, months: [31, 31, 31, 32, 31, 31, 29, 30, 30, 29, 30, 30] },
+  { year: 1982, months: [31, 31, 32, 31, 31, 31, 30, 29, 30, 29, 30, 30] },
+  { year: 1983, months: [31, 31, 32, 32, 31, 30, 30, 29, 30, 29, 30, 30] },
+  { year: 1984, months: [31, 32, 31, 32, 31, 30, 30, 30, 29, 29, 30, 31] },
+  { year: 1985, months: [31, 31, 31, 32, 31, 31, 29, 30, 30, 29, 30, 30] },
+  { year: 1986, months: [31, 31, 32, 31, 31, 31, 30, 29, 30, 29, 30, 30] },
+  { year: 1987, months: [31, 32, 31, 32, 31, 30, 30, 29, 30, 29, 30, 30] },
+  { year: 1988, months: [31, 32, 31, 32, 31, 30, 30, 30, 29, 29, 30, 31] },
+  { year: 1989, months: [31, 31, 31, 32, 31, 31, 29, 30, 30, 29, 30, 30] },
+  { year: 1990, months: [31, 31, 32, 31, 31, 31, 30, 29, 30, 29, 30, 30] },
+  { year: 1991, months: [31, 32, 31, 32, 31, 30, 30, 30, 29, 29, 30, 30] },
+  { year: 1992, months: [31, 32, 31, 32, 31, 30, 30, 30, 29, 30, 29, 31] },
+  { year: 1993, months: [31, 31, 32, 31, 31, 31, 30, 29, 30, 29, 30, 30] },
+  { year: 1994, months: [31, 31, 32, 31, 31, 31, 30, 29, 30, 29, 30, 30] },
+  { year: 1995, months: [31, 32, 31, 32, 31, 30, 30, 30, 29, 29, 30, 30] },
+  { year: 1996, months: [31, 32, 31, 32, 31, 30, 30, 30, 29, 30, 29, 31] },
+  { year: 1997, months: [31, 31, 32, 31, 31, 31, 30, 29, 30, 29, 30, 30] },
+  { year: 1998, months: [31, 31, 32, 31, 31, 31, 30, 29, 30, 29, 30, 30] },
+  { year: 1999, months: [31, 32, 31, 32, 31, 30, 30, 30, 29, 29, 30, 31] },
   { year: 2000, months: [30, 32, 31, 32, 31, 30, 30, 30, 29, 30, 29, 31] },
   { year: 2001, months: [31, 31, 32, 31, 31, 31, 30, 29, 30, 29, 30, 30] },
   { year: 2002, months: [31, 31, 32, 32, 31, 30, 30, 29, 30, 29, 30, 30] },
@@ -107,7 +129,7 @@ const ALL_NEPALI_DATES: Partial<NepaliDatesType>[] = [
 ];
 
 export const getStartWeek = () => {
-  let lastWeekDay = START_WEEK_DAY_OF_2000;
+  let lastWeekDay = START_WEEK_DAY_OF_1978;
 
   for (let i = 0; i < ALL_NEPALI_DATES.length; i++) {
     const currentData = ALL_NEPALI_DATES[i] as NepaliDatesType;
