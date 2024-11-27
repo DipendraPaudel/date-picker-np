@@ -73,9 +73,9 @@ The `inputContainerStyles` prop accepts the following properties:
 - The default height of the input is 32px.
 - The minimum height of the input is 28px.
 
-## Supported Date Range
+## Supported Nepali Date Range
 
-The date picker supports selecting **Nepali** dates within the range:
+The date picker supports selecting dates within the range:
 
 - **Minimum Date**: `2000-01-01`
 - **Maximum Date**: `2099-12-31`
