@@ -75,7 +75,7 @@ The `inputContainerStyles` prop accepts the following properties:
 
 ## Supported Date Range
 
-The date picker supports selecting dates within the range:
+The date picker supports selecting **Nepali** dates within the range:
 
 - **Minimum Date**: `2000-01-01`
 - **Maximum Date**: `2099-12-31`
