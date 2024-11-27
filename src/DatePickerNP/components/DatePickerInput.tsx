@@ -1,6 +1,6 @@
 import { forwardRef, useEffect } from "react";
 
-import { DatePickerInputProps } from "../types/DatePickerInput";
+import { DatePickerInputProps, InputStyles } from "../types/DatePickerInput";
 import { CalendarIcon } from "./Icons";
 import { DEFAULT_CALENDAR_ICON_COLOR } from "../constants/calendar";
 
@@ -71,14 +71,22 @@ const DatePickerInput = forwardRef<HTMLInputElement, DatePickerInputProps>(
       // eslint-disable-next-line
     }, []);
 
+    const { height, ...restStyles } = inputContainerStyles as InputStyles;
+
     return (
       <>
         {passedInputElement ? (
           <div ref={ref}>{passedInputElement}</div>
         ) : (
           <div
-            className="date-picker-input-container"
+            className={`date-picker-input-container ${
+              disabled ? "date-picker-input-container-disabled" : ""
+            }`}
             onClick={focusInputElement}
+            style={{
+              paddingRight: hasCalendarIcon ? "20px" : undefined,
+              ...restStyles,
+            }}
           >
             <input
               ref={ref}
@@ -88,7 +96,7 @@ const DatePickerInput = forwardRef<HTMLInputElement, DatePickerInputProps>(
                 disabled ? "date-picker-input-disabled" : ""
               }`}
               style={{
-                ...inputContainerStyles,
+                height,
               }}
               disabled={disabled}
               // only control the field if it is disabled
