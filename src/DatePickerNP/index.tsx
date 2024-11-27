@@ -83,11 +83,9 @@ const DatePickerNP = ({
     const input = inputRef?.current as HTMLInputElement;
     const container = containerRef?.current as HTMLDivElement;
 
-    if (!input) return;
+    if (!input || !isCalendarOpen) return;
 
     const handleClick = (event: MouseEvent) => {
-      if (!isCalendarOpen) return;
-
       const currentValue = clickEvent({
         event,
         container,
@@ -100,9 +98,9 @@ const DatePickerNP = ({
       }
     };
 
-    window.addEventListener("click", handleClick);
+    window.addEventListener("mousedown", handleClick);
     return () => {
-      window.removeEventListener("click", handleClick);
+      window.removeEventListener("mousedown", handleClick);
     };
 
     // eslint-disable-next-line
