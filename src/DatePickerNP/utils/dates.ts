@@ -110,7 +110,7 @@ export const getNextMonth = (date: string) => {
 
 // helper function to get today nepali date
 export const getTodayBSDate = () => {
-  const englishDaysDifferenceFrom2000BS = Math.ceil(
+  const englishDaysDifferenceFrom1978BS = Math.ceil(
     (new Date().getTime() - new Date(START_ENGLISH_DATE_OF_1978_BS).getTime()) /
       (86400 * 1000)
   );
@@ -123,12 +123,12 @@ export const getTodayBSDate = () => {
     for (let j = 0; j < months.length; j++) {
       const addedCount = nepaliDateCountUptoTodayEnglishDate + months[j];
 
-      if (addedCount < englishDaysDifferenceFrom2000BS) {
+      if (addedCount < englishDaysDifferenceFrom1978BS) {
         nepaliDateCountUptoTodayEnglishDate = addedCount;
       } else {
         const month = (j + 1).toString().padStart(2, "0");
         const today = (
-          englishDaysDifferenceFrom2000BS - nepaliDateCountUptoTodayEnglishDate
+          englishDaysDifferenceFrom1978BS - nepaliDateCountUptoTodayEnglishDate
         )
           .toString()
           .padStart(2, "0");
