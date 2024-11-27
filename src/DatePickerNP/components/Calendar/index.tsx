@@ -6,9 +6,8 @@ import CalendarFooter from "./Footer";
 import CalendarHeader from "./Header";
 import {
   extractDateData,
-  getTodayBSDate,
+  getDisplayDate,
   isValidNepaliDate,
-  liesInBetween,
 } from "../../utils";
 
 const DatePickerCalendar = ({
@@ -33,31 +32,16 @@ const DatePickerCalendar = ({
   };
 
   useLayoutEffect(() => {
-    const todayBSDate = getTodayBSDate();
-
-    /*
-      Display date priority 
-        --> passed value if valid
-        --> today bs date if lies in between min and max
-        --> min date if valid
-        --> max date if valid
-     */
-
-    const displayDate =
-      isValid && liesInBetween(value, min, max)
-        ? value
-        : liesInBetween(todayBSDate, min, max)
-        ? todayBSDate
-        : min && isValidNepaliDate(min)
-        ? min
-        : max && isValidNepaliDate(max)
-        ? max
-        : todayBSDate;
+    const displayDate = getDisplayDate(value, min, max, isValid);
 
     setVirtualDate(displayDate);
 
     // eslint-disable-next-line
   }, [value]);
+
+  // if there is a value and when virtual date is returned back to the same month make that day active
+  const calendarDisplayDate =
+    virtualDate.slice(0, 7) === value?.slice(0, 7) ? value : virtualDate;
 
   return (
     <div className="date-picker-calendar" style={calendarStyles}>
@@ -70,7 +54,7 @@ const DatePickerCalendar = ({
       />
 
       <CalendarDates
-        date={virtualDate}
+        date={calendarDisplayDate}
         handleChange={handleDateChange}
         min={min}
         max={max}

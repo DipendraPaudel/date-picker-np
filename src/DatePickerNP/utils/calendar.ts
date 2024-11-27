@@ -1,8 +1,10 @@
 import {
+  getTodayBSDate,
   isGreaterThanOrEqualToMinDate,
   isLessThanOrEqualToMaxDate,
   isValidNepaliDate,
 } from "./dates";
+import { formatDate } from "./formatter";
 
 export const getFormattedDate = (date?: string) => {
   if (!date) return [0, 0, 0];
@@ -26,4 +28,36 @@ export const liesInBetween = (value: string, min?: string, max?: string) => {
   }
 
   return isValid;
+};
+
+export const getDisplayDate = (
+  value: string,
+  min?: string,
+  max?: string,
+  isValid?: boolean
+) => {
+  /*
+      Display date priority 
+        --> passed value if valid
+        --> today bs date if lies in between min and max
+        --> min date if valid
+        --> max date if valid
+  */
+
+  const todayBSDate = getTodayBSDate();
+
+  let displayValue = todayBSDate;
+
+  if (isValid) {
+    if (liesInBetween(value, min, max)) return value;
+
+    if (liesInBetween(todayBSDate, min, max)) displayValue = todayBSDate;
+    else if (min && isValidNepaliDate(min)) displayValue = min;
+    else if (max && isValidNepaliDate(max)) displayValue = max;
+  }
+
+  displayValue = formatDate(displayValue);
+  displayValue = displayValue.slice(0, 8) + "dd";
+
+  return displayValue;
 };
