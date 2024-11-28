@@ -8,4 +8,8 @@ export type DatePickerCommonProps = {
 };
 
 export type DatePickerNPProps = DatePickerCommonInputProps &
-  DatePickerCommonProps;
+  DatePickerCommonProps & {
+    menuPosition?: MenuPositionType;
+  };
+
+export type MenuPositionType = "auto" | "top" | "bottom";
