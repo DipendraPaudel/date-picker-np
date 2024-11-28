@@ -57,9 +57,7 @@ const DatePickerNP = ({
 
   // change the position of the calendar menu when browser is resized
   useLayoutEffect(() => {
-    const handleResize = () => setIsCalendarOpen(false);
-
-    const handleScroll = () => {
+    const handleScrollAndResize = () => {
       if (!isCalendarOpen) return;
 
       const { x, y } = calculateCalendarPosition(
@@ -69,13 +67,13 @@ const DatePickerNP = ({
       setCoordinates({ x, y });
     };
 
-    handleScroll();
+    handleScrollAndResize();
 
-    window.addEventListener("resize", handleResize);
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("resize", handleScrollAndResize);
+    window.addEventListener("scroll", handleScrollAndResize);
     return () => {
-      window.removeEventListener("resize", handleResize);
-      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleScrollAndResize);
+      window.removeEventListener("scroll", handleScrollAndResize);
     };
   }, [isCalendarOpen]);
 
@@ -83,11 +81,9 @@ const DatePickerNP = ({
     const input = inputRef?.current as HTMLInputElement;
     const container = containerRef?.current as HTMLDivElement;
 
-    if (!input) return;
+    if (!input || !isCalendarOpen) return;
 
     const handleClick = (event: MouseEvent) => {
-      if (!isCalendarOpen) return;
-
       const currentValue = clickEvent({
         event,
         container,
@@ -100,9 +96,9 @@ const DatePickerNP = ({
       }
     };
 
-    window.addEventListener("click", handleClick);
+    window.addEventListener("mousedown", handleClick);
     return () => {
-      window.removeEventListener("click", handleClick);
+      window.removeEventListener("mousedown", handleClick);
     };
 
     // eslint-disable-next-line

@@ -1,6 +1,6 @@
 {
   "name": "date-picker-np",
-  "version": "1.0.8",
+  "version": "1.0.12",
   "description": "Nepali Date Picker for React",
   "type": "module",
   "main": "dist/index.umd.js",
@@ -16,6 +16,7 @@
     "url": "git+https://github.com/DipendraPaudel/date-picker-np.git"
   },
   "keywords": [
+    "date-picker-np",
     "nepali-date-picker",
     "nepali-date-picker-react",
     "react-date-picker",
