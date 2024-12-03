@@ -3,7 +3,7 @@
   "version": "1.0.15",
   "description": "Nepali Date Picker for React",
   "type": "module",
-  "main": "dist/index.umd.js",
+  "main": "dist/index.es.js",
   "types": "dist/index.d.ts",
   "scripts": {
     "dev": "vite",
@@ -29,11 +29,6 @@
     "url": "https://github.com/DipendraPaudel/date-picker-np/issues"
   },
   "homepage": "https://github.com/DipendraPaudel/date-picker-np#readme",
-  "files": [
-    "dist/",
-    "dist/styles/",
-    "README.md"
-  ],
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
@@ -48,6 +43,7 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.6",
     "typescript": "^5.2.2",
-    "vite": "^5.2.0"
+    "vite": "^5.2.0",
+    "vite-plugin-css-injected-by-js": "^3.5.2"
   }
 }
