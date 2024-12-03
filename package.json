@@ -1,6 +1,6 @@
 {
   "name": "date-picker-np",
-  "version": "1.0.13",
+  "version": "1.0.15",
   "description": "Nepali Date Picker for React",
   "type": "module",
   "main": "dist/index.umd.js",

@@ -44,8 +44,8 @@ export default App;
 
 | Prop                   | Type                          | Description                                                                                          | Required |
 | ---------------------- | ----------------------------- | ---------------------------------------------------------------------------------------------------- | -------- |
-| `value`                | `string`                      | The current date value in `YYYY-MM-DD` format.                                                       | No       |
-| `onChange`             | `(date?: string) => void`     | Callback function triggered when the date changes. Returns the selected date in `YYYY-MM-DD` format. | Yes      |
+| `value`                | `string`                      | The current date value in `YYYY-MM-DD` format.                                                       | Yes      |
+| `onChange`             | `(date: string) => void`      | Callback function triggered when the date changes. Returns the selected date in `YYYY-MM-DD` format. | Yes      |
 | `disabled`             | `boolean`                     | Disables the date picker input if set to `true`.                                                     | No       |
 | `placeholder`          | `string`                      | Placeholder text for the input field.                                                                | No       |
 | `min`                  | `string`                      | Minimum selectable date (in `YYYY-MM-DD` format).                                                    | No       |
