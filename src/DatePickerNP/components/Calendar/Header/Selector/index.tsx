@@ -146,25 +146,27 @@ const Selector = ({
         </div>
       </div>
 
-      <YearSelector
-        isActive={activeSelector === "year"}
-        selectedYear={selectedYear}
-        startYear={startYear}
-        setSelectedYear={setSelectedYear}
-        setActiveSelector={setActiveSelector}
-        handleStartYearChange={handleStartYearChange}
-        minYear={minYear}
-        maxYear={maxYear}
-        lang={lang}
-      />
+      {activeSelector === "year" && (
+        <YearSelector
+          selectedYear={selectedYear}
+          startYear={startYear}
+          setSelectedYear={setSelectedYear}
+          setActiveSelector={setActiveSelector}
+          handleStartYearChange={handleStartYearChange}
+          minYear={minYear}
+          maxYear={maxYear}
+          lang={lang}
+        />
+      )}
 
-      <MonthSelector
-        isActive={activeSelector === "month"}
-        handleMonthChange={handleMonthChange}
-        minMonth={minMonth}
-        maxMonth={maxMonth}
-        lang={lang}
-      />
+      {activeSelector === "month" && (
+        <MonthSelector
+          handleMonthChange={handleMonthChange}
+          minMonth={minMonth}
+          maxMonth={maxMonth}
+          lang={lang}
+        />
+      )}
     </div>
   );
 };

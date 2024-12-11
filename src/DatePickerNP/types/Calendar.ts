@@ -22,7 +22,6 @@ export type CalendarDatesProps = DatePickerCommonProps & {
 };
 
 export type YearSelectorProps = Pick<DatePickerCommonProps, "lang"> & {
-  isActive: boolean;
   startYear: number;
   selectedYear: number;
   setSelectedYear: React.Dispatch<React.SetStateAction<number>>;
@@ -34,7 +33,6 @@ export type YearSelectorProps = Pick<DatePickerCommonProps, "lang"> & {
 };
 
 export type MonthSelectorProps = Pick<DatePickerCommonProps, "lang"> & {
-  isActive: boolean;
   handleMonthChange: (month: number) => void;
 
   minMonth: number;
