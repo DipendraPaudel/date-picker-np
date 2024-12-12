@@ -48,9 +48,8 @@ export const getDisplayDate = (
 
   let displayValue = todayBSDate;
 
-  if (isValid) {
-    if (liesInBetween(value, min, max)) return value;
-
+  if (isValid && liesInBetween(value, min, max)) return value;
+  else {
     if (liesInBetween(todayBSDate, min, max)) displayValue = todayBSDate;
     else if (min && isValidNepaliDate(min)) displayValue = min;
     else if (max && isValidNepaliDate(max)) displayValue = max;

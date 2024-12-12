@@ -53,7 +53,7 @@
 .date-picker-selector-header {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   height: 34px;
   flex-shrink: 0;
 }
@@ -105,13 +105,22 @@
   text-align: center;
   cursor: pointer;
 }
-.date-picker-year-selector-block-container > div:hover {
+.date-picker-year-selector-block-container
+  > div:not(
+    .date-picker-selector-block-disabled,
+    .date-picker-year-selector-block-selected
+  ):hover {
   background: rgb(226, 226, 226);
 }
 .date-picker-year-selector-block-container
   > div.date-picker-year-selector-block-selected {
   background: rgb(2, 118, 156);
   color: white;
+}
+.date-picker-year-selector-block-container
+  > div.date-picker-selector-block-disabled {
+  opacity: 0.4;
+  cursor: default;
 }
 
 /* scrollbar for the year menu */
