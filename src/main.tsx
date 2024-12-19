@@ -9,7 +9,7 @@ const App = () => {
   return (
     <DatePickerNP
       value={selectedDate}
-      onChange={(date) => setSelectedDate(date || "")}
+      onChange={(date) => setSelectedDate(date)}
     />
   );
 };

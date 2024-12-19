@@ -3,11 +3,12 @@ import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import DatePickerInput from "./components/DatePickerInput";
 import DatePickerCalendar from "./components/Calendar";
 import { DatePickerNPProps } from "./types/DatePickerNP";
-import { CALENDAR_HEIGHT, DEFAULT_INPUT_HEIGHT } from "./constants/calendar";
+import { DEFAULT_INPUT_HEIGHT } from "./constants/calendar";
 import {
   calculateCalendarPosition,
   clickEvent,
   formatDate,
+  getMenuTopPosition,
   isValidNepaliDate,
   liesInBetween,
 } from "./utils";
@@ -30,6 +31,7 @@ const DatePickerNP = ({
   calendarIcon,
   calendarColor,
   lang = "en",
+  menuPosition = "auto",
 }: DatePickerNPProps) => {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const inputRef = useRef<HTMLInputElement | null>(null);
@@ -114,6 +116,12 @@ const DatePickerNP = ({
   const inputContainerHeight =
     inputContainerStyles?.height || DEFAULT_INPUT_HEIGHT;
 
+  const top = getMenuTopPosition(
+    menuPosition,
+    coordinates.y,
+    inputContainerHeight
+  );
+
   return (
     <div className="date-picker-container" ref={containerRef}>
       <DatePickerInput
@@ -136,8 +144,7 @@ const DatePickerNP = ({
       {!disabled && isCalendarOpen && (
         <DatePickerCalendar
           calendarStyles={{
-            top:
-              coordinates.y > 0 ? inputContainerHeight + 2 : -CALENDAR_HEIGHT,
+            top,
             left: coordinates.x,
             zIndex: 1000000,
           }}
@@ -153,8 +160,3 @@ const DatePickerNP = ({
 };
 
 export default DatePickerNP;
-
-// COMPONENTS NEEDED
-// 1. Input component typable
-// 2. calendar date picker
-// 3. month and year dropdown

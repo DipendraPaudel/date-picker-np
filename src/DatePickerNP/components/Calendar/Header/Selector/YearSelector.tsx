@@ -1,21 +1,18 @@
 import { useEffect, useRef } from "react";
 
 import { YearSelectorProps } from "../../../../types/Calendar";
-import { INITIAL_YEAR_OF_CALENDAR } from "../../../../constants/calendar";
+import { YEARS_LIST } from "../../../../constants/calendar";
 import { numberConversion } from "../../../../utils/number";
 
 const YearSelector = ({
-  isActive,
-  startYear,
   selectedYear,
   setSelectedYear,
   setActiveSelector,
-  handleStartYearChange,
+  lang,
   minYear,
   maxYear,
-  lang,
 }: YearSelectorProps) => {
-  const blockContainerRef = useRef<HTMLDivElement | null>(null);
+  const containerRef = useRef<HTMLDivElement | null>(null);
 
   // function to handle year change and display months selector active
   const handleYearChange = (year: number) => {
@@ -24,36 +21,29 @@ const YearSelector = ({
   };
 
   useEffect(() => {
-    // capture wheel event and implement up and down year selection logic
-    const handleWheel = (event: WheelEvent) => {
-      const deltaY = event.deltaY;
+    const container = containerRef.current!;
 
-      if (Math.abs(deltaY) < 15) return; // if wheeled less than 15 unit then do not change the years selection
+    const yearsElement = container.children;
 
-      handleStartYearChange(deltaY);
-    };
-
-    // event listener to handle the wheel event in years selector options
-    const element = blockContainerRef.current as HTMLDivElement;
-    element.addEventListener("wheel", handleWheel);
-    return () => element.removeEventListener("wheel", handleWheel);
-
-    // eslint-disable-next-line
-  }, []);
-
-  // display only 12 years based on active start year in the selector
-  const yearsListToDisplay = Array.from({ length: 12 }).map(
-    (_, index) => INITIAL_YEAR_OF_CALENDAR + index + startYear
-  );
+    // loop through every elements and scroll into the current selected year
+    // finally break out of the loop if selected year is found and scoll upto that element
+    for (let i = 0; i < yearsElement.length; i++) {
+      if (
+        yearsElement[i].textContent ===
+        String(numberConversion(lang, selectedYear))
+      ) {
+        yearsElement[i].scrollIntoView();
+        break;
+      }
+    }
+  }, [selectedYear, lang]);
 
   return (
     <div
-      ref={blockContainerRef}
-      className={`date-picker-selector-block-container ${
-        !isActive ? "date-picker-selector-block-container-hidden" : ""
-      }`}
+      ref={containerRef}
+      className="date-picker-year-selector-block-container"
     >
-      {yearsListToDisplay.map((year) => {
+      {YEARS_LIST.map((year) => {
         const isSelected = year === selectedYear;
         const isDisabled = year < minYear || year > maxYear;
 
@@ -61,17 +51,12 @@ const YearSelector = ({
           <div
             key={year}
             onClick={() => !isDisabled && handleYearChange(year)}
-            className={
-              isDisabled ? "date-picker-selector-block-disabled" : undefined
-            }
+            className={`
+              ${isSelected ? "date-picker-year-selector-block-selected" : ""} ${
+              isDisabled ? "date-picker-selector-block-disabled" : ""
+            }`}
           >
-            <div
-              className={
-                isSelected ? "date-picker-selector-block-selected" : undefined
-              }
-            >
-              {numberConversion(lang, year)}
-            </div>
+            {numberConversion(lang, year)}
           </div>
         );
       })}

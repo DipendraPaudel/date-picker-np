@@ -53,14 +53,16 @@
 .date-picker-selector-header {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   height: 34px;
   flex-shrink: 0;
 }
+
+/* selector container for month */
 .date-picker-selector-block-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  overflow: auto;
+  overflow: hidden;
   flex: 1;
 }
 .date-picker-selector-block-container > div {
@@ -78,11 +80,6 @@
   background: rgb(2, 118, 156);
 }
 
-/* hide the container if not active */
-.date-picker-selector-block-container.date-picker-selector-block-container-hidden {
-  display: none;
-}
-
 .date-picker-selector-block-container
   > div.date-picker-selector-block-disabled {
   opacity: 0.4;
@@ -92,4 +89,50 @@
   > div:hover:not(.date-picker-selector-block-disabled)
   > div:not(.date-picker-selector-block-selected) {
   background: rgb(226, 226, 226);
+}
+
+/* selector container for year */
+.date-picker-year-selector-block-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  overflow: auto;
+  margin: 4px 0 2px;
+}
+
+.date-picker-year-selector-block-container > div {
+  height: 38px;
+  line-height: 38px;
+  text-align: center;
+  cursor: pointer;
+}
+.date-picker-year-selector-block-container
+  > div:not(
+    .date-picker-selector-block-disabled,
+    .date-picker-year-selector-block-selected
+  ):hover {
+  background: rgb(226, 226, 226);
+}
+.date-picker-year-selector-block-container
+  > div.date-picker-year-selector-block-selected {
+  background: rgb(2, 118, 156);
+  color: white;
+}
+.date-picker-year-selector-block-container
+  > div.date-picker-selector-block-disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+/* scrollbar for the year menu */
+.date-picker-year-selector-block-container::-webkit-scrollbar {
+  width: 4px;
+}
+
+.date-picker-year-selector-block-container::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+.date-picker-year-selector-block-container::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }

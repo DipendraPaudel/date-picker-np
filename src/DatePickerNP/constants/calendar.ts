@@ -1,5 +1,13 @@
 import { NEPALI_DATES } from "./dates";
 
+export const INITIAL_YEAR_OF_CALENDAR = NEPALI_DATES[0].year;
+export const FINAL_YEAR_OF_CALENDAR =
+  NEPALI_DATES[NEPALI_DATES.length - 1].year;
+
+export const YEARS_LIST = Array.from({ length: NEPALI_DATES.length }).map(
+  (_, index) => INITIAL_YEAR_OF_CALENDAR + index
+);
+
 export const MONTHS_IN_WORDS = [
   { name_np: "बैशाख", name_en: "Baisakh", month_position: 1 },
   { name_np: "जेठ", name_en: "Jestha", month_position: 2 },
@@ -24,10 +32,6 @@ export const DAYS_OF_WEEK = [
   { name_en: "Fri", name_np: "शुक्र", week_position: 6 },
   { name_en: "Sat", name_np: "शनि", week_position: 7 },
 ];
-
-export const INITIAL_YEAR_OF_CALENDAR = NEPALI_DATES[0].year;
-export const FINAL_YEAR_OF_CALENDAR =
-  NEPALI_DATES[NEPALI_DATES.length - 1].year;
 
 export const DEFAULT_INPUT_HEIGHT = 32;
 export const DEFAULT_CALENDAR_ICON_COLOR = "gray";
