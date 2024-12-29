@@ -74,6 +74,52 @@ The `inputContainerStyles` prop accepts the following properties:
 - The default height of the input is 32px.
 - The minimum height of the input is 28px.
 
+## Utility Functions
+
+The package also includes two utility functions for date conversion:
+
+### `convertADToBS`
+
+Converts english date to nepali date (AD to BS).
+
+**Parameters:**
+
+- `date: string` — A date string in `YYYY-MM-DD` format.
+
+**Returns:**
+
+- `string` — The equivalent BS date in `YYYY-MM-DD` format.
+
+**Example:**
+
+```js
+import { convertADToBS } from "date-picker-np";
+
+const bsDate = convertADToBS("2010-10-12");
+console.log(bsDate); // Output: equivalent BS date
+```
+
+### `convertBSToAD`
+
+Converts nepali date to english date (BS to AD).
+
+**Parameters:**
+
+- `date: string` — A date string in `YYYY-MM-DD` format.
+
+**Returns:**
+
+- `string` — The equivalent AD date in `YYYY-MM-DD` format.
+
+**Example:**
+
+```js
+import { convertBSToAD } from "date-picker-np";
+
+const adDate = convertBSToAD("2074-04-12");
+console.log(adDate); // Output: equivalent AD date
+```
+
 ## Supported Nepali Date Range
 
 The date picker supports selecting dates within the range:
@@ -88,3 +134,7 @@ This project is licensed under the MIT License - see the [LICENSE](https://githu
 ## Support
 
 If you have any questions, issues, or feature requests, please open an issue in the [GitHub repository](https://github.com/DipendraPaudel/date-picker-np/issues).
+
+```
+
+```
