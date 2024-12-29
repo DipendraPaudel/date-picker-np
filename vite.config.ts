@@ -6,7 +6,7 @@ export default defineConfig({
   plugins: [react(), cssInjectedByJsPlugin()],
   build: {
     lib: {
-      entry: "./src/DatePickerNP/index.tsx",
+      entry: "./src/DatePickerNP/index.ts",
       name: "DatePickerNP",
       formats: ["es", "umd"], // Build both ESM and UMD formats
       fileName: (format) => `index.${format}.js`,
