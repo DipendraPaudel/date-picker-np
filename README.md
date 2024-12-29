@@ -57,6 +57,7 @@ export default App;
 | `hasCalendarIcon`      | `boolean`                     | Shows a calendar icon inside the input field if set to `true`.                                       | No       |
 | `calendarIcon`         | `React.ReactNode`             | Custom React node to render as the calendar icon.                                                    | No       |
 | `calendarColor`        | `string`                      | Specifies the color of the calendar icon.                                                            | No       |
+| `calendarStyles`       | `CalendarStyles`              | Custom styles for calendar dates and footer (see details below).                                     | No       |
 
 ### InputStyles
 
@@ -68,6 +69,41 @@ The `inputContainerStyles` prop accepts the following properties:
 - **padding**: Sets the padding inside the input field.
 - **background**: Defines the background color of the input.
 - **lineHeight**: Sets the lineHeight of text inside the input field.
+
+### CalendarStyles
+
+The `calendarStyles` prop accepts the following properties:
+
+#### `dates`
+
+Styles for calendar date cells.
+
+- **`hoverBackgroundColor`**: Background color when hovering over a date.
+- **`activeBackgroundColor`**: Background color of the selected date.
+- **`activeTextColor`**: Text color of the selected date.
+
+#### `footer`
+
+Styles for the footer section of the calendar.
+
+- **`textColor`**: Text color of the footer.
+
+**Example Usage:**
+
+```jsx
+<DatePickerNP
+  calendarStyles={{
+    dates: {
+      hoverBackgroundColor: "lightgreen",
+      activeBackgroundColor: "rgb(0, 133, 177)",
+      activeTextColor: "white",
+    },
+    footer: {
+      textColor: "darkblue",
+    },
+  }}
+/>
+```
 
 ### Default Input Height and Minimum Height
 
