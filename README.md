@@ -57,6 +57,7 @@ export default App;
 | `hasCalendarIcon`      | `boolean`                     | Shows a calendar icon inside the input field if set to `true`.                                       | No       |
 | `calendarIcon`         | `React.ReactNode`             | Custom React node to render as the calendar icon.                                                    | No       |
 | `calendarColor`        | `string`                      | Specifies the color of the calendar icon.                                                            | No       |
+| `calendarStyles`       | `CalendarStyles`              | Custom styles for calendar dates and footer (see details below).                                     | No       |
 
 ### InputStyles
 
@@ -69,10 +70,91 @@ The `inputContainerStyles` prop accepts the following properties:
 - **background**: Defines the background color of the input.
 - **lineHeight**: Sets the lineHeight of text inside the input field.
 
+### CalendarStyles
+
+The `calendarStyles` prop accepts the following properties:
+
+#### `dates`
+
+Styles for calendar date cells.
+
+- **`hoverBackgroundColor`**: Background color when hovering over a date.
+- **`activeBackgroundColor`**: Background color of the selected date.
+- **`activeTextColor`**: Text color of the selected date.
+
+#### `footer`
+
+Styles for the footer section of the calendar.
+
+- **`textColor`**: Text color of the footer.
+
+**Example Usage:**
+
+```jsx
+<DatePickerNP
+  calendarStyles={{
+    dates: {
+      hoverBackgroundColor: "lightgreen",
+      activeBackgroundColor: "rgb(0, 133, 177)",
+      activeTextColor: "white",
+    },
+    footer: {
+      textColor: "darkblue",
+    },
+  }}
+/>
+```
+
 ### Default Input Height and Minimum Height
 
 - The default height of the input is 32px.
 - The minimum height of the input is 28px.
+
+## Utility Functions
+
+The package also includes two utility functions for date conversion:
+
+### `convertADToBS`
+
+Converts english date to nepali date (AD to BS).
+
+**Parameters:**
+
+- `date: string` — A date string in `YYYY-MM-DD` format.
+
+**Returns:**
+
+- `string` — The equivalent BS date in `YYYY-MM-DD` format.
+
+**Example:**
+
+```js
+import { convertADToBS } from "date-picker-np";
+
+const bsDate = convertADToBS("2010-10-12");
+console.log(bsDate); // Output: equivalent BS date
+```
+
+### `convertBSToAD`
+
+Converts nepali date to english date (BS to AD).
+
+**Parameters:**
+
+- `date: string` — A date string in `YYYY-MM-DD` format.
+
+**Returns:**
+
+- `string` — The equivalent AD date in `YYYY-MM-DD` format.
+
+**Example:**
+
+```js
+import { convertBSToAD } from "date-picker-np";
+
+const adDate = convertBSToAD("2074-04-12");
+console.log(adDate); // Output: equivalent AD date
+```
 
 ## Supported Nepali Date Range
 
@@ -88,3 +170,7 @@ This project is licensed under the MIT License - see the [LICENSE](https://githu
 ## Support
 
 If you have any questions, issues, or feature requests, please open an issue in the [GitHub repository](https://github.com/DipendraPaudel/date-picker-np/issues).
+
+```
+
+```

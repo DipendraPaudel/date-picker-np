@@ -14,11 +14,15 @@ export type SelectorProps = DatePickerCommonProps & {
 export type CalendarHeaderProps = DatePickerCommonProps & {
   date: string;
   handleChange: (value: string) => void;
+
+  calendarStyles: CalendarStyles;
 };
 
 export type CalendarDatesProps = DatePickerCommonProps & {
   date: string;
   handleChange: (day: number) => void;
+
+  calendarStyles: CalendarStyles;
 };
 
 export type YearSelectorProps = Pick<DatePickerCommonProps, "lang"> & {
@@ -38,3 +42,14 @@ export type MonthSelectorProps = Pick<DatePickerCommonProps, "lang"> & {
 };
 
 export type WeeksProps = Pick<DatePickerCommonProps, "lang">;
+
+export type CalendarStyles = {
+  dates?: {
+    hoverBackgroundColor?: string;
+    activeBackgroundColor?: string;
+    activeTextColor?: string;
+  };
+  footer?: {
+    textColor?: string;
+  };
+};

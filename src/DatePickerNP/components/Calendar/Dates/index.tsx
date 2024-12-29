@@ -27,6 +27,7 @@ const CalendarDates = ({
   min,
   max,
   lang,
+  calendarStyles,
 }: CalendarDatesProps) => {
   const numberOfDays = getNumberOfDaysInMonth(date);
   const numberOfDaysInPreviousMonth = getNumberOfDaysInPreviousMonth(date);
@@ -93,13 +94,27 @@ const CalendarDates = ({
             );
           }
 
+          const isSelected = day === +selectedDate;
+
           return (
             <div
               key={index}
-              className={`${
-                day === +selectedDate ? "date-picker-selected-date" : ""
-              } ${isDateDisabled ? "date-picker-date-disabled" : ""}`}
+              className={`${isSelected ? "date-picker-selected-date" : ""} ${
+                isDateDisabled ? "date-picker-date-disabled" : ""
+              }`}
               onClick={() => !isDateDisabled && handleChange(day)}
+              style={{
+                ...(isSelected
+                  ? {
+                      color: calendarStyles?.dates?.activeTextColor,
+                      backgroundColor:
+                        calendarStyles?.dates?.activeBackgroundColor,
+                    }
+                  : {
+                      ["--date-picker-np-hover-color" as string]:
+                        calendarStyles?.dates?.hoverBackgroundColor,
+                    }),
+              }}
             >
               {numberConversion(lang, day)}
             </div>

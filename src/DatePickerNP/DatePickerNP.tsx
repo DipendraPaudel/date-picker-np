@@ -27,6 +27,7 @@ const DatePickerNP = ({
   placeholder,
   inputElement,
   inputContainerStyles = {},
+  calendarStyles = {},
   hasCalendarIcon,
   calendarIcon,
   calendarColor,
@@ -143,7 +144,7 @@ const DatePickerNP = ({
 
       {!disabled && isCalendarOpen && (
         <DatePickerCalendar
-          calendarStyles={{
+          calendarPositions={{
             top,
             left: coordinates.x,
             zIndex: 1000000,
@@ -153,6 +154,9 @@ const DatePickerNP = ({
           min={min}
           max={max}
           lang={lang}
+          calendarStyles={{
+            ...calendarStyles,
+          }}
         />
       )}
     </div>

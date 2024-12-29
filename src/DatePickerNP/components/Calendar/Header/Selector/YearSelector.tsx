@@ -32,7 +32,10 @@ const YearSelector = ({
         yearsElement[i].textContent ===
         String(numberConversion(lang, selectedYear))
       ) {
-        yearsElement[i].scrollIntoView();
+        yearsElement[i].scrollIntoView({
+          block: "nearest",
+          inline: "nearest",
+        });
         break;
       }
     }
