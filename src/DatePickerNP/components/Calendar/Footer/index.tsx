@@ -12,6 +12,7 @@ const CalendarFooter = ({
   min,
   max,
   lang,
+  calendarStyles,
 }: CalendarFooterProps) => {
   let isTodayDateDisabled = false;
   const todayDate = getTodayBSDate();
@@ -26,12 +27,17 @@ const CalendarFooter = ({
     isTodayDateDisabled = !isLessThanOrEqualToMaxDate(todayDate, max);
   }
 
+  const footerTextColor = calendarStyles?.footer?.textColor;
+
   return (
     <div className="date-picker-calendar-footer">
       <div
         className={`date-picker-calendar-footer-btn ${
           hasValidValue ? "" : "date-picker-calendar-footer-btn-disabled"
         }`}
+        style={{
+          color: footerTextColor,
+        }}
         onClick={() => hasValidValue && onChange("")}
       >
         {lang === "en" ? "Clear" : "हटाउनुहोस्"}
@@ -40,6 +46,9 @@ const CalendarFooter = ({
         className={`date-picker-calendar-footer-btn ${
           isTodayDateDisabled ? "date-picker-calendar-footer-btn-disabled" : ""
         }`}
+        style={{
+          color: footerTextColor,
+        }}
         onClick={() => !isTodayDateDisabled && onChange(getTodayBSDate())}
       >
         {lang === "en" ? "Today" : "आज"}

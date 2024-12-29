@@ -1,3 +1,7 @@
+:root {
+  --date-picker-np-hover-color: rgb(218, 218, 218);
+}
+
 .date-picker-body-container {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
@@ -28,7 +32,7 @@
     .date-picker-date-disabled,
     .date-picker-selected-date
   ):hover {
-  background: rgb(218, 218, 218);
+  background: var(--date-picker-np-hover-color);
 }
 
 /* For today date */
