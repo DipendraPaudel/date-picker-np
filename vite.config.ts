@@ -12,7 +12,7 @@ export default defineConfig({
       fileName: (format) => `index.${format}.js`,
     },
     rollupOptions: {
-      external: ["react"], // Ensure that React is treated as an external dependency
+      external: ["react", /^react\/.*/], // support all react versions
       output: {
         globals: {
           react: "React",
