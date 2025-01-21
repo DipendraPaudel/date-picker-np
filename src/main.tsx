@@ -15,6 +15,9 @@ const App = () => {
     <DatePickerNP
       value={selectedDate}
       onChange={(date) => setSelectedDate(date)}
+      inputContainerStyles={{
+        width: "100%",
+      }}
     />
   );
 };

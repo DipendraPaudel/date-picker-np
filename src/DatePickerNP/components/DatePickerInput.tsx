@@ -76,7 +76,14 @@ const DatePickerInput = forwardRef<HTMLInputElement, DatePickerInputProps>(
     return (
       <>
         {passedInputElement ? (
-          <div ref={ref}>{passedInputElement}</div>
+          <div
+            ref={ref}
+            style={{
+              width: restStyles.width,
+            }}
+          >
+            {passedInputElement}
+          </div>
         ) : (
           <div
             className={`date-picker-input-container ${
