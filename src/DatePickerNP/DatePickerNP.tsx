@@ -124,7 +124,13 @@ const DatePickerNP = ({
   );
 
   return (
-    <div className="date-picker-container" ref={containerRef}>
+    <div
+      className="date-picker-container"
+      ref={containerRef}
+      style={{
+        width: inputContainerStyles.width,
+      }}
+    >
       <DatePickerInput
         ref={inputRef}
         value={value}

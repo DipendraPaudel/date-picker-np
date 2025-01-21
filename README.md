@@ -170,7 +170,3 @@ This project is licensed under the MIT License - see the [LICENSE](https://githu
 ## Support
 
 If you have any questions, issues, or feature requests, please open an issue in the [GitHub repository](https://github.com/DipendraPaudel/date-picker-np/issues).
-
-```
-
-```
