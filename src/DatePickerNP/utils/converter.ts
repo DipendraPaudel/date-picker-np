@@ -9,11 +9,12 @@ export const convertADToBS = (englishDate: string) => {
   if (!englishDate || typeof englishDate !== "string") return "";
 
   try {
-    const englishDaysDifferenceFrom1978BS = Math.ceil(
-      (new Date(englishDate).getTime() -
-        new Date(START_ENGLISH_DATE_OF_1978_BS).getTime()) /
-        (86400 * 1000)
-    );
+    const englishDaysDifferenceFrom1978BS =
+      Math.ceil(
+        (new Date(englishDate).getTime() -
+          new Date(START_ENGLISH_DATE_OF_1978_BS).getTime()) /
+          (86400 * 1000)
+      ) + 1;
 
     let nepaliDateCount = 0;
 
@@ -27,7 +28,7 @@ export const convertADToBS = (englishDate: string) => {
           nepaliDateCount = addedCount;
         } else {
           const month = (j + 1).toString().padStart(2, "0");
-          const today = (englishDaysDifferenceFrom1978BS - nepaliDateCount + 1)
+          const today = (englishDaysDifferenceFrom1978BS - nepaliDateCount)
             .toString()
             .padStart(2, "0");
 
