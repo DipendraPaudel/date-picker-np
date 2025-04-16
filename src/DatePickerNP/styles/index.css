@@ -29,6 +29,7 @@
   padding: 0 10px;
   display: flex;
   align-items: center;
+  background: transparent;
 }
 .date-picker-input:focus {
   outline: none;

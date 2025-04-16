@@ -3,7 +3,10 @@ import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import DatePickerInput from "./components/DatePickerInput";
 import DatePickerCalendar from "./components/Calendar";
 import { DatePickerNPProps } from "./types/DatePickerNP";
-import { DEFAULT_INPUT_HEIGHT } from "./constants/calendar";
+import {
+  DEFAULT_INPUT_CONTAINER_BACKGROUND,
+  DEFAULT_INPUT_HEIGHT,
+} from "./constants/calendar";
 import {
   calculateCalendarPosition,
   clickEvent,
@@ -139,6 +142,9 @@ const DatePickerNP = ({
         inputContainerStyles={{
           ...inputContainerStyles,
           height: inputContainerHeight,
+          background:
+            inputContainerStyles.background ??
+            DEFAULT_INPUT_CONTAINER_BACKGROUND,
         }}
         disabled={disabled}
         placeholder={placeholder}
