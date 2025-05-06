@@ -9,6 +9,7 @@
 }
 
 .date-picker-week-days-container > div {
+  line-height: 14px;
   padding: 4px 0 8px;
 }
 
