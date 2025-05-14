@@ -35,5 +35,6 @@ export const DAYS_OF_WEEK = [
 
 export const DEFAULT_INPUT_HEIGHT = 32;
 export const DEFAULT_CALENDAR_ICON_COLOR = "gray";
+export const DEFAULT_INPUT_CONTAINER_BACKGROUND = "white";
 export const CALENDAR_WIDTH = 220;
 export const CALENDAR_HEIGHT = 284;

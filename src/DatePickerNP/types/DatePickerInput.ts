@@ -2,7 +2,14 @@ import React from "react";
 
 export type InputStyles = Pick<
   React.CSSProperties,
-  "padding" | "background" | "width" | "border" | "lineHeight" | "color"
+  | "padding"
+  | "background"
+  | "width"
+  | "border"
+  | "borderRadius"
+  | "lineHeight"
+  | "color"
+  | "fontSize"
 > & {
   height?: number; // make sure height is number for the calculation of the calendar menu position
 };
