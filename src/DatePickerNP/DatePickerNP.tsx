@@ -83,7 +83,7 @@ const DatePickerNP = ({
       window.removeEventListener("resize", handleScrollAndResize);
       window.removeEventListener("scroll", handleScrollAndResize);
     };
-  }, [isCalendarOpen]);
+  }, [isCalendarOpen, position]);
 
   useEffect(() => {
     const input = inputRef?.current as HTMLInputElement;
@@ -121,8 +121,6 @@ const DatePickerNP = ({
 
   const inputContainerHeight =
     inputContainerStyles?.height || DEFAULT_INPUT_HEIGHT;
-
-  console.log(coordinates, "coordinates");
 
   const top = getMenuTopPosition(
     menuPosition,
