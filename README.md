@@ -53,8 +53,8 @@ export default App;
 | `lang`                 | `'en' \| 'np'`                | Sets the language for the date picker. Defaults to `'en'`.                                           | No       |
 | `inputElement`         | `React.ReactNode`             | Custom React node to render as the input field.                                                      | No       |
 | `inputContainerStyles` | `InputStyles`                 | Custom styles for the input container (see details below).                                           | No       |
-| `menuPosition`         | `'auto' \| 'top' \| 'bottom'` | Specifies the position of the calendar dropdown menu. Defaults to `'auto'`.                          | No       |
-| `position`             | `'absolute' \| 'fixed'`       | Specifies either absolute or fixed position of menu. Defaults to `'absolute'`.                       | No       |
+| `menuPosition`         | `'auto' \| 'top' \| 'bottom'` | Specifies the placement of the calendar dropdown menu. Defaults to `'auto'`.                         | No       |
+| `position`             | `'absolute' \| 'fixed'`       | Specifies the position of the calendar dropdown menu. Defaults to `'absolute'`.                      | No       |
 | `hasCalendarIcon`      | `boolean`                     | Shows a calendar icon inside the input field if set to `true`.                                       | No       |
 | `calendarIcon`         | `React.ReactNode`             | Custom React node to render as the calendar icon.                                                    | No       |
 | `calendarColor`        | `string`                      | Specifies the color of the calendar icon.                                                            | No       |
