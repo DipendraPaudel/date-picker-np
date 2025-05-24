@@ -18,6 +18,7 @@ const DatePickerCalendar = ({
   max,
   lang,
   calendarStyles,
+  position,
 }: DatePickerCalendarProps) => {
   const isValid = isValidNepaliDate(value);
 
@@ -45,7 +46,13 @@ const DatePickerCalendar = ({
     virtualDate.slice(0, 7) === value?.slice(0, 7) ? value : virtualDate;
 
   return (
-    <div className="date-picker-calendar" style={calendarPositions}>
+    <div
+      className="date-picker-calendar"
+      style={{
+        ...calendarPositions,
+        position: position === "fixed" ? position : undefined,
+      }}
+    >
       <CalendarHeader
         date={virtualDate}
         handleChange={(date: string) => setVirtualDate(date)}

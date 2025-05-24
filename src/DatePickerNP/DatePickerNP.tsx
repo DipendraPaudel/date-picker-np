@@ -36,6 +36,7 @@ const DatePickerNP = ({
   calendarColor,
   lang = "en",
   menuPosition = "auto",
+  position = "absolute",
 }: DatePickerNPProps) => {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const inputRef = useRef<HTMLInputElement | null>(null);
@@ -67,7 +68,8 @@ const DatePickerNP = ({
       if (!isCalendarOpen) return;
 
       const { x, y } = calculateCalendarPosition(
-        containerRef?.current as HTMLDivElement
+        containerRef?.current as HTMLDivElement,
+        position
       );
 
       setCoordinates({ x, y });
@@ -75,13 +77,13 @@ const DatePickerNP = ({
 
     handleScrollAndResize();
 
-    window.addEventListener("resize", handleScrollAndResize);
-    window.addEventListener("scroll", handleScrollAndResize);
+    window.addEventListener("resize", handleScrollAndResize, true);
+    window.addEventListener("scroll", handleScrollAndResize, true);
     return () => {
-      window.removeEventListener("resize", handleScrollAndResize);
-      window.removeEventListener("scroll", handleScrollAndResize);
+      window.removeEventListener("resize", handleScrollAndResize, true);
+      window.removeEventListener("scroll", handleScrollAndResize, true);
     };
-  }, [isCalendarOpen]);
+  }, [isCalendarOpen, position]);
 
   useEffect(() => {
     const input = inputRef?.current as HTMLInputElement;
@@ -123,7 +125,8 @@ const DatePickerNP = ({
   const top = getMenuTopPosition(
     menuPosition,
     coordinates.y,
-    inputContainerHeight
+    inputContainerHeight,
+    position
   );
 
   return (
@@ -156,6 +159,7 @@ const DatePickerNP = ({
 
       {!disabled && isCalendarOpen && (
         <DatePickerCalendar
+          position={position}
           calendarPositions={{
             top,
             left: coordinates.x,
