@@ -24,17 +24,19 @@ export const calculateCalendarPosition = (
       combinedX > innerWidth
         ? innerWidth - CALENDAR_WIDTH
         : containerPositions.x;
+
+    y = containerPositions.y;
   } else {
     x = combinedX > innerWidth ? -combinedX + innerWidth : 0;
-  }
 
-  if (
-    combinedY > innerHeight &&
-    innerHeight > CALENDAR_HEIGHT + containerPositions.height &&
-    yPosition > CALENDAR_HEIGHT
-  )
-    y = -1 * (position === "fixed" ? containerPositions.y : 1);
-  else y = 1 * (position === "fixed" ? containerPositions.y : 1);
+    if (
+      combinedY > innerHeight &&
+      innerHeight > CALENDAR_HEIGHT + containerPositions.height &&
+      yPosition > CALENDAR_HEIGHT
+    )
+      y = -1;
+    else y = 1;
+  }
 
   return { x, y };
 };
@@ -51,16 +53,17 @@ export const getMenuTopPosition = (
   position: PositionType
 ) => {
   if (position === "fixed") {
-    if (window.innerHeight < CALENDAR_HEIGHT + inputContainerHeight) return 0;
+    if (yCoordinate > 0) {
+      if (
+        yCoordinate + CALENDAR_HEIGHT + inputContainerHeight >
+          window.innerHeight &&
+        yCoordinate > CALENDAR_HEIGHT
+      ) {
+        return yCoordinate - CALENDAR_HEIGHT;
+      }
+    }
 
-    if (
-      Math.abs(yCoordinate) + CALENDAR_HEIGHT + inputContainerHeight >
-        window.innerHeight &&
-      Math.abs(yCoordinate) > CALENDAR_HEIGHT
-    )
-      return Math.abs(yCoordinate) - CALENDAR_HEIGHT;
-
-    return yCoordinate > 0 ? yCoordinate + inputContainerHeight + 2 : 0;
+    return yCoordinate + inputContainerHeight;
   }
 
   if (menuPosition === MenuPositionEnum.AUTO) {

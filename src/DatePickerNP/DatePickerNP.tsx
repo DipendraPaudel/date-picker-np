@@ -77,11 +77,11 @@ const DatePickerNP = ({
 
     handleScrollAndResize();
 
-    window.addEventListener("resize", handleScrollAndResize);
-    window.addEventListener("scroll", handleScrollAndResize);
+    window.addEventListener("resize", handleScrollAndResize, true);
+    window.addEventListener("scroll", handleScrollAndResize, true);
     return () => {
-      window.removeEventListener("resize", handleScrollAndResize);
-      window.removeEventListener("scroll", handleScrollAndResize);
+      window.removeEventListener("resize", handleScrollAndResize, true);
+      window.removeEventListener("scroll", handleScrollAndResize, true);
     };
   }, [isCalendarOpen, position]);
 
