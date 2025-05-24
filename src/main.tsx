@@ -20,18 +20,6 @@ const App = () => {
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <div style={{ display: "flex", backgroundColor: "gray" }}>
-      <div style={{ width: "400px" }}></div>
-      <p
-        style={{
-          flex: 1,
-          height: "200px",
-          background: "lightgray",
-          overflow: "auto",
-        }}
-      >
-        <App />
-      </p>
-    </div>
+    <App />
   </React.StrictMode>
 );
