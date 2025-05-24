@@ -54,6 +54,7 @@ export default App;
 | `inputElement`         | `React.ReactNode`             | Custom React node to render as the input field.                                                      | No       |
 | `inputContainerStyles` | `InputStyles`                 | Custom styles for the input container (see details below).                                           | No       |
 | `menuPosition`         | `'auto' \| 'top' \| 'bottom'` | Specifies the position of the calendar dropdown menu. Defaults to `'auto'`.                          | No       |
+| `position`             | `'absolute' \| 'fixed'`       | Specifies either absolute or fixed position of menu. Defaults to `'absolute'`.                       | No       |
 | `hasCalendarIcon`      | `boolean`                     | Shows a calendar icon inside the input field if set to `true`.                                       | No       |
 | `calendarIcon`         | `React.ReactNode`             | Custom React node to render as the calendar icon.                                                    | No       |
 | `calendarColor`        | `string`                      | Specifies the color of the calendar icon.                                                            | No       |
@@ -64,11 +65,14 @@ export default App;
 The `inputContainerStyles` prop accepts the following properties:
 
 - **border**: Sets the border style of the input.
+- **borderRadius**: Sets the border-radius of the input.
 - **width**: Specifies the width of the input field.
 - **height**: Specifies the width of the input field.
 - **padding**: Sets the padding inside the input field.
 - **background**: Defines the background color of the input.
 - **lineHeight**: Sets the lineHeight of text inside the input field.
+- **color**: Defines the color of text inside the input field.
+- **fontSize**: Sets the font-size of text inside the input field.
 
 ### CalendarStyles
 
@@ -156,6 +160,25 @@ const adDate = convertBSToAD("2074-04-12");
 console.log(adDate); // Output: equivalent AD date
 ```
 
+### `getTodayBSDate`
+
+**Parameters:**
+
+- No parameters needed.
+
+**Returns:**
+
+- `string` — Today BS date in `YYYY-MM-DD` format.
+
+**Example:**
+
+```js
+import { getTodayBSDate } from "date-picker-np";
+
+const todayDate = getTodayBSDate();
+console.log(todayDate); // Output: today BS date
+```
+
 ## Supported Nepali Date Range
 
 The date picker supports selecting dates within the range:
@@ -169,4 +192,4 @@ This project is licensed under the MIT License - see the [LICENSE](https://githu
 
 ## Support
 
-If you have any questions, issues, or feature requests, please open an issue in the [GitHub repository](https://github.com/DipendraPaudel/date-picker-np/issues).
+If you have any questions, issues, or feature requests, please open an issue in the [GitHub repository](https://github.com/DipendraPaudel/date-picker-np).
