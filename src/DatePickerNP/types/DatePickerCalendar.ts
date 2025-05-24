@@ -1,6 +1,6 @@
 import React from "react";
 
-import { DatePickerCommonProps } from "./DatePickerNP";
+import { DatePickerCommonProps, PositionType } from "./DatePickerNP";
 import { CalendarStyles } from "./Calendar";
 
 export type DatePickerCalendarProps = DatePickerCommonProps & {
@@ -9,6 +9,7 @@ export type DatePickerCalendarProps = DatePickerCommonProps & {
 
   calendarPositions?: React.CSSProperties;
   calendarStyles: CalendarStyles;
+  position?: PositionType;
 };
 
 export type CalendarFooterProps = DatePickerCommonProps & {

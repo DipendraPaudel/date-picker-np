@@ -11,7 +11,10 @@ export type DatePickerCommonProps = {
 export type DatePickerNPProps = DatePickerCommonInputProps &
   DatePickerCommonProps & {
     menuPosition?: MenuPositionType;
+    position?: PositionType;
     calendarStyles?: CalendarStyles;
   };
 
 export type MenuPositionType = "auto" | "top" | "bottom";
+
+export type PositionType = "absolute" | "fixed";

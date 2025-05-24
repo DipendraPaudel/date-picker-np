@@ -36,6 +36,7 @@ const DatePickerNP = ({
   calendarColor,
   lang = "en",
   menuPosition = "auto",
+  position = "absolute",
 }: DatePickerNPProps) => {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const inputRef = useRef<HTMLInputElement | null>(null);
@@ -67,7 +68,8 @@ const DatePickerNP = ({
       if (!isCalendarOpen) return;
 
       const { x, y } = calculateCalendarPosition(
-        containerRef?.current as HTMLDivElement
+        containerRef?.current as HTMLDivElement,
+        position
       );
 
       setCoordinates({ x, y });
@@ -120,10 +122,13 @@ const DatePickerNP = ({
   const inputContainerHeight =
     inputContainerStyles?.height || DEFAULT_INPUT_HEIGHT;
 
+  console.log(coordinates, "coordinates");
+
   const top = getMenuTopPosition(
     menuPosition,
     coordinates.y,
-    inputContainerHeight
+    inputContainerHeight,
+    position
   );
 
   return (
@@ -156,6 +161,7 @@ const DatePickerNP = ({
 
       {!disabled && isCalendarOpen && (
         <DatePickerCalendar
+          position={position}
           calendarPositions={{
             top,
             left: coordinates.x,

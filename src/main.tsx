@@ -13,20 +13,25 @@ const App = () => {
       inputContainerStyles={{
         width: "100%",
       }}
+      position="fixed"
     />
   );
 };
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <p
-      style={{
-        height: "200px",
-        background: "lightgray",
-        overflow: "auto",
-      }}
-    >
-      <App />
-    </p>
+    <div style={{ display: "flex", backgroundColor: "gray" }}>
+      <div style={{ width: "400px" }}></div>
+      <p
+        style={{
+          flex: 1,
+          height: "200px",
+          background: "lightgray",
+          overflow: "auto",
+        }}
+      >
+        <App />
+      </p>
+    </div>
   </React.StrictMode>
 );
