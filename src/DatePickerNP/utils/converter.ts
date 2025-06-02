@@ -118,8 +118,6 @@ export const calculateAge = (dateOfBirth: string) => {
   let months = 0;
   let days = 0;
 
-  console.log({ todayBSDate, dateOfBirth });
-
   try {
     const {
       year: year1,

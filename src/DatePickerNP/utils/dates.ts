@@ -6,7 +6,14 @@ import {
 // helper function to return year, month and day
 export const extractDateData = (date: string) => {
   try {
-    const [year, month, day] = date.split("-");
+    const [year, month, day, ...rest] = date.split("-");
+
+    if (rest?.length > 0)
+      return {
+        year: "yyyy",
+        month: "mm",
+        day: "dd",
+      };
 
     return {
       year,
