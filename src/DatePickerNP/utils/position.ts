@@ -63,7 +63,7 @@ export const getMenuTopPosition = (
       }
     }
 
-    return yCoordinate + inputContainerHeight;
+    return yCoordinate + inputContainerHeight + 2;
   }
 
   if (menuPosition === MenuPositionEnum.AUTO) {
