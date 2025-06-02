@@ -3,6 +3,7 @@ import { forwardRef, useEffect } from "react";
 import { DatePickerInputProps, InputStyles } from "../types/DatePickerInput";
 import { CalendarIcon } from "./Icons";
 import { DEFAULT_CALENDAR_ICON_COLOR } from "../constants/calendar";
+import { isValidNepaliDate } from "../utils";
 
 const DatePickerInput = forwardRef<HTMLInputElement, DatePickerInputProps>(
   (
@@ -43,13 +44,14 @@ const DatePickerInput = forwardRef<HTMLInputElement, DatePickerInputProps>(
 
       // open calendar menu when space or enter is pressed in the input element
       const handleKeyDown = (event: KeyboardEvent) => {
+        const value = inputElement.value;
         if (event.key === "Enter" && inputElement.value) {
-          onChange(inputElement.value);
+          onChange(isValidNepaliDate(value) ? value : "");
           setIsCalendarOpen(false);
           inputElement.blur();
         } else if (event.key === "Tab") {
           // when tab is pressed input element is blurred then close the calendar menu
-          onChange(inputElement.value);
+          onChange(value);
           setIsCalendarOpen(false);
         }
       };
